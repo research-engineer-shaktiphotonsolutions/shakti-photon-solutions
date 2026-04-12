@@ -13,7 +13,12 @@ export default {
       },
     },
     extend: {
-      colors: {
+        fontFamily: {
+          heading: ['"Playfair Display"', 'serif'],
+          body: ['"Open Sans"', 'sans-serif'],
+        },
+        colors: {
+          nav: "hsl(var(--nav-bg))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
