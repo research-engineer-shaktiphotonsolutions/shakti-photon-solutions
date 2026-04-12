@@ -70,7 +70,9 @@ const mediaBase = '/assets/images/'
 
 /** Returns the Supabase CDN URL when configured, otherwise null. */
 function getSupabaseUrl(path: string): string | null {
-  const storagePath = path.replace(/^\/assets\/images\//, '')
+  // Strip local prefix, then strip any subfolder (shared/, home/, etc.)
+  // because files are stored flat in the bucket root
+  const storagePath = path.replace(/^\/assets\/images\//, '').replace(/^[^/]+\//, '')
   return getPublicMediaUrl(storagePath)
 }
 
@@ -119,7 +121,7 @@ const media = {
  * global image error listener installed in <App>.
  */
 function resolveMediaPath(path: string): string {
-  const storagePath = path.replace(/^\/assets\/images\//, '')
+  const storagePath = path.replace(/^\/assets\/images\//, '').replace(/^[^/]+\//, '')
   return getPublicMediaUrl(storagePath) ?? path
 }
 
