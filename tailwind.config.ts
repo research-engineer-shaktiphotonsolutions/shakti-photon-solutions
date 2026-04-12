@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -13,12 +14,12 @@ export default {
       },
     },
     extend: {
-        fontFamily: {
-          heading: ['"Playfair Display"', 'serif'],
-          body: ['"Open Sans"', 'sans-serif'],
-        },
-        colors: {
-          nav: "hsl(var(--nav-bg))",
+      fontFamily: {
+        heading: ['"Playfair Display"', 'serif'],
+        body: ['"Open Sans"', 'sans-serif'],
+      },
+      colors: {
+        nav: "hsl(var(--nav-bg))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -92,5 +93,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
