@@ -18,6 +18,7 @@ const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL_ADDRESS)}&su=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(EMAIL_BODY)}`
 const emailFallbackLink = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(EMAIL_BODY)}`
 const DISMISS_ANIMATION_MS = 360
+const AUTO_SHRINK_MS = 2000
 
 export function MarketingContactPopup({ visible, showLauncher, onDismiss, onReopen }: MarketingContactPopupProps) {
   const [isMinimizing, setIsMinimizing] = useState(false)
@@ -38,6 +39,16 @@ export function MarketingContactPopup({ visible, showLauncher, onDismiss, onReop
       setIsMinimizing(false)
     }
   }, [visible])
+
+  useEffect(() => {
+    if (!visible || isMinimizing) return
+
+    const timer = setTimeout(() => {
+      setIsMinimizing(true)
+    }, AUTO_SHRINK_MS)
+
+    return () => clearTimeout(timer)
+  }, [visible, isMinimizing])
 
   const handleDismiss = () => {
     setIsMinimizing(true)
