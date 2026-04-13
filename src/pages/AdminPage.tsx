@@ -204,6 +204,12 @@ export function AdminPage({
           {homeMediaStatus === 'saved' && <p className="admin-status success">Home page images updated.</p>}
           {homeMediaStatus === 'upload-error' && <p className="admin-status error">{homeMediaError}</p>}
         </section>
+
+        <section className="admin-block">
+          <h2>AI Chat Leads</h2>
+          <p>Contact details captured from the AI assistant conversations.</p>
+          <AdminLeadsPanel />
+        </section>
       </section>
 
       <HomePage
