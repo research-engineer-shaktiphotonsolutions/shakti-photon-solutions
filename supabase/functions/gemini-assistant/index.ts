@@ -1,3 +1,5 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.4'
+
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -32,12 +34,20 @@ Locations and contact:
 - Email: info@shaktiphotonsolutions.com
 
 Behavior rules:
-- Keep responses concise, practical, and business-friendly.
-- If user asks product-fit questions, request capacity, use case, and timeline.
-- If user asks for pricing, suggest sharing specs for a tailored estimate.
+- Keep responses SHORT and CONCISE — 2-3 sentences max unless technical detail is specifically requested.
+- Be warm but brief. No long paragraphs.
+- If user asks product-fit questions, ask ONE key clarifying question (capacity, use case, or timeline).
+- If user asks for pricing, briefly suggest sharing specs for an estimate.
 - If unsure, say you will connect the customer to the team.
 - Never invent certifications, customer contracts, or unavailable specs.
-- Always offer a short contact follow-up option at the end.
+- Offer a short contact follow-up only when relevant, not every message.
+
+LEAD CAPTURE (CRITICAL):
+- If the user shares contact details (email, phone, name, organization) or expresses interest in a product, you MUST include a JSON block at the END of your response in this exact format:
+<!--LEAD_DATA:{"name":"...","email":"...","phone":"...","organization":"...","requirement":"..."}-->
+- Fill only the fields you know. Use empty string for unknown fields.
+- This block will be stripped before showing the response to the user.
+- Acknowledge their details briefly: "Noted! Our team will reach out shortly."
 `
 
 function jsonResponse(status: number, payload: unknown) {
@@ -48,6 +58,41 @@ function jsonResponse(status: number, payload: unknown) {
       'Content-Type': 'application/json',
     },
   })
+}
+
+function extractLeadData(text: string): { cleanReply: string; leadData: Record<string, string> | null } {
+  const leadMatch = text.match(/<!--LEAD_DATA:(.*?)-->/)
+  if (!leadMatch) return { cleanReply: text, leadData: null }
+
+  const cleanReply = text.replace(/<!--LEAD_DATA:.*?-->/g, '').trim()
+  try {
+    const leadData = JSON.parse(leadMatch[1])
+    return { cleanReply, leadData }
+  } catch {
+    return { cleanReply, leadData: null }
+  }
+}
+
+async function saveLeadToDatabase(leadData: Record<string, string>, pathname: string, chatSummary: string) {
+  const supabaseUrl = Deno.env.get('SUPABASE_URL')
+  const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+  if (!supabaseUrl || !supabaseKey) return
+
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  const { error } = await supabase.from('leads').insert({
+    name: leadData.name || null,
+    email: leadData.email || null,
+    phone: leadData.phone || null,
+    organization: leadData.organization || null,
+    requirement: leadData.requirement || null,
+    source_page: pathname,
+    chat_summary: chatSummary,
+  })
+
+  if (error) {
+    console.error('Failed to save lead:', error.message)
+  }
 }
 
 Deno.serve(async (request) => {
@@ -98,11 +143,11 @@ ${historyText || 'No previous messages.'}
 Customer question:
 ${message}
 
-Respond in plain text with short paragraphs. Do not use markdown tables.
+Respond in plain text with short paragraphs. Do not use markdown tables. Keep it concise.
   `.trim()
 
   const geminiResponse = await fetch(
-    'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
     {
       method: 'POST',
       headers: {
@@ -134,14 +179,22 @@ Respond in plain text with short paragraphs. Do not use markdown tables.
   }
 
   const geminiData = await geminiResponse.json()
-  const reply = geminiData?.candidates?.[0]?.content?.parts
+  const rawReply = geminiData?.candidates?.[0]?.content?.parts
     ?.map((part: { text?: string }) => part?.text || '')
     .join('')
     .trim()
 
-  if (!reply) {
+  if (!rawReply) {
     return jsonResponse(502, { error: 'No response text from Gemini.' })
   }
 
-  return jsonResponse(200, { reply })
+  // Extract and save lead data if present
+  const { cleanReply, leadData } = extractLeadData(rawReply)
+
+  if (leadData) {
+    const chatSummary = history.map(h => `${h.role}: ${h.content}`).join('\n') + `\nuser: ${message}`
+    await saveLeadToDatabase(leadData, pathname, chatSummary)
+  }
+
+  return jsonResponse(200, { reply: cleanReply })
 })
