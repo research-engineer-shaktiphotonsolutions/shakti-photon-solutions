@@ -17,3 +17,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Hide Lovable platform badge */
+[id^="lovable-badge"] {
+  display: none !important;
+}
