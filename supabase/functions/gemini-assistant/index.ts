@@ -122,7 +122,7 @@ Respond in plain text with short paragraphs. Do not use markdown tables.
         generationConfig: {
           temperature: 0.3,
           topP: 0.9,
-          maxOutputTokens: 450,
+          maxOutputTokens: 2048,
         },
       }),
     },

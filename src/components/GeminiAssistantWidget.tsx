@@ -134,13 +134,15 @@ export function GeminiAssistantWidget({ enabled = true }: GeminiAssistantWidgetP
             </button>
           </header>
 
-          <div className="gemini-suggestions" aria-label="Quick suggestions">
-            {quickSuggestions.map((suggestion) => (
-              <button key={suggestion} type="button" onClick={() => void askAssistant(suggestion)}>
-                {suggestion}
-              </button>
-            ))}
-          </div>
+          {messages.length <= 1 && (
+            <div className="gemini-suggestions" aria-label="Quick suggestions">
+              {quickSuggestions.map((suggestion) => (
+                <button key={suggestion} type="button" onClick={() => void askAssistant(suggestion)}>
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="gemini-messages" ref={scrollRef}>
             {messages.map((message) => (
