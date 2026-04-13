@@ -82,6 +82,48 @@
   z-index: 30;
 }
 
+.marketing-ticker {
+  background: linear-gradient(90deg, #164e9c 0%, #2375cb 50%, #0d3f80 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(10, 44, 88, 0.65);
+}
+
+.marketing-ticker-viewport {
+  width: min(1040px, calc(100% - (var(--page-gutter) * 2)));
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.marketing-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 200%;
+  animation: ticker-slide 24s linear infinite;
+  will-change: transform;
+}
+
+.marketing-ticker-track span {
+  margin: 0;
+  flex: 0 0 50%;
+  padding: 0.5rem 0;
+  color: #f2f8ff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+@keyframes ticker-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .more-dropdown li {
   width: 100%;
 }
@@ -116,6 +158,99 @@
   width: min(1040px, calc(100% - (var(--page-gutter) * 2)));
   margin: 0 auto;
   padding: 1.3rem 0 0;
+}
+
+.admin-page {
+  min-height: 62vh;
+  padding-top: 1.8rem;
+  padding-bottom: 2.5rem;
+}
+
+.admin-page h1 {
+  margin: 0;
+  color: #1f1d48;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+
+.admin-page > p {
+  margin: 0.75rem 0 1.25rem;
+  max-width: 730px;
+  color: #24356a;
+  font-weight: 600;
+}
+
+.admin-form {
+  max-width: 760px;
+  background: #ffffff;
+  border: 1px solid #cfdcf0;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(17, 38, 76, 0.08);
+}
+
+.admin-form label {
+  display: block;
+  color: #1f3568;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.admin-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #9eb6d8;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  color: #1e2b52;
+  font: inherit;
+  line-height: 1.45;
+}
+
+.admin-form textarea:focus-visible {
+  outline: 2px solid #2a78cf;
+  outline-offset: 1px;
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.admin-form button {
+  border: 1px solid #2568b2;
+  background: #2d79ca;
+  color: #ffffff;
+  border-radius: 9px;
+  font-weight: 700;
+  padding: 0.5rem 0.95rem;
+  cursor: pointer;
+}
+
+.admin-form button.secondary {
+  border-color: #9bb2ce;
+  background: #eef3fb;
+  color: #204176;
+}
+
+.admin-form button:hover,
+.admin-form button:focus-visible {
+  filter: brightness(0.96);
+}
+
+.admin-status {
+  margin: 0.7rem 0 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.admin-status.success {
+  color: #0c6a36;
+}
+
+.admin-status.error {
+  color: #982e2e;
 }
 
 .solutions-page {
@@ -1010,7 +1145,8 @@
   }
 
   .topbar-inner,
-  .content-shell {
+  .content-shell,
+  .marketing-ticker-viewport {
     width: calc(100% - (var(--page-gutter) * 2));
   }
 
@@ -1044,7 +1180,8 @@
   }
 
   .topbar-inner,
-  .content-shell {
+  .content-shell,
+  .marketing-ticker-viewport {
     width: calc(100% - (var(--page-gutter) * 2));
   }
 
@@ -1064,6 +1201,11 @@
 
   .content-shell {
     padding-inline: 0.8rem;
+  }
+
+  .marketing-ticker-track span {
+    font-size: 0.74rem;
+    padding: 0.45rem 0;
   }
 
   .solutions-grid,
@@ -1173,9 +1315,23 @@
   .contact-details li {
     font-size: 0.82rem;
   }
+
+  .admin-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .marketing-ticker-track {
+    animation: none;
+    min-width: 100%;
+  }
+
+  .marketing-ticker-track span {
+    flex: 1 1 auto;
+  }
+
   .reveal-on-scroll,
   .reveal-on-scroll.is-visible {
     opacity: 1;

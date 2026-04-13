@@ -115,6 +115,38 @@ const media = {
   partnerMark: `${mediaBase}shared/0aa2fb_7c1bf2a3111945b29e1aa80851b237d8_mv2.png-Screenshot_2024-12-07_at_11_10_edited.png`,
 }
 
+const DEFAULT_MARKETING_TICKER_TEXT =
+  'Custom PEM, AEM and Alkaline Electrolyzers | On-Site Hydrogen Generation | CO2 to Fuel Innovation | R&D Platforms for Academia and Industry'
+const MARKETING_TICKER_STORAGE_KEY = 'sps-marketing-ticker'
+
+function normalizeTickerText(value: string): string {
+  return value.replace(/\s+/g, ' ').trim()
+}
+
+function readStoredTickerText(): string {
+  if (typeof window === 'undefined') return DEFAULT_MARKETING_TICKER_TEXT
+
+  try {
+    const stored = window.localStorage.getItem(MARKETING_TICKER_STORAGE_KEY)
+    if (!stored) return DEFAULT_MARKETING_TICKER_TEXT
+
+    const normalized = normalizeTickerText(stored)
+    return normalized || DEFAULT_MARKETING_TICKER_TEXT
+  } catch {
+    return DEFAULT_MARKETING_TICKER_TEXT
+  }
+}
+
+function persistTickerText(value: string): void {
+  if (typeof window === 'undefined') return
+
+  try {
+    window.localStorage.setItem(MARKETING_TICKER_STORAGE_KEY, value)
+  } catch {
+    // Ignore storage failures (private mode / restricted environments).
+  }
+}
+
 /**
  * resolveMediaPath – returns the Supabase CDN URL when configured, otherwise
  * the local public-folder path. Actual error-based fallback is handled by the
@@ -175,6 +207,94 @@ function SiteHeader() {
         </nav>
       </div>
     </header>
+  )
+}
+
+function MarketingTicker({ text }: { text: string }) {
+  const tickerText = normalizeTickerText(text)
+  if (!tickerText) return null
+
+  const marqueeText = `${tickerText} | `
+  return (
+    <section className="marketing-ticker" aria-label="Company highlights">
+      <div className="marketing-ticker-viewport">
+        <div className="marketing-ticker-track">
+          <span>{marqueeText}</span>
+          <span aria-hidden="true">{marqueeText}</span>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function AdminPage({
+  tickerText,
+  onSaveTickerText,
+}: {
+  tickerText: string
+  onSaveTickerText: (value: string) => void
+}) {
+  const [draftTickerText, setDraftTickerText] = useState(tickerText)
+  const [status, setStatus] = useState<'idle' | 'saved' | 'error'>('idle')
+
+  useEffect(() => {
+    setDraftTickerText(tickerText)
+  }, [tickerText])
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const normalized = normalizeTickerText(draftTickerText)
+
+    if (!normalized) {
+      setStatus('error')
+      return
+    }
+
+    onSaveTickerText(normalized)
+    setDraftTickerText(normalized)
+    setStatus('saved')
+  }
+
+  function handleReset() {
+    onSaveTickerText(DEFAULT_MARKETING_TICKER_TEXT)
+    setDraftTickerText(DEFAULT_MARKETING_TICKER_TEXT)
+    setStatus('saved')
+  }
+
+  return (
+    <main className="content-shell admin-page">
+      <h1>Admin - Marketing Highlight Bar</h1>
+      <p>
+        Update the moving highlight text shown below the navigation bar. This is stored locally in
+        your browser for quick editing.
+      </p>
+
+      <form className="admin-form" onSubmit={handleSubmit}>
+        <label htmlFor="marketingTickerText">Highlight text</label>
+        <textarea
+          id="marketingTickerText"
+          name="marketingTickerText"
+          rows={4}
+          maxLength={260}
+          value={draftTickerText}
+          onChange={(event) => {
+            setDraftTickerText(event.target.value)
+            setStatus('idle')
+          }}
+          placeholder="Enter the marketing highlights for the moving strip"
+        ></textarea>
+
+        <div className="admin-form-actions">
+          <button type="submit">Save text</button>
+          <button type="button" className="secondary" onClick={handleReset}>
+            Reset default
+          </button>
+        </div>
+
+        {status === 'saved' && <p className="admin-status success">Saved successfully.</p>}
+        {status === 'error' && <p className="admin-status error">Please enter a non-empty text.</p>}
+      </form>
+    </main>
   )
 }
 
@@ -1034,6 +1154,14 @@ function App() {
   const location = useLocation()
   const supabaseReady = isSupabaseConfigured()
   const cdnFallback = useCdnFallbackPopup()
+  const [tickerText, setTickerText] = useState(() => readStoredTickerText())
+  const isAdminRoute = location.pathname === '/admin'
+
+  const saveTickerText = useCallback((value: string) => {
+    const normalized = normalizeTickerText(value) || DEFAULT_MARKETING_TICKER_TEXT
+    setTickerText(normalized)
+    persistTickerText(normalized)
+  }, [])
 
   // Scroll to top and set up scroll-reveal on route change
   useEffect(() => {
@@ -1106,6 +1234,7 @@ function App() {
         </div>
       )}
       <SiteHeader />
+      {!isAdminRoute && <MarketingTicker text={tickerText} />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/solutions" element={<SolutionsPage />} />
@@ -1115,6 +1244,7 @@ function App() {
         <Route path="/team" element={<TeamPage />} />
         <Route path="/our-customers" element={<CustomersPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminPage tickerText={tickerText} onSaveTickerText={saveTickerText} />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
       <SiteFooter />
