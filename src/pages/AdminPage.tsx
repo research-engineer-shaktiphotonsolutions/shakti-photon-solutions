@@ -9,6 +9,7 @@ import {
   type HomeMediaConfig,
 } from '../lib/homeMedia'
 import { DEFAULT_MARKETING_TICKER_TEXT, normalizeTickerText } from '../lib/marketingTicker'
+import { AdminLeadsPanel } from '../components/AdminLeadsPanel'
 import { HomePage } from './HomePage'
 
 type AdminPageProps = {
