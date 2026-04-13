@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      leads: {
+        Row: {
+          chat_summary: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string | null
+          organization: string | null
+          phone: string | null
+          requirement: string | null
+          source_page: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          chat_summary?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          organization?: string | null
+          phone?: string | null
+          requirement?: string | null
+          source_page?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          chat_summary?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          organization?: string | null
+          phone?: string | null
+          requirement?: string | null
+          source_page?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       media_assets: {
         Row: {
           alt_text: string | null
