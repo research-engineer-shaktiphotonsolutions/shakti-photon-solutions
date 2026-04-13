@@ -18,6 +18,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide Lovable badge globally */
+[id^="lovable"],
+[class*="lovable-badge"],
+iframe[src*="lovable.ai"] {
+  display: none !important;
+}
+
 /* Hide Lovable platform badge */
 [id^="lovable-badge"] {
   display: none !important;

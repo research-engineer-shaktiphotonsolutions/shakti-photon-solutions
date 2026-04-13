@@ -33,6 +33,25 @@ function normalizeUrlForCanonical() {
 
 normalizeUrlForCanonical()
 
+// Remove Lovable platform badge (injected dynamically by the hosting platform)
+const LOVABLE_BADGE_IDS = ['lovable-badge-cta', 'lovable-badge-close']
+
+function removeLovableBadge() {
+  LOVABLE_BADGE_IDS.forEach(id => {
+    const el = document.getElementById(id)
+    if (el) el.remove()
+  })
+}
+
+// Run immediately in case elements are already present
+removeLovableBadge()
+
+// Watch for dynamic injection and remove as soon as they appear
+const badgeObserver = new MutationObserver(() => {
+  removeLovableBadge()
+})
+badgeObserver.observe(document.body, { childList: true, subtree: true })
+
 const root = document.getElementById('root')!
 const app = (
   <StrictMode>
