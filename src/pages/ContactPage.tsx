@@ -1,4 +1,13 @@
 export function ContactPage() {
+  const whatsappNumber = '917382025117'
+  const whatsappMessage = 'Hi Shakti Photon Solutions, I have a query regarding your products and solutions.'
+  const emailAddress = 'info@shaktiphotonsolutions.com'
+  const emailSubject = 'Project requirement'
+
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+  const emailBody = 'Hello Shakti Photon Solutions, I want to share my project requirement.'
+  const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+
   return (
     <main className="content-shell contact-page">
       <section className="contact-grid reveal-on-scroll">
@@ -50,6 +59,19 @@ export function ContactPage() {
               LinkedIn
             </a>
           </p>
+
+          <section className="contact-quick-connect" aria-label="Quick connect">
+            <h3>Quick Connect</h3>
+            <p>For fast replies, message us directly on WhatsApp or send your requirement by email.</p>
+            <div className="contact-quick-connect-actions">
+              <a href={whatsappLink} target="_blank" rel="noreferrer" className="quick-connect-btn whatsapp">
+                WhatsApp
+              </a>
+              <a href={emailLink} target="_blank" rel="noreferrer" className="quick-connect-btn email">
+                Email
+              </a>
+            </div>
+          </section>
 
           <div className="map-wrap" aria-label="Office map">
             <iframe

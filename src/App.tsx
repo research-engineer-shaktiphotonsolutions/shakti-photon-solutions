@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CdnFallbackPopup } from './components/CdnFallbackPopup'
+import { MarketingContactPopup } from './components/MarketingContactPopup'
 import { BreadcrumbNav } from './components/layout/BreadcrumbNav'
 import { MarketingTicker } from './components/layout/MarketingTicker'
 import { SiteFooter } from './components/layout/SiteFooter'
 import { SiteHeader } from './components/layout/SiteHeader'
 import { SeoHead } from './components/seo/SeoHead'
 import { useCdnFallbackPopup, triggerCdnFallbackNotification } from './hooks/useCdnFallbackPopup'
+import { useMarketingContactPopup } from './hooks/useMarketingContactPopup'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import {
   normalizeHomeMediaConfig,
@@ -37,6 +39,9 @@ function App() {
   const location = useLocation()
   const supabaseReady = isSupabaseConfigured()
   const cdnFallback = useCdnFallbackPopup()
+  const marketingPopup = useMarketingContactPopup({
+    enabled: location.pathname !== '/contact-us' && location.pathname !== '/admin',
+  })
   const [tickerText, setTickerText] = useState(() => readStoredTickerText())
   const [homeMedia, setHomeMedia] = useState(() => readStoredHomeMediaConfig())
 
@@ -114,6 +119,12 @@ function App() {
       </Routes>
 
       <SiteFooter />
+      <MarketingContactPopup
+        visible={marketingPopup.visible}
+        showLauncher={marketingPopup.showLauncher}
+        onDismiss={marketingPopup.dismiss}
+        onReopen={marketingPopup.reopen}
+      />
       <CdnFallbackPopup visible={cdnFallback.visible} count={cdnFallback.count} onDismiss={cdnFallback.dismiss} />
     </div>
   )
