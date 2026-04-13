@@ -1,0 +1,17 @@
+/*
+  X-Robots-Tag: index, follow
+
+/admin
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/404
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/auth/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/api/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/internal/*
+  X-Robots-Tag: noindex, nofollow, noarchive

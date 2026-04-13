@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /user
+Disallow: /user/
+Disallow: /profile
+Disallow: /profile/
+Disallow: /auth
+Disallow: /auth/
+Disallow: /api
+Disallow: /api/
+Disallow: /internal
+Disallow: /internal/
 
-Sitemap: https://www.shaktiphotonsolutions.com/sitemap.xml
+Sitemap: https://shakti-photon-solutions.lovable.app/sitemap.xml

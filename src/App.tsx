@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CdnFallbackPopup } from './components/CdnFallbackPopup'
+import { BreadcrumbNav } from './components/layout/BreadcrumbNav'
 import { MarketingTicker } from './components/layout/MarketingTicker'
 import { SiteFooter } from './components/layout/SiteFooter'
 import { SiteHeader } from './components/layout/SiteHeader'
+import { SeoHead } from './components/seo/SeoHead'
 import { useCdnFallbackPopup, triggerCdnFallbackNotification } from './hooks/useCdnFallbackPopup'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import {
@@ -25,6 +27,7 @@ import { CustomersPage } from './pages/CustomersPage'
 import { ElectrolyzersPage } from './pages/ElectrolyzersPage'
 import { FuelCellsPage } from './pages/FuelCellsPage'
 import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
 import { RDWorkstationsPage } from './pages/RDWorkstationsPage'
 import { SolutionsPage } from './pages/SolutionsPage'
 import { TeamPage } from './pages/TeamPage'
@@ -73,6 +76,8 @@ function App() {
 
   return (
     <div className="page">
+      <SeoHead pathname={location.pathname} />
+
       {!supabaseReady && (
         <div className="supabase-banner" role="alert">
           ⚠ Supabase not configured – images are loading from local public folder.
@@ -82,6 +87,7 @@ function App() {
 
       <SiteHeader />
       <MarketingTicker text={tickerText} />
+      <BreadcrumbNav pathname={location.pathname} />
 
       <Routes>
         <Route path="/" element={<HomePage homeMedia={homeMedia} />} />
@@ -103,7 +109,8 @@ function App() {
             />
           )}
         />
-        <Route path="*" element={<HomePage homeMedia={homeMedia} />} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       <SiteFooter />

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { media, resolveMediaPath } from '../../lib/mediaPaths'
 
 export function SiteFooter() {
@@ -45,6 +46,27 @@ export function SiteFooter() {
                 Shakti Photon Solution
               </a>
             </p>
+          </div>
+
+          <div className="footer-links" aria-label="Important pages">
+            <h3>Explore</h3>
+            <ul>
+              <li>
+                <Link to="/solutions">Hydrogen and Carbon EPC Solutions</Link>
+              </li>
+              <li>
+                <Link to="/electrolyzers">PEM, AEM and Alkaline Electrolyzers</Link>
+              </li>
+              <li>
+                <Link to="/fuelcells">Fuel Cell Systems and Designs</Link>
+              </li>
+              <li>
+                <Link to="/r-d-work-stations">Research and Development Work Stations</Link>
+              </li>
+              <li>
+                <Link to="/our-customers">Customer and Institutional Partnerships</Link>
+              </li>
+            </ul>
           </div>
         </div>
 

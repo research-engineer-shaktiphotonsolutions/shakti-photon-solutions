@@ -3,6 +3,35 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import { LEGACY_ORIGINS, PRIMARY_ORIGIN } from './seo/siteSeo'
+
+const TRACKING_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
+
+function normalizeUrlForCanonical() {
+  const currentUrl = new URL(window.location.href)
+  const currentOrigin = currentUrl.origin
+
+  if (LEGACY_ORIGINS.includes(currentOrigin)) {
+    const redirectUrl = `${PRIMARY_ORIGIN}${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`
+    window.location.replace(redirectUrl)
+    return
+  }
+
+  let changed = false
+  for (const param of TRACKING_PARAMS) {
+    if (currentUrl.searchParams.has(param)) {
+      currentUrl.searchParams.delete(param)
+      changed = true
+    }
+  }
+
+  if (changed) {
+    const normalized = `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`
+    window.history.replaceState({}, '', normalized)
+  }
+}
+
+normalizeUrlForCanonical()
 
 const root = document.getElementById('root')!
 const app = (

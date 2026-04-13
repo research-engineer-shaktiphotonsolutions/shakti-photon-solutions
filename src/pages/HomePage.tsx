@@ -1,5 +1,6 @@
 import type { HomeImageEditorRenderers, HomeMediaConfig } from '../lib/homeMedia'
 import { resolveDisplayMediaPath } from '../lib/mediaPaths'
+import { Link } from 'react-router-dom'
 
 type HomePageProps = {
   homeMedia: HomeMediaConfig
@@ -135,6 +136,55 @@ export function HomePage({
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className={`${revealClassName} related-links`.trim()} aria-labelledby="related-pages-title">
+        <h2 id="related-pages-title">Explore Related Hydrogen Technology Pages</h2>
+        <ul>
+          <li>
+            <Link to="/electrolyzers">Compare PEM, AEM, and alkaline electrolyzer platforms</Link>
+          </li>
+          <li>
+            <Link to="/fuelcells">Review fuel cell systems for mobility and backup power</Link>
+          </li>
+          <li>
+            <Link to="/r-d-work-stations">See catalyst discovery and electrochemical R&amp;D workstations</Link>
+          </li>
+          <li>
+            <Link to="/contact-us">Request a custom hydrogen or CO2 conversion consultation</Link>
+          </li>
+        </ul>
+      </section>
+
+      <section className={`${revealClassName} homepage-faq`.trim()} aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+
+        <article>
+          <h3>Which hydrogen electrolyzer is suitable for industrial deployment?</h3>
+          <p>
+            Selection depends on purity targets, duty cycle, and integration constraints.
+            <Link to="/electrolyzers"> Our electrolyzer page</Link> outlines PEM, AEM, and
+            alkaline options from pilot to production capacities.
+          </p>
+        </article>
+
+        <article>
+          <h3>Can you build custom fuel cell systems for mobility and backup power?</h3>
+          <p>
+            Yes. We design configurable PEM fuel cell systems for use cases including drones,
+            resilient power backup, and transportation programs. See
+            <Link to="/fuelcells"> fuel cell solutions</Link> for stack examples.
+          </p>
+        </article>
+
+        <article>
+          <h3>Do you support research labs and universities with R&amp;D hardware?</h3>
+          <p>
+            Yes. We provide specialized catalyst discovery and electrochemical workstations for
+            academia and industrial R&amp;D groups. Explore
+            <Link to="/r-d-work-stations"> R&amp;D workstation offerings</Link>.
+          </p>
+        </article>
       </section>
     </main>
   )
