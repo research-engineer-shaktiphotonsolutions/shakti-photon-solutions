@@ -1997,6 +1997,277 @@
   }
 }
 
+/* ── Gemini AI widget ──────────────────────────────────────────────────────── */
+.gemini-widget {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1rem;
+  z-index: 9996;
+}
+
+.gemini-launcher {
+  border: 1px solid #1f5c96;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #0d5aa1 0%, #1d78c8 58%, #2aa1e8 100%);
+  color: #ffffff;
+  min-height: 44px;
+  padding: 0.52rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  box-shadow: 0 14px 26px rgba(14, 67, 122, 0.34);
+  cursor: pointer;
+}
+
+.gemini-orb {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #9ce8ff;
+  box-shadow: 0 0 0 0 rgba(156, 232, 255, 0.5);
+  animation: gemini-orb-pulse 2.1s ease-out infinite;
+}
+
+.gemini-panel {
+  position: absolute;
+  right: 0;
+  bottom: 3.5rem;
+  width: min(380px, calc(100vw - 1.4rem));
+  border-radius: 16px;
+  border: 1px solid #b9d4ef;
+  background: linear-gradient(170deg, #fbfdff 0%, #eef6ff 100%);
+  box-shadow: 0 22px 42px rgba(14, 57, 104, 0.24), 0 5px 12px rgba(14, 57, 104, 0.13);
+  overflow: hidden;
+  animation: gemini-panel-in 0.25s ease;
+}
+
+.gemini-panel-header {
+  padding: 0.68rem 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-bottom: 1px solid #153b62;
+  background: linear-gradient(180deg, #275f98 0%, #1c4f80 100%);
+}
+
+.gemini-headline {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  background: linear-gradient(180deg, #3e9ae3 0%, #3c93da 100%);
+  border: 1px solid #2d72ab;
+  border-radius: 999px;
+  padding: 0.26rem 0.62rem;
+  font-weight: 700;
+}
+
+.gemini-close {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: #f2f8ff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.gemini-close:hover,
+.gemini-close:focus-visible {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gemini-suggestions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0.68rem 0.25rem;
+}
+
+.gemini-suggestions button {
+  border: 1px solid #c5dcf3;
+  background: #ffffff;
+  color: #28527f;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.28rem 0.56rem;
+  cursor: pointer;
+}
+
+.gemini-messages {
+  max-height: 250px;
+  overflow: auto;
+  padding: 0.48rem 0.68rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.44rem;
+}
+
+.gemini-msg {
+  max-width: 88%;
+  padding: 0.5rem 0.64rem;
+  border-radius: 12px;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.gemini-msg.assistant {
+  align-self: flex-start;
+  background: #e7f2ff;
+  color: #25476c;
+}
+
+.gemini-msg.user {
+  align-self: flex-end;
+  background: #1c6fbe;
+  color: #ffffff;
+}
+
+.gemini-thinking {
+  margin: 0.05rem 0 0;
+  color: #5b7393;
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.gemini-contact-strip {
+  padding: 0 0.68rem 0.35rem;
+}
+
+.gemini-contact-strip button {
+  border: 1px solid #9ec1e5;
+  background: #ffffff;
+  color: #215282;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.28rem 0.62rem;
+  cursor: pointer;
+}
+
+.gemini-contact-panel {
+  margin: 0 0.68rem 0.5rem;
+  border: 1px solid #c7dcf2;
+  border-radius: 10px;
+  padding: 0.44rem;
+  background: #ffffff;
+}
+
+.gemini-contact-panel p {
+  margin: 0;
+  font-size: 0.76rem;
+  color: #395978;
+  font-weight: 700;
+}
+
+.gemini-contact-panel div {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gemini-contact-panel a {
+  text-decoration: none;
+  border: 1px solid #9ec1e5;
+  border-radius: 999px;
+  padding: 0.24rem 0.55rem;
+  font-size: 0.73rem;
+  color: #1f4e7c;
+  font-weight: 700;
+  background: #f6fbff;
+}
+
+.gemini-contact-panel a.chat-contact-whatsapp {
+  border-color: #1f9e53;
+  background: linear-gradient(180deg, #26bf64 0%, #1f9e53 100%);
+  color: #ffffff;
+}
+
+.gemini-input-row {
+  border-top: 1px solid #d8e6f6;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.44rem;
+  padding: 0.65rem 0.68rem;
+  background: #f8fcff;
+}
+
+.gemini-input-row input {
+  width: 100%;
+  border: 1px solid #aac8e5;
+  border-radius: 10px;
+  padding: 0.5rem 0.62rem;
+  font: inherit;
+  color: #203e62;
+  font-size: 0.83rem;
+}
+
+.gemini-input-row button {
+  border: 1px solid #1f619d;
+  background: #2377c2;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.46rem 0.72rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.gemini-input-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes gemini-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gemini-orb-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(156, 232, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(156, 232, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(156, 232, 255, 0);
+  }
+}
+
+@media (max-width: 760px) {
+  .gemini-widget {
+    right: 0.7rem;
+    bottom: 0.7rem;
+  }
+
+  .gemini-panel {
+    right: 0;
+    bottom: 3.2rem;
+    width: min(95vw, 370px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gemini-orb,
+  .gemini-panel {
+    animation: none;
+  }
+}
+
 /* ── Grouped CDN-fallback popup ────────────────────────────────────────────── */
 .cdn-popup {
   position: fixed;

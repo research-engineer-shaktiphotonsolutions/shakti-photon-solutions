@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CdnFallbackPopup } from './components/CdnFallbackPopup'
+import { GeminiAssistantWidget } from './components/GeminiAssistantWidget'
 import { MarketingContactPopup } from './components/MarketingContactPopup'
 import { BreadcrumbNav } from './components/layout/BreadcrumbNav'
 import { MarketingTicker } from './components/layout/MarketingTicker'
@@ -125,6 +126,7 @@ function App() {
         onDismiss={marketingPopup.dismiss}
         onReopen={marketingPopup.reopen}
       />
+      <GeminiAssistantWidget enabled={location.pathname !== '/admin'} />
       <CdnFallbackPopup visible={cdnFallback.visible} count={cdnFallback.count} onDismiss={cdnFallback.dismiss} />
     </div>
   )
