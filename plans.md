@@ -11,4 +11,5 @@ Further plan includes:-
 
 7. a small text box wrapped in beautiful color just below the navbar which moves across. Text should include our highlight as a part of marketing again. It should also be chageable from admin page
 
-8. 
+bot ignore it
+8. see the image the seo is well optimzed. What makes this websites seo will optimzed. I want the instruction so that I can make my other webstite the same instruction. So that I can copy paste it and the AI will do similar things
