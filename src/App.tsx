@@ -87,7 +87,7 @@ function App() {
 
       {!supabaseReady && (
         <div className="supabase-banner" role="alert">
-          ⚠ Supabase not configured – images are loading from local public folder.
+          {'\u26A0'} Supabase not configured {'\u2013'} images are loading from local public folder.
           Add <code>VITE_SUPABASE_URL</code> &amp; <code>VITE_SUPABASE_ANON_KEY</code> to&nbsp;<code>.env</code>.
         </div>
       )}
@@ -108,12 +108,14 @@ function App() {
         <Route
           path="/admin"
           element={(
-            <AdminPage
-              tickerText={tickerText}
-              onSaveTickerText={saveTickerText}
-              homeMedia={homeMedia}
-              onSaveHomeMedia={saveHomeMedia}
-            />
+            <AdminAuth>
+              <AdminPage
+                tickerText={tickerText}
+                onSaveTickerText={saveTickerText}
+                homeMedia={homeMedia}
+                onSaveHomeMedia={saveHomeMedia}
+              />
+            </AdminAuth>
           )}
         />
         <Route path="/404" element={<NotFoundPage />} />

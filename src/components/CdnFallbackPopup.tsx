@@ -9,12 +9,12 @@ export function CdnFallbackPopup({ visible, count, onDismiss }: CdnFallbackPopup
 
   return (
     <div className="cdn-popup" role="status" aria-live="polite">
-      <div className="cdn-popup-icon">☁</div>
+      <div className="cdn-popup-icon">{'\u2601'}</div>
       <div className="cdn-popup-body">
         <p className="cdn-popup-title">Using local images</p>
         <p className="cdn-popup-sub">
           {count} image{count !== 1 ? 's' : ''} loaded from local storage
-          — CDN unavailable
+          {'\u2014'} CDN unavailable
         </p>
       </div>
       <button
@@ -22,7 +22,7 @@ export function CdnFallbackPopup({ visible, count, onDismiss }: CdnFallbackPopup
         onClick={onDismiss}
         aria-label="Dismiss notification"
       >
-        ✕
+        {'\u2715'}
       </button>
     </div>
   )
