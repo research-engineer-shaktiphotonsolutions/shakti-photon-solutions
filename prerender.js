@@ -8,7 +8,7 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
 const { PUBLIC_SITEMAP_ROUTES, getRobotsTxt, getSitemapXml, render } = await import('./dist/server/entry-server.js')
 
-const routesToPrerender = [...PUBLIC_SITEMAP_ROUTES.map((route) => route.path), '/404', '/admin']
+const routesToPrerender = [...PUBLIC_SITEMAP_ROUTES.map((route) => route.path), '/404']
 
 ;(async () => {
   for (const routeUrl of routesToPrerender) {
