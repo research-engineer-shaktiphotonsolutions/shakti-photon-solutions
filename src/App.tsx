@@ -24,6 +24,7 @@ import {
   readStoredTickerText,
 } from './lib/marketingTicker'
 import { isSupabaseConfigured } from './lib/supabaseClient'
+import { AdminAuth } from './components/AdminAuth'
 import { AdminPage } from './pages/AdminPage'
 import { ContactPage } from './pages/ContactPage'
 import { CustomersPage } from './pages/CustomersPage'
