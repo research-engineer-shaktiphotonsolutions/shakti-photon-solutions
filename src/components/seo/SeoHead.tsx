@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { getSeoModel } from '../../seo/siteSeo'
+import { SITE_NAME, getSeoModel } from '../../seo/siteSeo'
 
 type SeoHeadProps = {
   pathname: string
@@ -36,12 +36,14 @@ export function SeoHead({ pathname }: SeoHeadProps) {
 
     document.title = seo.title
 
+    upsertMeta('name', 'application-name', SITE_NAME)
+    upsertMeta('name', 'apple-mobile-web-app-title', SITE_NAME)
     upsertMeta('name', 'description', seo.description)
     upsertMeta('name', 'robots', robotsValue)
     upsertCanonical(seo.canonical)
 
     upsertMeta('property', 'og:type', seo.ogType)
-    upsertMeta('property', 'og:site_name', 'Shakti Photon Solutions')
+    upsertMeta('property', 'og:site_name', SITE_NAME)
     upsertMeta('property', 'og:title', seo.title)
     upsertMeta('property', 'og:description', seo.description)
     upsertMeta('property', 'og:url', seo.canonical)

@@ -5,7 +5,8 @@ export const LEGACY_ORIGINS = [
   'https://www.shaktiphotonsolutions.com',
   'https://shaktiphotonsolutions.com',
 ]
-const SITE_NAME = 'Shakti Photon Solutions'
+export const SITE_NAME = 'Shakti Photon Solutions | Green Hydrogen'
+const ORGANIZATION_NAME = 'Shakti Photon Solutions'
 const DEFAULT_OG_IMAGE = media.missionVisual
 
 type JsonLd = Record<string, unknown>
@@ -26,7 +27,7 @@ const homeSchemas: JsonLd[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE_NAME,
+    name: ORGANIZATION_NAME,
     url: PRIMARY_ORIGIN,
     logo: `${PRIMARY_ORIGIN}${media.logo}`,
     sameAs: ['https://linkedin.com/company/shakti-photon-solutions-private-limited/'],
@@ -42,6 +43,7 @@ const homeSchemas: JsonLd[] = [
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
+    alternateName: ORGANIZATION_NAME,
     url: PRIMARY_ORIGIN,
     inLanguage: 'en',
   },
@@ -80,7 +82,7 @@ const homeSchemas: JsonLd[] = [
 const routeDefinitions: SeoRoute[] = [
   {
     path: '/',
-    title: 'Hydrogen Generators and CO2 Recycling Units | Shakti Photon Solutions',
+    title: 'Shakti Photon Solutions | Green Hydrogen',
     description:
       'Shakti Photon Solutions develops on-site hydrogen generators, electrolyzers, and CO2 recycling systems for clean, efficient industrial and research energy applications.',
     pageName: 'Home',
@@ -104,7 +106,7 @@ const routeDefinitions: SeoRoute[] = [
         serviceType: 'Hydrogen and Carbon Harvesting EPC Solutions',
         provider: {
           '@type': 'Organization',
-          name: SITE_NAME,
+          name: ORGANIZATION_NAME,
           url: PRIMARY_ORIGIN,
         },
       },
@@ -125,7 +127,7 @@ const routeDefinitions: SeoRoute[] = [
         name: 'Industrial and R&D Electrolyzers',
         brand: {
           '@type': 'Brand',
-          name: SITE_NAME,
+          name: ORGANIZATION_NAME,
         },
         category: 'Hydrogen Electrolyzer',
       },
@@ -146,7 +148,7 @@ const routeDefinitions: SeoRoute[] = [
         name: 'PEM Fuel Cell Systems',
         brand: {
           '@type': 'Brand',
-          name: SITE_NAME,
+          name: ORGANIZATION_NAME,
         },
         category: 'Fuel Cell',
       },
@@ -167,7 +169,7 @@ const routeDefinitions: SeoRoute[] = [
         name: 'R&D Electrochemical Workstations',
         brand: {
           '@type': 'Brand',
-          name: SITE_NAME,
+          name: ORGANIZATION_NAME,
         },
         category: 'Scientific Research Equipment',
       },
@@ -330,6 +332,8 @@ export function getSeoHeadHtml(pathname: string): string {
 
   return [
     `<title>${escapeHtml(seo.title)}</title>`,
+    `<meta name="application-name" content="${SITE_NAME}" />`,
+    `<meta name="apple-mobile-web-app-title" content="${SITE_NAME}" />`,
     `<meta name="description" content="${escapeHtml(seo.description)}" />`,
     `<meta name="robots" content="${robotsValue}" />`,
     `<link rel="canonical" href="${seo.canonical}" />`,
