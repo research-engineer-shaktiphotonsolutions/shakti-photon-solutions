@@ -332,6 +332,7 @@ export function getSeoHeadHtml(pathname: string): string {
 
   return [
     `<title>${escapeHtml(seo.title)}</title>`,
+    `<link rel="icon" href="/favicon.png" type="image/png" />`,
     `<meta name="application-name" content="${SITE_NAME}" />`,
     `<meta name="apple-mobile-web-app-title" content="${SITE_NAME}" />`,
     `<meta name="description" content="${escapeHtml(seo.description)}" />`,
