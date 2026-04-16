@@ -8,6 +8,15 @@ export const LEGACY_ORIGINS = [
 export const SITE_NAME = 'Shakti Photon Solutions | Green Hydrogen'
 const ORGANIZATION_NAME = 'Shakti Photon Solutions'
 const DEFAULT_OG_IMAGE = media.missionVisual
+const DEFAULT_KEYWORDS =
+  'shakti photon solutions, green hydrogen, hydrogen generator, electrolyzer systems, pem electrolyzer, aem electrolyzer, alkaline electrolyzer, pem fuel cells, carbon harvesting, co2 recycling, hydrogen r&d workstations, clean energy engineering, india hydrogen company'
+const DEFAULT_GOOGLEBOT = 'index, follow'
+const DEFAULT_GOOGLE = 'notranslate'
+const DEFAULT_GEO_REGION = 'IN'
+const DEFAULT_GEO_PLACENAME = 'India'
+const DEFAULT_LANGUAGE = 'en-IN'
+const DEFAULT_COUNTRY = 'India'
+const DEFAULT_OG_LOCALE = 'en_IN'
 
 type JsonLd = Record<string, unknown>
 
@@ -15,6 +24,7 @@ type SeoRoute = {
   path: string
   title: string
   description: string
+  keywords?: string
   pageName: string
   noindex?: boolean
   ogType?: 'website' | 'article'
@@ -85,6 +95,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'Shakti Photon Solutions | Green Hydrogen',
     description:
       'Shakti Photon Solutions develops on-site hydrogen generators, electrolyzers, and CO2 recycling systems for clean, efficient industrial and research energy applications.',
+    keywords:
+      'shakti photon solutions, green hydrogen, on-site hydrogen generators, industrial electrolyzers, co2 recycling systems, hydrogen energy india',
     pageName: 'Home',
     ogType: 'website',
     changefreq: 'weekly',
@@ -96,6 +108,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'EPC Hydrogen and Carbon Harvesting Solutions | Shakti Photon Solutions',
     description:
       'Explore EPC solutions for hydrogen production, carbon harvesting, and renewable energy integration designed for scalable industrial deployment.',
+    keywords:
+      'hydrogen epc solutions, carbon harvesting solutions, renewable hydrogen integration, hydrogen project engineering, clean energy epc india',
     pageName: 'Solutions',
     changefreq: 'weekly',
     priority: '0.9',
@@ -117,6 +131,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'PEM, AEM and Alkaline Electrolyzers | Shakti Photon Solutions',
     description:
       'Discover customizable PEM, AEM, and alkaline electrolyzer systems from 0.01 kW to 100 kW for hydrogen generation and CO2 reduction.',
+    keywords:
+      'pem electrolyzer, aem electrolyzer, alkaline electrolyzer, hydrogen generation systems, industrial electrolyzers india, lab electrolyzers',
     pageName: 'Electrolyzers',
     changefreq: 'weekly',
     priority: '0.9',
@@ -138,6 +154,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'PEM Fuel Cell Solutions for Mobility and Backup Power | Shakti Photon Solutions',
     description:
       'Shakti Photon Solutions provides PEM fuel cells for drones, backup systems, and heavy-duty mobility with custom stack designs.',
+    keywords:
+      'pem fuel cells, fuel cell stacks, drone fuel cells, backup power fuel cells, hydrogen mobility power systems',
     pageName: 'Fuel Cells',
     changefreq: 'weekly',
     priority: '0.9',
@@ -159,6 +177,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'Hydrogen and Catalyst R&D Workstations | Shakti Photon Solutions',
     description:
       'Access catalyst discovery, process development, and electrochemical R&D workstations for academic and industrial innovation programs.',
+    keywords:
+      'hydrogen r&d workstations, catalyst discovery workstation, electrochemical process development, research lab hydrogen systems, university hydrogen equipment',
     pageName: 'R&D Work Stations',
     changefreq: 'weekly',
     priority: '0.8',
@@ -180,6 +200,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'Leadership and Research Team | Shakti Photon Solutions',
     description:
       'Meet the founders, research leaders, and advisors building advanced hydrogen and sustainable energy systems at Shakti Photon Solutions.',
+    keywords:
+      'shakti photon team, hydrogen experts, energy researchers, clean technology leadership, shakti photon advisors',
     pageName: 'Team',
     changefreq: 'monthly',
     priority: '0.7',
@@ -196,6 +218,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'Customers and Institutional Partners | Shakti Photon Solutions',
     description:
       'See the universities, labs, and energy innovators working with Shakti Photon Solutions on hydrogen and electrochemical technologies.',
+    keywords:
+      'hydrogen technology customers, institutional partners, university collaborations, research partners, clean energy clients india',
     pageName: 'Our Customers',
     changefreq: 'monthly',
     priority: '0.7',
@@ -212,6 +236,8 @@ const routeDefinitions: SeoRoute[] = [
     title: 'Contact Shakti Photon Solutions | Hydrogen Project Consultation',
     description:
       'Contact Shakti Photon Solutions for hydrogen generators, fuel cells, R&D systems, and custom clean-energy engineering support.',
+    keywords:
+      'contact shakti photon solutions, hydrogen project consultation, electrolyzer inquiry, fuel cell inquiry, clean energy engineering support',
     pageName: 'Contact Us',
     changefreq: 'monthly',
     priority: '0.8',
@@ -227,6 +253,7 @@ const routeDefinitions: SeoRoute[] = [
     path: '/admin',
     title: 'Admin | Shakti Photon Solutions',
     description: 'Private admin area for internal content management.',
+    keywords: 'shakti photon admin portal, internal content management',
     pageName: 'Admin',
     noindex: true,
   },
@@ -234,6 +261,7 @@ const routeDefinitions: SeoRoute[] = [
     path: '/404',
     title: 'Page Not Found | Shakti Photon Solutions',
     description: 'The requested page could not be found.',
+    keywords: 'shakti photon solutions page not found',
     pageName: 'Not Found',
     noindex: true,
   },
@@ -286,9 +314,18 @@ export type SeoModel = {
   pathname: string
   title: string
   description: string
+  keywords: string
   canonical: string
   ogType: 'website' | 'article'
   ogImage: string
+  ogLocale: string
+  ogCountryName: string
+  googlebot: string
+  google: string
+  geoRegion: string
+  geoPlacename: string
+  language: string
+  country: string
   noindex: boolean
   pageName: string
   schemas: JsonLd[]
@@ -310,9 +347,18 @@ export function getSeoModel(pathname: string): SeoModel {
     pathname: normalizedPath,
     title: route.title,
     description: route.description,
+    keywords: route.keywords ?? DEFAULT_KEYWORDS,
     canonical: toAbsoluteUrl(canonicalPath),
     ogType: route.ogType ?? 'website',
     ogImage: `${PRIMARY_ORIGIN}${DEFAULT_OG_IMAGE}`,
+    ogLocale: DEFAULT_OG_LOCALE,
+    ogCountryName: DEFAULT_COUNTRY,
+    googlebot: DEFAULT_GOOGLEBOT,
+    google: DEFAULT_GOOGLE,
+    geoRegion: DEFAULT_GEO_REGION,
+    geoPlacename: DEFAULT_GEO_PLACENAME,
+    language: DEFAULT_LANGUAGE,
+    country: DEFAULT_COUNTRY,
     noindex: Boolean(route.noindex),
     pageName: route.pageName,
     schemas,
@@ -336,7 +382,14 @@ export function getSeoHeadHtml(pathname: string): string {
     `<meta name="application-name" content="${SITE_NAME}" />`,
     `<meta name="apple-mobile-web-app-title" content="${SITE_NAME}" />`,
     `<meta name="description" content="${escapeHtml(seo.description)}" />`,
+    `<meta name="keywords" content="${escapeHtml(seo.keywords)}" />`,
     `<meta name="robots" content="${robotsValue}" />`,
+    `<meta name="googlebot" content="${seo.googlebot}" />`,
+    `<meta name="google" content="${seo.google}" />`,
+    `<meta name="geo.region" content="${seo.geoRegion}" />`,
+    `<meta name="geo.placename" content="${seo.geoPlacename}" />`,
+    `<meta name="language" content="${seo.language}" />`,
+    `<meta name="country" content="${seo.country}" />`,
     `<link rel="canonical" href="${seo.canonical}" />`,
     `<meta property="og:type" content="${seo.ogType}" />`,
     `<meta property="og:site_name" content="${SITE_NAME}" />`,
@@ -344,7 +397,10 @@ export function getSeoHeadHtml(pathname: string): string {
     `<meta property="og:description" content="${escapeHtml(seo.description)}" />`,
     `<meta property="og:url" content="${seo.canonical}" />`,
     `<meta property="og:image" content="${seo.ogImage}" />`,
+    `<meta property="og:locale" content="${seo.ogLocale}" />`,
+    `<meta property="og:country-name" content="${seo.ogCountryName}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:url" content="${seo.canonical}" />`,
     `<meta name="twitter:title" content="${escapeHtml(seo.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(seo.description)}" />`,
     `<meta name="twitter:image" content="${seo.ogImage}" />`,
