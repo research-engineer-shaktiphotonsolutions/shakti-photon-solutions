@@ -92,7 +92,7 @@ export function AdminAuth({ children }: AdminAuthProps) {
 
     const code = otp.trim()
     if (code.length < 6) {
-      setErrorMsg('Please enter the 6-digit code.')
+      setErrorMsg('Please enter the code from your email.')
       return
     }
 
@@ -162,18 +162,18 @@ export function AdminAuth({ children }: AdminAuthProps) {
 
         {step === 'otp' && (
           <form onSubmit={handleVerifyOtp} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <label htmlFor="adminOtp">6-digit code</label>
+            <label htmlFor="adminOtp">Code from email</label>
             <input
               id="adminOtp"
               type="text"
               inputMode="numeric"
               pattern="[0-9]*"
-              maxLength={6}
+              maxLength={8}
               autoComplete="one-time-code"
               required
               value={otp}
               onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-              placeholder="123456"
+              placeholder="12345678"
               style={{ padding: '0.75rem', fontSize: '1.25rem', letterSpacing: '0.5rem', textAlign: 'center' }}
             />
             <button type="submit" disabled={submitting} style={{ fontSize: '1rem', padding: '0.75rem 2rem' }}>
