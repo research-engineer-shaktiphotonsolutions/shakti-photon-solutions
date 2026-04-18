@@ -55,7 +55,7 @@ export function SiteFooter() {
               <li><Link to="/fuelcells">Fuel cells</Link></li>
               <li><Link to="/r-d-work-stations">R&amp;D Work Stations</Link></li>
               <li><Link to="/team">Team</Link></li>
-              <li><Link to="/contact-us">Contact Us</Link></li>
+              <li className="footer-link-highlight"><Link to="/contact-us">Contact Us</Link></li>
               <li><Link to="/our-customers">Our Customer</Link></li>
             </ul>
           </div>
