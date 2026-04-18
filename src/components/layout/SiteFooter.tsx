@@ -48,26 +48,14 @@ export function SiteFooter() {
             </p>
           </div>
 
-          <div className="footer-links" aria-label="Important pages">
-            <h3>Explore</h3>
-            <ul>
-              <li>
-                <Link to="/solutions">Hydrogen and Carbon EPC Solutions</Link>
-              </li>
-              <li>
-                <Link to="/electrolyzers">PEM, AEM and Alkaline Electrolyzers</Link>
-              </li>
-              <li>
-                <Link to="/fuelcells">Fuel Cell Systems and Designs</Link>
-              </li>
-              <li>
-                <Link to="/r-d-work-stations">Research and Development Work Stations</Link>
-              </li>
-              <li>
-                <Link to="/our-customers">Customer and Institutional Partnerships</Link>
-              </li>
-            </ul>
-          </div>
+          <nav className="footer-links-horizontal" aria-label="Important pages">
+            <Link to="/electrolyzers">Electrolyzers</Link>
+            <Link to="/fuelcells">Fuel Cells</Link>
+            <Link to="/r-d-work-stations">R&amp;D Work Stations</Link>
+            <Link to="/team">Team</Link>
+            <Link to="/contact">Contact Us</Link>
+            <Link to="/our-customers">Our Customers</Link>
+          </nav>
         </div>
 
         <div className="partner-badge">
