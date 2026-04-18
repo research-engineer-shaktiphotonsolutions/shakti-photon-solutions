@@ -49,12 +49,15 @@ export function SiteFooter() {
           </div>
 
           <nav className="footer-links-horizontal" aria-label="Important pages">
-            <Link to="/electrolyzers">Electrolyzers</Link>
-            <Link to="/fuelcells">Fuel Cells</Link>
-            <Link to="/r-d-work-stations">R&amp;D Work Stations</Link>
-            <Link to="/team">Team</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/our-customers">Our Customers</Link>
+            <h3>Explore</h3>
+            <div className="footer-links-row">
+              <Link to="/electrolyzers">Electrolyzers</Link>
+              <Link to="/fuelcells">Fuel Cells</Link>
+              <Link to="/r-d-work-stations">R&amp;D Work Stations</Link>
+              <Link to="/team">Team</Link>
+              <Link to="/contact">Contact Us</Link>
+              <Link to="/our-customers">Our Customers</Link>
+            </div>
           </nav>
         </div>
 
