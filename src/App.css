@@ -1387,44 +1387,22 @@
 
 .footer-links ul {
   margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  padding-left: 1rem;
 }
 
 .footer-links li {
-  margin: 0;
-  font-size: 0.9rem;
+  margin: 0.2rem 0;
+  font-size: 0.84rem;
 }
 
 .footer-links a {
   color: #f2f8ff;
   text-decoration: none;
-  display: inline-block;
-  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-links a:hover,
 .footer-links a:focus-visible {
   text-decoration: underline;
-  transform: translateX(2px);
-}
-
-.footer-links li.footer-link-highlight a {
-  padding: 0.4rem 0.95rem;
-  background: #f59e0b;
-  color: #1a1a1a;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.footer-links li.footer-link-highlight a:hover,
-.footer-links li.footer-link-highlight a:focus-visible {
-  background: #fbbf24;
-  text-decoration: none;
 }
 
 .social-row {

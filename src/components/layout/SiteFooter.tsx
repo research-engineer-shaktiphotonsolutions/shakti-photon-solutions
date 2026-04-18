@@ -51,12 +51,21 @@ export function SiteFooter() {
           <div className="footer-links" aria-label="Important pages">
             <h3>Explore</h3>
             <ul>
-              <li><Link to="/electrolyzers">Electrolyzers</Link></li>
-              <li><Link to="/fuelcells">Fuel cells</Link></li>
-              <li><Link to="/r-d-work-stations">R&amp;D Work Stations</Link></li>
-              <li><Link to="/team">Team</Link></li>
-              <li className="footer-link-highlight"><Link to="/contact-us">Contact Us</Link></li>
-              <li><Link to="/our-customers">Our Customer</Link></li>
+              <li>
+                <Link to="/solutions">Hydrogen and Carbon EPC Solutions</Link>
+              </li>
+              <li>
+                <Link to="/electrolyzers">PEM, AEM and Alkaline Electrolyzers</Link>
+              </li>
+              <li>
+                <Link to="/fuelcells">Fuel Cell Systems and Designs</Link>
+              </li>
+              <li>
+                <Link to="/r-d-work-stations">Research and Development Work Stations</Link>
+              </li>
+              <li>
+                <Link to="/our-customers">Customer and Institutional Partnerships</Link>
+              </li>
             </ul>
           </div>
         </div>
