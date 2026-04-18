@@ -1310,7 +1310,7 @@
   margin-top: 0.6rem;
   background: #4098de;
   color: #f2f8ff;
-  padding: 1.25rem 0 1.15rem;
+  padding: 1.25rem 0 6.5rem;
 }
 
 .site-footer-inner {
@@ -1407,12 +1407,22 @@
 
 .footer-links-horizontal {
   margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(242, 248, 255, 0.18);
+}
+
+.footer-links-horizontal h3 {
+  margin: 0 0 0.55rem;
+  color: #eff7ff;
+  font-size: 1rem;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.footer-links-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem 1.1rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(242, 248, 255, 0.18);
 }
 
 .footer-links-horizontal a {
