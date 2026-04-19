@@ -19,13 +19,14 @@ import {
 } from './lib/homeMedia'
 import {
   DEFAULT_MARKETING_TICKER_TEXT,
+  fetchTickerTextFromSupabase,
   normalizeTickerText,
   persistTickerText,
   readStoredTickerText,
 } from './lib/marketingTicker'
 import { isSupabaseConfigured } from './lib/supabaseClient'
 import { AdminAuth } from './components/AdminAuth'
-import { AdminPage } from './pages/AdminPage'
+import { AdminShell } from './pages/admin/AdminShell'
 import { ContactPage } from './pages/ContactPage'
 import { CustomersPage } from './pages/CustomersPage'
 import { ElectrolyzersPage } from './pages/ElectrolyzersPage'
@@ -51,6 +52,16 @@ function App() {
     const normalized = normalizeTickerText(value) || DEFAULT_MARKETING_TICKER_TEXT
     setTickerText(normalized)
     persistTickerText(normalized)
+  }, [])
+
+  // Load ticker from Supabase on boot (DB is source of truth; localStorage is cached fallback)
+  useEffect(() => {
+    void fetchTickerTextFromSupabase().then((value) => {
+      if (value) {
+        setTickerText(value)
+        persistTickerText(value)
+      }
+    })
   }, [])
 
   const saveHomeMedia = useCallback((config: HomeMediaConfig) => {
@@ -109,12 +120,7 @@ function App() {
           path="/admin"
           element={(
             <AdminAuth>
-              <AdminPage
-                tickerText={tickerText}
-                onSaveTickerText={saveTickerText}
-                homeMedia={homeMedia}
-                onSaveHomeMedia={saveHomeMedia}
-              />
+              <AdminShell />
             </AdminAuth>
           )}
         />
