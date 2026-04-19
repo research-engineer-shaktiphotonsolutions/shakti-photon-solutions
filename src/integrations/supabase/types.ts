@@ -14,6 +14,241 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_allowed_emails: {
+        Row: {
+          added_by: string | null
+          created_at: string
+          email: string
+          id: string
+          note: string | null
+        }
+        Insert: {
+          added_by?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          note?: string | null
+        }
+        Update: {
+          added_by?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          note?: string | null
+        }
+        Relationships: []
+      }
+      admin_audit_log: {
+        Row: {
+          action: string
+          actor_email: string | null
+          created_at: string
+          diff: Json
+          entity_id: string | null
+          entity_type: string | null
+          id: string
+        }
+        Insert: {
+          action: string
+          actor_email?: string | null
+          created_at?: string
+          diff?: Json
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+        }
+        Update: {
+          action?: string
+          actor_email?: string | null
+          created_at?: string
+          diff?: Json
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      cms_media: {
+        Row: {
+          alt_text: string | null
+          asset_name: string
+          caption: string | null
+          created_at: string
+          id: string
+          is_active: boolean
+          kind: Database["public"]["Enums"]["media_asset_kind"]
+          metadata: Json
+          mime_type: string | null
+          page_id: string | null
+          page_slug: string
+          sort_order: number
+          source_url: string | null
+          storage_bucket: string
+          storage_path: string
+          subsection_slug: string
+          updated_at: string
+        }
+        Insert: {
+          alt_text?: string | null
+          asset_name: string
+          caption?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          kind: Database["public"]["Enums"]["media_asset_kind"]
+          metadata?: Json
+          mime_type?: string | null
+          page_id?: string | null
+          page_slug: string
+          sort_order?: number
+          source_url?: string | null
+          storage_bucket?: string
+          storage_path: string
+          subsection_slug: string
+          updated_at?: string
+        }
+        Update: {
+          alt_text?: string | null
+          asset_name?: string
+          caption?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          kind?: Database["public"]["Enums"]["media_asset_kind"]
+          metadata?: Json
+          mime_type?: string | null
+          page_id?: string | null
+          page_slug?: string
+          sort_order?: number
+          source_url?: string | null
+          storage_bucket?: string
+          storage_path?: string
+          subsection_slug?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_media_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cms_pages: {
+        Row: {
+          created_at: string
+          display_order: number
+          id: string
+          is_published: boolean
+          route: string
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_published?: boolean
+          route: string
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          is_published?: boolean
+          route?: string
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      cms_sections: {
+        Row: {
+          body_markdown: string | null
+          created_at: string
+          heading: string | null
+          id: string
+          is_active: boolean
+          metadata: Json
+          page_id: string
+          section_key: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          body_markdown?: string | null
+          created_at?: string
+          heading?: string | null
+          id?: string
+          is_active?: boolean
+          metadata?: Json
+          page_id: string
+          section_key: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          body_markdown?: string | null
+          created_at?: string
+          heading?: string | null
+          id?: string
+          is_active?: boolean
+          metadata?: Json
+          page_id?: string
+          section_key?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_sections_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cms_settings: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          key: string
+          updated_at: string
+          value: Json
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          key: string
+          updated_at?: string
+          value?: Json
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: Json
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           chat_summary: string | null
@@ -56,63 +291,6 @@ export type Database = {
         }
         Relationships: []
       }
-      media_assets: {
-        Row: {
-          alt_text: string | null
-          asset_name: string
-          caption: string | null
-          created_at: string
-          id: string
-          is_active: boolean
-          kind: Database["public"]["Enums"]["media_asset_kind"]
-          metadata: Json
-          mime_type: string | null
-          page_slug: string
-          sort_order: number
-          source_url: string | null
-          storage_bucket: string
-          storage_path: string
-          subsection_slug: string
-          updated_at: string
-        }
-        Insert: {
-          alt_text?: string | null
-          asset_name: string
-          caption?: string | null
-          created_at?: string
-          id?: string
-          is_active?: boolean
-          kind: Database["public"]["Enums"]["media_asset_kind"]
-          metadata?: Json
-          mime_type?: string | null
-          page_slug: string
-          sort_order?: number
-          source_url?: string | null
-          storage_bucket?: string
-          storage_path: string
-          subsection_slug: string
-          updated_at?: string
-        }
-        Update: {
-          alt_text?: string | null
-          asset_name?: string
-          caption?: string | null
-          created_at?: string
-          id?: string
-          is_active?: boolean
-          kind?: Database["public"]["Enums"]["media_asset_kind"]
-          metadata?: Json
-          mime_type?: string | null
-          page_slug?: string
-          sort_order?: number
-          source_url?: string | null
-          storage_bucket?: string
-          storage_path?: string
-          subsection_slug?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
@@ -127,6 +305,7 @@ export type Database = {
         }
         Returns: string
       }
+      is_admin: { Args: never; Returns: boolean }
       upsert_media_asset: {
         Args: {
           p_alt_text?: string
@@ -151,6 +330,7 @@ export type Database = {
           kind: Database["public"]["Enums"]["media_asset_kind"]
           metadata: Json
           mime_type: string | null
+          page_id: string | null
           page_slug: string
           sort_order: number
           source_url: string | null
@@ -161,7 +341,7 @@ export type Database = {
         }
         SetofOptions: {
           from: "*"
-          to: "media_assets"
+          to: "cms_media"
           isOneToOne: true
           isSetofReturn: false
         }
