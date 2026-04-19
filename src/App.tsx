@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CdnFallbackPopup } from './components/CdnFallbackPopup'
 import { GeminiAssistantWidget } from './components/GeminiAssistantWidget'
@@ -12,15 +12,11 @@ import { useCdnFallbackPopup, triggerCdnFallbackNotification } from './hooks/use
 import { useMarketingContactPopup } from './hooks/useMarketingContactPopup'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import {
-  normalizeHomeMediaConfig,
-  persistHomeMediaConfig,
   readStoredHomeMediaConfig,
   type HomeMediaConfig,
 } from './lib/homeMedia'
 import {
-  DEFAULT_MARKETING_TICKER_TEXT,
   fetchTickerTextFromSupabase,
-  normalizeTickerText,
   persistTickerText,
   readStoredTickerText,
 } from './lib/marketingTicker'
@@ -46,13 +42,7 @@ function App() {
     enabled: location.pathname !== '/contact-us' && location.pathname !== '/admin',
   })
   const [tickerText, setTickerText] = useState(() => readStoredTickerText())
-  const [homeMedia, setHomeMedia] = useState(() => readStoredHomeMediaConfig())
-
-  const saveTickerText = useCallback((value: string) => {
-    const normalized = normalizeTickerText(value) || DEFAULT_MARKETING_TICKER_TEXT
-    setTickerText(normalized)
-    persistTickerText(normalized)
-  }, [])
+  const [homeMedia] = useState<HomeMediaConfig>(() => readStoredHomeMediaConfig())
 
   // Load ticker from Supabase on boot (DB is source of truth; localStorage is cached fallback)
   useEffect(() => {
@@ -62,12 +52,6 @@ function App() {
         persistTickerText(value)
       }
     })
-  }, [])
-
-  const saveHomeMedia = useCallback((config: HomeMediaConfig) => {
-    const normalized = normalizeHomeMediaConfig(config)
-    setHomeMedia(normalized)
-    persistHomeMediaConfig(normalized)
   }, [])
 
   useScrollReveal(location.pathname)
