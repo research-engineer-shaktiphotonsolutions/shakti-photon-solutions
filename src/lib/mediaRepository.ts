@@ -17,7 +17,7 @@ export async function fetchMediaAssets(filters: MediaFetchFilters): Promise<Medi
   }
 
   let query = supabase
-    .from('media_assets')
+    .from('cms_media')
     .select('*')
     .eq('is_active', true)
     .eq('page_slug', filters.page)

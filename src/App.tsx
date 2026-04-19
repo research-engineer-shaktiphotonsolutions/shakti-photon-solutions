@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { CdnFallbackPopup } from './components/CdnFallbackPopup'
 import { GeminiAssistantWidget } from './components/GeminiAssistantWidget'
@@ -12,20 +12,17 @@ import { useCdnFallbackPopup, triggerCdnFallbackNotification } from './hooks/use
 import { useMarketingContactPopup } from './hooks/useMarketingContactPopup'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import {
-  normalizeHomeMediaConfig,
-  persistHomeMediaConfig,
   readStoredHomeMediaConfig,
   type HomeMediaConfig,
 } from './lib/homeMedia'
 import {
-  DEFAULT_MARKETING_TICKER_TEXT,
-  normalizeTickerText,
+  fetchTickerTextFromSupabase,
   persistTickerText,
   readStoredTickerText,
 } from './lib/marketingTicker'
 import { isSupabaseConfigured } from './lib/supabaseClient'
 import { AdminAuth } from './components/AdminAuth'
-import { AdminPage } from './pages/AdminPage'
+import { AdminShell } from './pages/admin/AdminShell'
 import { ContactPage } from './pages/ContactPage'
 import { CustomersPage } from './pages/CustomersPage'
 import { ElectrolyzersPage } from './pages/ElectrolyzersPage'
@@ -45,18 +42,16 @@ function App() {
     enabled: location.pathname !== '/contact-us' && location.pathname !== '/admin',
   })
   const [tickerText, setTickerText] = useState(() => readStoredTickerText())
-  const [homeMedia, setHomeMedia] = useState(() => readStoredHomeMediaConfig())
+  const [homeMedia] = useState<HomeMediaConfig>(() => readStoredHomeMediaConfig())
 
-  const saveTickerText = useCallback((value: string) => {
-    const normalized = normalizeTickerText(value) || DEFAULT_MARKETING_TICKER_TEXT
-    setTickerText(normalized)
-    persistTickerText(normalized)
-  }, [])
-
-  const saveHomeMedia = useCallback((config: HomeMediaConfig) => {
-    const normalized = normalizeHomeMediaConfig(config)
-    setHomeMedia(normalized)
-    persistHomeMediaConfig(normalized)
+  // Load ticker from Supabase on boot (DB is source of truth; localStorage is cached fallback)
+  useEffect(() => {
+    void fetchTickerTextFromSupabase().then((value) => {
+      if (value) {
+        setTickerText(value)
+        persistTickerText(value)
+      }
+    })
   }, [])
 
   useScrollReveal(location.pathname)
@@ -109,12 +104,7 @@ function App() {
           path="/admin"
           element={(
             <AdminAuth>
-              <AdminPage
-                tickerText={tickerText}
-                onSaveTickerText={saveTickerText}
-                homeMedia={homeMedia}
-                onSaveHomeMedia={saveHomeMedia}
-              />
+              <AdminShell />
             </AdminAuth>
           )}
         />

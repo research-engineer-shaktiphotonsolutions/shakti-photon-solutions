@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { isEmailAllowed } from '../lib/cmsApi'
 import type { User } from '@supabase/supabase-js'
-
-const AUTHORIZED_EMAILS = [
-  'info@shaktiphotonsolutions.com',
-  'sahgya9@gmail.com',
-  'gs.engineer.rdshaktiphoton@gmail.com',
-]
 
 type AdminAuthProps = {
   children: React.ReactNode
@@ -30,27 +25,29 @@ export function AdminAuth({ children }: AdminAuthProps) {
       return
     }
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      const currentUser = session?.user ?? null
-      if (currentUser && !AUTHORIZED_EMAILS.includes((currentUser.email ?? '').toLowerCase())) {
-        supabase!.auth.signOut()
+    async function verifyAndSet(currentUser: User | null) {
+      if (!currentUser) {
+        setUser(null)
+        setLoading(false)
+        return
+      }
+      const allowed = await isEmailAllowed(currentUser.email ?? '')
+      if (!allowed) {
+        await supabase!.auth.signOut()
         setUser(null)
         setErrorMsg('This email is not authorized for admin access.')
       } else {
         setUser(currentUser)
       }
       setLoading(false)
+    }
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      void verifyAndSet(session?.user ?? null)
     })
 
     supabase.auth.getSession().then(({ data: { session } }) => {
-      const currentUser = session?.user ?? null
-      if (currentUser && !AUTHORIZED_EMAILS.includes((currentUser.email ?? '').toLowerCase())) {
-        supabase!.auth.signOut()
-        setUser(null)
-      } else {
-        setUser(currentUser)
-      }
-      setLoading(false)
+      void verifyAndSet(session?.user ?? null)
     })
 
     return () => subscription.unsubscribe()
@@ -63,7 +60,8 @@ export function AdminAuth({ children }: AdminAuthProps) {
     setInfoMsg('')
 
     const normalized = email.trim().toLowerCase()
-    if (!AUTHORIZED_EMAILS.includes(normalized)) {
+    const allowed = await isEmailAllowed(normalized)
+    if (!allowed) {
       setErrorMsg('This email is not authorized for admin access.')
       return
     }
