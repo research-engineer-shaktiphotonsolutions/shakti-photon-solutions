@@ -306,6 +306,7 @@ export type Database = {
         Returns: string
       }
       is_admin: { Args: never; Returns: boolean }
+      is_email_allowed: { Args: { p_email: string }; Returns: boolean }
       upsert_media_asset: {
         Args: {
           p_alt_text?: string
