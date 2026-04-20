@@ -291,6 +291,45 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          bio: string | null
+          category: Database["public"]["Enums"]["team_member_category"]
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          photo_url: string | null
+          role: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          bio?: string | null
+          category?: Database["public"]["Enums"]["team_member_category"]
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          photo_url?: string | null
+          role: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          bio?: string | null
+          category?: Database["public"]["Enums"]["team_member_category"]
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          photo_url?: string | null
+          role?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -350,6 +389,7 @@ export type Database = {
     }
     Enums: {
       media_asset_kind: "image" | "video" | "gif"
+      team_member_category: "founder" | "core" | "advisor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -478,6 +518,7 @@ export const Constants = {
   public: {
     Enums: {
       media_asset_kind: ["image", "video", "gif"],
+      team_member_category: ["founder", "core", "advisor"],
     },
   },
 } as const

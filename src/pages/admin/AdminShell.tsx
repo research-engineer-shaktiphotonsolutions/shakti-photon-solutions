@@ -5,6 +5,7 @@ import { AdminSettingsEditor } from './AdminSettingsEditor'
 import { AdminAllowlistEditor } from './AdminAllowlistEditor'
 import { AdminLeadsPanel } from '../../components/AdminLeadsPanel'
 import { AdminMediaLibrary } from './AdminMediaLibrary'
+import { AdminTeamEditor } from './AdminTeamEditor'
 
 type Tab =
   | { kind: 'page'; pageSlug: string }
@@ -113,7 +114,10 @@ export function AdminShell() {
       <main className="admin-main">
         {error && <p className="admin-status error">{error}</p>}
 
-        {tab.kind === 'page' && activePage && <AdminPagesEditor page={activePage} />}
+        {tab.kind === 'page' && activePage && activePage.slug === 'team' && <AdminTeamEditor />}
+        {tab.kind === 'page' && activePage && activePage.slug !== 'team' && (
+          <AdminPagesEditor page={activePage} />
+        )}
         {tab.kind === 'ticker' && <AdminSettingsEditor />}
         {tab.kind === 'media' && <AdminMediaLibrary />}
         {tab.kind === 'leads' && (
