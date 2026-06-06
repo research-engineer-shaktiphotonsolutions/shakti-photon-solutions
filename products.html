@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PEM Electrolyzer, Fuel Cell & Hydrogen Generator Products | Shakti Photon Solutions</title>
+  <meta name="description"
+    content="Buy PEM, AEM & Alkaline electrolyzers (0.01kW–100kW), fuel cell systems (1W–400kW), CO₂ reduction systems, and R&D research workstations. India-made, IIT-tested. Get a custom quote.">
+  <meta name="keywords"
+    content="PEM electrolyzer buy India, AEM electrolyzer manufacturer, alkaline electrolyzer India, hydrogen generator on-site, fuel cell system India, CO2 reduction electrolyzer, hydrogen R&D platform, MEA manufacturer India">
+  <link rel="canonical" href="https://www.shaktiphotonsolutions.com/products">
+  <link rel="icon" type="image/png" href="public/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Products Hero */
+    .products-page-hero {
+      background: linear-gradient(155deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: calc(var(--nav-h) + 56px) 0 72px;
+      text-align: center;
+    }
+
+    .products-page-hero h1 {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .products-page-hero p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-nav-pills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-nav-pill {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--r-full);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all var(--ease-s);
+    }
+
+    .hero-nav-pill:hover {
+      background: rgba(0, 180, 216, 0.2);
+      border-color: rgba(0, 180, 216, 0.4);
+      color: var(--white);
+    }
+
+    /* Product Detail Layout */
+    .product-section {
+      padding: 80px 0;
+    }
+
+    .product-section:nth-child(even) {
+      background: var(--bg-alt);
+    }
+
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .product-detail-grid.flip {
+      direction: rtl;
+    }
+
+    .product-detail-grid.flip>* {
+      direction: ltr;
+    }
+
+    .product-images {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-main-image {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-main-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .product-thumb-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .product-thumb {
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color var(--ease-s);
+    }
+
+    .product-thumb:hover {
+      border-color: var(--cyan);
+    }
+
+    .product-thumb img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .product-content .section-tag {
+      margin-bottom: 10px;
+    }
+
+    .product-content h2 {
+      margin-bottom: 14px;
+    }
+
+    .product-content>p {
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .spec-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+    }
+
+    .spec-box-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .spec-box-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .feature-item-icon {
+      color: var(--cyan);
+      font-size: 1rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .product-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Applications row */
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 56px;
+    }
+
+    .app-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 16px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--navy);
+      font-weight: 500;
+      transition: all var(--ease);
+    }
+
+    .app-card:hover {
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .app-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    /* MEA section banner */
+    .mea-banner {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      border-radius: var(--r-xl);
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin: 64px 0 0;
+    }
+
+    .mea-banner-text .section-tag {
+      margin-bottom: 12px;
+    }
+
+    .mea-banner-text h2 {
+      color: var(--white);
+      margin-bottom: 14px;
+      font-size: 1.8rem;
+    }
+
+    .mea-banner-text p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+    }
+
+    .mea-banner-image {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .mea-banner-image img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .product-detail-grid.flip {
+        direction: ltr;
+      }
+
+      .applications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mea-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .spec-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .applications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-thumb-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mea-banner {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+
+  <!-- Schema.org for Products -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Shakti Photon Solutions — Hydrogen Energy Products",
+    "description": "PEM, AEM, Alkaline electrolyzers, Fuel Cells, CO2 Reduction Systems, and R&D Platforms",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "PEM Hydrogen Electrolyzer", "url": "https://www.shaktiphotonsolutions.com/products#electrolyzers" },
+      { "@type": "ListItem", "position": 2, "name": "PEM Fuel Cell System", "url": "https://www.shaktiphotonsolutions.com/products#fuelcells" },
+      { "@type": "ListItem", "position": 3, "name": "R&D Research Workstation", "url": "https://www.shaktiphotonsolutions.com/products#rd-platforms" },
+      { "@type": "ListItem", "position": 4, "name": "CO2 Reduction Electrolyzer", "url": "https://www.shaktiphotonsolutions.com/products#co2" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
+        <div class="nav-logo-icon">
+          <img src="public/assets/images/shared/Icon.PNG" alt="" width="32" height="32" aria-hidden="true">
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Shakti Photon Solutions</span>
+          <span class="nav-logo-sub">Private Limited</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="products.html" class="nav-link active">Products</a>
+        <a href="equipment-as-a-service.html" class="nav-link">Equipment as a Service</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="contact.html" class="nav-cta">Get a Quote →</a>
+      <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="products.html" class="nav-mobile-link">Products</a>
+    <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
+    <a href="about.html" class="nav-mobile-link">About Us</a>
+    <a href="contact.html" class="nav-mobile-link">Contact</a>
+    <a href="contact.html" class="nav-mobile-cta">Get a Quote →</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="products-page-hero" aria-label="Products page header">
+      <div class="container">
+        <span class="section-tag section-tag--white">Our Products</span>
+        <h1>Hydrogen Technology Products</h1>
+        <p>From milliwatt-scale R&amp;D cells to 100 kW industrial generators — every system built and tested in-house
+          by our team of scientists.</p>
+        <div class="hero-nav-pills" role="list" aria-label="Jump to product section">
+          <a href="#electrolyzers" class="hero-nav-pill">⚗️ Electrolyzers</a>
+          <a href="#fuelcells" class="hero-nav-pill">⚡ Fuel Cells</a>
+          <a href="#rd-platforms" class="hero-nav-pill">🔬 R&amp;D Platforms</a>
+          <a href="#co2" class="hero-nav-pill">🌿 CO₂ Reduction</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ████ 1. ELECTROLYZERS ████ -->
+    <section class="product-section" id="electrolyzers" aria-labelledby="elec-heading">
+      <div class="container">
+        <div class="product-detail-grid">
+
+          <!-- Images -->
+          <div class="product-images reveal">
+            <div class="product-main-image">
+              <img
+                src="public/assets/images/electrolyzers/0aa2fb_fad5ab636a5e4fd88c2eb991bf6bdb8d_mv2.png-0aa2fb_fad5ab636a5e4fd88c2eb991bf6bdb8d_mv2.png"
+                alt="PEM Hydrogen Electrolyzer range from 100cm² to 1600cm² MEA area" loading="lazy">
+            </div>
+            <div class="product-thumb-row">
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/electrolyzers/0aa2fb_3359824f31c04f54bcbf9d1485cd63b5_mv2.png-7_stack_top.png"
+                  alt="7-cell electrolyzer stack top view" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/electrolyzers/0aa2fb_005531545ac04fe6b57d79e72c52acb9_mv2.jpg-Student_Demo_Unit_green_hydrogen.jpg"
+                  alt="Student demonstration unit green hydrogen generator" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/electrolyzers/0aa2fb_fb7ecd8f9a764edfbca5460179f8c3d6_mv2.png-0aa2fb_fb7ecd8f9a764edfbca5460179f8c3d6_mv2.png"
+                  alt="Hydrogen microgrid system" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="product-content reveal reveal-delay-2">
+            <span class="section-tag">Electrolyzers</span>
+            <h2 id="elec-heading">On-Site Hydrogen Generators</h2>
+            <p>PEM (Proton Exchange Membrane), AEM (Anion Exchange Membrane), and Alkaline electrolyzers — all designed
+              and manufactured in India. Eliminate your dependency on hydrogen cylinders with safe, on-demand on-site
+              generation.</p>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">Capacity Range</div>
+                <div class="spec-box-value">0.01 – 100 kW</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Hydrogen Purity (PEM)</div>
+                <div class="spec-box-value">99.999%</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">MEA Area</div>
+                <div class="spec-box-value">100 – 1,600 cm²</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Stack Pressure</div>
+                <div class="spec-box-value">Up to 30 bar</div>
+              </div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item"><span class="feature-item-icon">✓</span> PEM, AEM, and Alkaline configurations
+                available</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Student demo units (100 cm²) to
+                industrial stacks (1,600 cm²)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> IoT-enabled real-time monitoring via
+                mobile app</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> In-house MEA fabrication — no
+                third-party dependency</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom flow field plate design for each
+                application</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> 24/7 technical support and remote
+                diagnostics</div>
+            </div>
+
+            <div class="product-ctas">
+              <a href="contact.html?service=pem-electrolyzer" class="btn btn--navy btn--lg">
+                Get a Quote <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20PEM%20Electrolyzer.%20Please%20share%20more%20details."
+                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="reveal" style="margin-top:56px;">
+          <h3 style="text-align:center; margin-bottom:24px; color:var(--navy);">Applications</h3>
+          <div class="applications-grid">
+            <div class="app-card">
+              <div class="app-card-icon">💊</div>Pharma &amp; Lab Grade H₂
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">💎</div>Jewelry &amp; Metal Refining
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">⚡</div>Green Energy Storage
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🎓</div>University Research
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ████ 2. FUEL CELLS ████ -->
+    <section class="product-section" id="fuelcells" aria-labelledby="fc-heading">
+      <div class="container">
+        <div class="product-detail-grid flip">
+
+          <!-- Images -->
+          <div class="product-images reveal">
+            <div class="product-main-image">
+              <img
+                src="public/assets/images/fuelcells/0aa2fb_7d15fdf97f8b440480a3fba3870c8d21_mv2.png-0aa2fb_7d15fdf97f8b440480a3fba3870c8d21_mv2.png"
+                alt="Large PEM fuel cell stack for industrial and transport power generation" loading="lazy">
+            </div>
+            <div class="product-thumb-row">
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/fuelcells/0aa2fb_11f90aee02cf470497f7dee792c442f9_mv2.png-0aa2fb_11f90aee02cf470497f7dee792c442f9_mv2.png"
+                  alt="PEM fuel cell with tie rods assembly" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/fuelcells/0aa2fb_1e1144e75db7418f8e0cc4bd8028e655_mv2.png-0aa2fb_1e1144e75db7418f8e0cc4bd8028e655_mv2.png"
+                  alt="Exploded bipolar plate view" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/fuelcells/0aa2fb_a61697316aa949029116ac3d9a5200ab_mv2.png-0aa2fb_a61697316aa949029116ac3d9a5200ab_mv2.png"
+                  alt="High power fuel cell module" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="product-content reveal reveal-delay-2">
+            <span class="section-tag">Fuel Cells</span>
+            <h2 id="fc-heading">PEM Fuel Cell Systems</h2>
+            <p>Convert green hydrogen directly into electricity with our customised PEM fuel cells. From single-watt
+              bench-top research cells to multi-hundred-kilowatt commercial power systems — scalable for any
+              application.</p>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">Power Output</div>
+                <div class="spec-box-value">1 W – 400 kW</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Fuel</div>
+                <div class="spec-box-value">Pure H₂ / Reformate</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Operating Temp.</div>
+                <div class="spec-box-value">60 – 80 °C (PEM)</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Efficiency</div>
+                <div class="spec-box-value">&gt; 55% electrical</div>
+              </div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Drones and light UAV applications (1 W
+                – 5 kW)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Residential and commercial backup power
+                (5 – 100 kW)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Heavy transport: buses, trucks,
+                locomotives (100 – 400 kW)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom bipolar plate design (machined,
+                stamped, 3D printed)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Full BOP (Balance of Plant) integration
+              </div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Durability testing and MEA optimization
+                in-house</div>
+            </div>
+
+            <div class="product-ctas">
+              <a href="contact.html?service=fuel-cell" class="btn btn--navy btn--lg">
+                Get a Quote <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20Fuel%20Cell%20Systems."
+                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="reveal" style="margin-top:56px;">
+          <h3 style="text-align:center; margin-bottom:24px; color:var(--navy);">Applications</h3>
+          <div class="applications-grid">
+            <div class="app-card">
+              <div class="app-card-icon">🛸</div>Drones &amp; UAVs
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🚌</div>Electric Buses
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🏗️</div>Backup Power
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🚢</div>Marine &amp; Rail
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ████ 3. R&D PLATFORMS ████ -->
+    <section class="product-section" id="rd-platforms" aria-labelledby="rd-heading">
+      <div class="container">
+        <div class="product-detail-grid">
+
+          <!-- Images -->
+          <div class="product-images reveal">
+            <div class="product-main-image">
+              <img
+                src="public/assets/images/rd/0aa2fb_884da947d81f4922a3eb0aa53af9b33a_mv2.jpg-RF_Sputter_candid_.jpg"
+                alt="Researcher at RF magnetron sputtering system in Shakti Photon Solutions laboratory" loading="lazy">
+            </div>
+            <div class="product-thumb-row">
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/rd/0aa2fb_7bbf7348ae3643f5a317db3dba74d346_mv2.png-Au_Deposition_on_Anode_GDE_1.png"
+                  alt="Gold deposition on anode GDE samples" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/rd/0aa2fb_d4cf044143f849f28edabce4fe15ef85_mv2.png-MEA_Recycling_1.png"
+                  alt="MEA recycling process showing recovered catalyst" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/fuelcells/0aa2fb_04af92351993425598659bbaacbc5c96_mv2.jpg-0aa2fb_04af92351993425598659bbaacbc5c96_mv2.jpg"
+                  alt="R&D test setup for fuel cell characterization" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="product-content reveal reveal-delay-2">
+            <span class="section-tag">R&amp;D Platforms</span>
+            <h2 id="rd-heading">Research Workstations</h2>
+            <p>Custom-built research and development platforms for academic labs and industrial R&amp;D teams.
+              Accelerate catalyst discovery, membrane development, and electrochemical characterization with
+              purpose-built equipment.</p>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">Cell Area</div>
+                <div class="spec-box-value">1 – 400 cm²</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Temperature Range</div>
+                <div class="spec-box-value">RT to 200 °C</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Current Range</div>
+                <div class="spec-box-value">Up to 200 A</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Interfaces</div>
+                <div class="spec-box-value">USB, RS-232, GPIB</div>
+              </div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Catalyst Discovery Platform —
+                high-throughput screening</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Photo-Electro-Chemical (PEC) R&amp;D
+                system with light sources</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> GDE-based electrolyzer and fuel cell
+                test rigs</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> H-cell configuration for new catalyst
+                screening</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Full data acquisition with EIS, CV, and
+                polarization curves</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom software integration for
+                automated testing protocols</div>
+            </div>
+
+            <div class="product-ctas">
+              <a href="contact.html?service=rd-platform" class="btn btn--navy btn--lg">
+                Get a Quote <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20R%26D%20Platform."
+                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="reveal" style="margin-top:56px;">
+          <h3 style="text-align:center; margin-bottom:24px; color:var(--navy);">Who Uses R&amp;D Platforms</h3>
+          <div class="applications-grid">
+            <div class="app-card">
+              <div class="app-card-icon">🏛️</div>IITs &amp; NITs
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🔬</div>CSIR Labs
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">🏭</div>Chemical Industry
+            </div>
+            <div class="app-card">
+              <div class="app-card-icon">⚗️</div>Catalyst Developers
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ████ 4. CO2 REDUCTION ████ -->
+    <section class="product-section" id="co2" aria-labelledby="co2-heading">
+      <div class="container">
+        <div class="product-detail-grid flip">
+
+          <div class="product-images reveal">
+            <div class="product-main-image">
+              <img
+                src="public/assets/images/rd/0aa2fb_7bbf7348ae3643f5a317db3dba74d346_mv2.png-Au_Deposition_on_Anode_GDE_1.png"
+                alt="Gold catalyst deposited on Gas Diffusion Electrode for CO2 reduction" loading="lazy">
+            </div>
+            <div class="product-thumb-row">
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/rd/0aa2fb_d4cf044143f849f28edabce4fe15ef85_mv2.png-MEA_Recycling_1.png"
+                  alt="MEA sample preparation for CO2 electrolyzer" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="product-content reveal reveal-delay-2">
+            <span class="section-tag">CO₂ Reduction</span>
+            <h2 id="co2-heading">CO₂ Reduction Electrolyzers</h2>
+            <p>Electrochemical CO₂ reduction systems that convert waste carbon dioxide into valuable chemicals and
+              fuels. Combine with green hydrogen production to create a closed-loop sustainable energy cycle.</p>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">Input</div>
+                <div class="spec-box-value">CO₂ + H₂O</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Products</div>
+                <div class="spec-box-value">CO, HCOOH, C₂H₄</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Catalyst</div>
+                <div class="spec-box-value">Au, Ag, Cu, Bi GDE</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Faradaic Eff.</div>
+                <div class="spec-box-value">&gt; 90% (CO)</div>
+              </div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → CO (Gold catalyst, &gt;90%
+                Faradaic efficiency)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Formic Acid (HCOOH) for hydrogen
+                carriers</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Ethylene (C₂H₄) for chemical
+                feedstocks</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> MEA-based flow cell or H-cell
+                configurations</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom GDE preparation with RF
+                sputtering in-house</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Scalable from research to pilot plant
+              </div>
+            </div>
+
+            <div class="product-ctas">
+              <a href="contact.html?service=co2-reduction" class="btn btn--navy btn--lg">
+                Get a Quote <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20CO2%20Reduction%20Electrolyzer."
+                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ████ MEA MANUFACTURING BANNER ████ -->
+    <section class="section section--alt" aria-label="MEA Manufacturing capability">
+      <div class="container">
+        <div class="mea-banner reveal">
+          <div class="mea-banner-text">
+            <span class="section-tag section-tag--white">In-House Capability</span>
+            <h2>MEA Manufacturing &amp; Recycling</h2>
+            <p style="color:rgba(255,255,255,0.72);">We manufacture Membrane Electrode Assemblies (MEAs) in-house using
+              our RF sputtering, ultrasonic spray, and hot press equipment. We also recover precious metals (Pt, Ir, Au)
+              from spent MEAs through our documented recycling process — verified by XRD analysis.</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+              <a href="equipment-as-a-service.html" class="btn btn--gold">Equipment as a Service →</a>
+              <a href="contact.html?service=mea-recycling" class="btn btn--outline-white">MEA Recycling Enquiry →</a>
+            </div>
+          </div>
+          <div class="mea-banner-image">
+            <img src="public/assets/images/rd/0aa2fb_d4cf044143f849f28edabce4fe15ef85_mv2.png-MEA_Recycling_1.png"
+              alt="MEA recycling process with precious metal recovery" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT STRIP -->
+    <section class="contact-strip" aria-labelledby="prod-cta-heading">
+      <div class="container">
+        <div class="contact-strip-inner">
+          <div class="contact-strip-text">
+            <h2 id="prod-cta-heading">Need a Custom Configuration?</h2>
+            <p>Every installation is unique. Tell us your exact requirements — our scientists will design a solution
+              tailored to your application and budget.</p>
+          </div>
+          <div class="contact-strip-actions">
+            <a href="https://wa.me/917382025117?text=Hi%2C%20I%20need%20a%20custom%20hydrogen%20system.%20Please%20help."
+              class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp Us</a>
+            <a href="contact.html" class="btn btn--gold">Get a Quote →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img
+              src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png"
+              alt="Shakti Photon Solutions" height="46" loading="lazy">
+          </div>
+          <p>India's green hydrogen technology company. On-site hydrogen generators, fuel cells, and R&amp;D platforms.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/"
+              class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+            <a href="https://wa.me/917382025117" class="footer-social-btn" target="_blank" rel="noreferrer"
+              aria-label="WhatsApp">💬</a>
+            <a href="mailto:info@shaktiphotonsolutions.com" class="footer-social-btn" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Products</h5>
+          <nav class="footer-links">
+            <a href="#electrolyzers" class="footer-link">PEM Electrolyzers</a>
+            <a href="#electrolyzers" class="footer-link">AEM Electrolyzers</a>
+            <a href="#electrolyzers" class="footer-link">Alkaline Electrolyzers</a>
+            <a href="#fuelcells" class="footer-link">Fuel Cell Systems</a>
+            <a href="#rd-platforms" class="footer-link">R&amp;D Platforms</a>
+            <a href="#co2" class="footer-link">CO₂ Reduction</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <nav class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="equipment-as-a-service.html" class="footer-link">Equipment as a Service</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h5>Our Offices</h5>
+          <div class="footer-offices">
+            <address class="footer-office"><strong>Chennai (HQ)</strong>IIT Madras Research Park,<br>Chennai, Tamil Nadu
+              — 600 113</address>
+            <address class="footer-office"><strong>Guntur, AP</strong>SRM AP University, Guntur — 522 502</address>
+            <address class="footer-office"><strong>Mohali, Punjab</strong>Industrial Phase-7, Mohali — 160 055</address>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
+          <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

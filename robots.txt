@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# XML Sitemap
+Sitemap: https://www.shaktiphotonsolutions.com/sitemap.xml
+
+# Crawl delay (be respectful)
+Crawl-delay: 1

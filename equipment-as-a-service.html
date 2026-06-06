@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Equipment as a Service — RF Sputtering, Hot Press, MEA Fabrication | Shakti Photon Solutions</title>
+  <meta name="description" content="Access world-class hydrogen research equipment — RF Magnetron Sputtering, Ultrasonic Spray Nozzle, Hot Press, 3D Printing — without buying the machines. Ideal for PhD researchers, startups, and small-batch manufacturers.">
+  <meta name="keywords" content="RF sputtering service India, ultrasonic spray coating service, MEA fabrication service India, hot press electrode India, hydrogen research equipment rental">
+  <link rel="canonical" href="https://www.shaktiphotonsolutions.com/equipment-as-a-service">
+  <link rel="icon" type="image/png" href="public/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Hero */
+    .eas-page-hero {
+      background: linear-gradient(155deg, var(--navy-dark) 0%, #0D1B4B 100%);
+      padding: calc(var(--nav-h) + 64px) 0 80px;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .eas-page-hero::before {
+      content: '';
+      position: absolute;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(255,183,3,0.07) 0%, transparent 65%);
+      bottom: -400px; left: 50%; transform: translateX(-50%);
+    }
+    .eas-page-hero h1 { color: var(--white); margin-bottom: 16px; position: relative; }
+    .eas-page-hero > .container > p { color: rgba(255,255,255,0.72); font-size: 1.05rem; max-width: 580px; margin: 0 auto 36px; position: relative; }
+
+    /* Value Props */
+    .value-props {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .value-prop {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--r-md);
+      padding: 10px 18px;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .value-prop span { color: var(--gold); font-weight: 700; }
+
+    /* Full Equipment Cards */
+    .equipment-section { padding: 90px 0; }
+    .equipment-section:nth-child(even) { background: var(--bg-alt); }
+
+    .equip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .equip-grid.flip { direction: rtl; }
+    .equip-grid.flip > * { direction: ltr; }
+
+    .equip-gallery { display: flex; flex-direction: column; gap: 12px; }
+    .equip-main-img {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .equip-main-img img { width: 100%; height: 360px; object-fit: cover; }
+
+    .equip-icon-hero {
+      height: 360px;
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      border-radius: var(--r-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      gap: 16px;
+    }
+    .equip-icon-hero span { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .equip-content { padding-top: 8px; }
+    .equip-number { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 8px; }
+    .equip-content h2 { margin-bottom: 16px; }
+    .equip-content > p { font-size: 0.95rem; margin-bottom: 28px; }
+
+    .equip-specs {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .equip-specs-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 14px; }
+    .equip-spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.85rem;
+    }
+    .equip-spec-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .equip-spec-key { color: var(--text-muted); }
+    .equip-spec-val { font-weight: 600; color: var(--navy); }
+
+    .equip-use-cases { margin-bottom: 28px; }
+    .equip-use-cases-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 14px; }
+    .use-case-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .use-case-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(0,180,216,0.08);
+      border: 1px solid rgba(0,180,216,0.25);
+      color: var(--royal);
+      padding: 5px 12px;
+      border-radius: var(--r-full);
+    }
+
+    /* Who It's For */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .who-card {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      transition: all var(--ease);
+    }
+    .who-card:hover { border-color: var(--gold); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .who-icon { font-size: 2rem; margin-bottom: 12px; }
+    .who-card h5 { color: var(--navy); margin-bottom: 8px; font-size: 0.9rem; }
+    .who-card p  { font-size: 0.78rem; line-height: 1.6; }
+
+    /* How It Works */
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .hiw-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      background: var(--border);
+    }
+    .hiw-step {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .hiw-num {
+      width: 60px; height: 60px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 6px var(--white), 0 0 0 8px var(--border);
+    }
+    .hiw-step h5 { color: var(--navy); margin-bottom: 8px; }
+    .hiw-step p  { font-size: 0.82rem; }
+
+    @media (max-width: 900px) {
+      .equip-grid { grid-template-columns: 1fr; gap: 36px; }
+      .equip-grid.flip { direction: ltr; }
+      .who-grid  { grid-template-columns: repeat(2, 1fr); }
+      .hiw-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .hiw-steps::before { display: none; }
+    }
+    @media (max-width: 600px) {
+      .who-grid  { grid-template-columns: 1fr 1fr; }
+      .hiw-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
+      <div class="nav-logo-icon">
+        <img src="public/assets/images/shared/Icon.PNG" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Shakti Photon Solutions</span>
+        <span class="nav-logo-sub">Private Limited</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="products.html"               class="nav-link">Products</a>
+      <a href="equipment-as-a-service.html" class="nav-link active">Equipment as a Service</a>
+      <a href="about.html"                  class="nav-link">About Us</a>
+      <a href="contact.html"                class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get a Quote →</a>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobile-menu">
+  <a href="products.html"               class="nav-mobile-link">Products</a>
+  <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
+  <a href="about.html"                  class="nav-mobile-link">About Us</a>
+  <a href="contact.html"                class="nav-mobile-link">Contact</a>
+  <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="eas-page-hero" aria-label="Equipment as a Service page">
+    <div class="container">
+      <span class="section-tag section-tag--gold">Equipment as a Service</span>
+      <h1>World-Class Hydrogen Lab<br>Equipment — Per Session</h1>
+      <p>Access precision research instruments worth ₹50L–₹2Cr without owning them. Perfect for PhD researchers, startups, and small-batch MEA manufacturers.</p>
+      <div class="value-props">
+        <div class="value-prop">No CAPEX. <span>Pay per session</span></div>
+        <div class="value-prop">Expert guidance <span>included</span></div>
+        <div class="value-prop"><span>24/7</span> support team</div>
+        <div class="value-prop">IIT Madras Research Park — <span>Chennai</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section class="section" aria-labelledby="hiw-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simple Process</span>
+        <h2 id="hiw-heading">How It Works</h2>
+        <p>Getting access to our equipment is designed to be as friction-free as possible.</p>
+      </div>
+      <div class="hiw-steps reveal">
+        <div class="hiw-step">
+          <div class="hiw-num">1</div>
+          <h5>Contact Us</h5>
+          <p>WhatsApp or email us with your requirements, material, and desired output</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-num">2</div>
+          <h5>Confirm Requirements</h5>
+          <p>Our team reviews your specs and confirms equipment availability and feasibility</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-num">3</div>
+          <h5>Schedule Session</h5>
+          <p>Book a time slot at our Chennai lab or coordinate a remote sample submission</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-num">4</div>
+          <h5>Receive Results</h5>
+          <p>Collect coated electrodes, MEAs, prototypes, or shipping of processed samples</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHO IT'S FOR -->
+  <section class="section section--alt" aria-labelledby="who-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ideal Customers</span>
+        <h2 id="who-heading">Who Uses This Service?</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-card reveal reveal-delay-1">
+          <div class="who-icon">🎓</div>
+          <h5>PhD Researchers</h5>
+          <p>Access equipment not available at your institution — fabricate MEAs and GDEs for your thesis</p>
+        </div>
+        <div class="who-card reveal reveal-delay-2">
+          <div class="who-icon">🚀</div>
+          <h5>Deep Tech Startups</h5>
+          <p>Validate your catalyst or electrode concept without spending crores on equipment</p>
+        </div>
+        <div class="who-card reveal reveal-delay-3">
+          <div class="who-icon">🏭</div>
+          <h5>Small Manufacturers</h5>
+          <p>Prototype and small-batch production of electrodes and MEAs for your products</p>
+        </div>
+        <div class="who-card reveal reveal-delay-4">
+          <div class="who-icon">🔬</div>
+          <h5>Industry R&amp;D Labs</h5>
+          <p>Supplement your internal R&amp;D capacity with specialized hydrogen fabrication tools</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EQUIPMENT 1: RF SPUTTERING -->
+  <section class="equipment-section" id="sputtering" aria-labelledby="sputter-heading">
+    <div class="container">
+      <div class="equip-grid">
+
+        <div class="equip-gallery reveal">
+          <div class="equip-main-img">
+            <img
+              src="public/assets/images/rd/0aa2fb_884da947d81f4922a3eb0aa53af9b33a_mv2.jpg-RF_Sputter_candid_.jpg"
+              alt="RF Magnetron Sputtering system at Shakti Photon Solutions lab"
+              loading="lazy"
+            >
+          </div>
+          <div class="equip-main-img" style="margin-top:12px;">
+            <img
+              src="public/assets/images/rd/0aa2fb_7bbf7348ae3643f5a317db3dba74d346_mv2.png-Au_Deposition_on_Anode_GDE_1.png"
+              alt="Gold deposition result on Gas Diffusion Electrode"
+              loading="lazy" style="height:200px;"
+            >
+          </div>
+        </div>
+
+        <div class="equip-content reveal reveal-delay-2">
+          <div class="equip-number">01 / 04 — Equipment</div>
+          <h2 id="sputter-heading">Gold &amp; RF Magnetron Sputtering</h2>
+          <p>Deposit gold, platinum, iridium, and other precious metals on electrode substrates in a vacuum environment. Our RF magnetron sputtering system enables precise, uniform thin-film catalyst deposition — critical for high-performance GDE fabrication and CO₂ reduction research.</p>
+
+          <div class="equip-specs">
+            <div class="equip-specs-title">Equipment Specifications</div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">System Type</span>
+              <span class="equip-spec-val">RF Magnetron Sputtering</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Target Materials</span>
+              <span class="equip-spec-val">Au, Pt, Ir, Ag, Cu, Ti, Ni</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Max Substrate Size</span>
+              <span class="equip-spec-val">Up to 15 cm × 15 cm</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Vacuum Level</span>
+              <span class="equip-spec-val">~10⁻⁶ Torr</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Equipment Value</span>
+              <span class="equip-spec-val">> ₹50 Lakhs</span>
+            </div>
+          </div>
+
+          <div class="equip-use-cases">
+            <div class="equip-use-cases-title">Use Cases</div>
+            <div class="use-case-tags">
+              <span class="use-case-tag">GDE catalyst deposition</span>
+              <span class="use-case-tag">MEA electrode coating</span>
+              <span class="use-case-tag">CO₂ reduction GDE</span>
+              <span class="use-case-tag">Thin film catalyst research</span>
+              <span class="use-case-tag">Photoelectrode fabrication</span>
+            </div>
+          </div>
+
+          <a href="contact.html?service=sputtering" class="btn btn--navy btn--lg">
+            Book RF Sputtering Session <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EQUIPMENT 2: ULTRASONIC SPRAY -->
+  <section class="equipment-section" id="spray-nozzle" aria-labelledby="spray-heading">
+    <div class="container">
+      <div class="equip-grid flip">
+
+        <div class="equip-gallery reveal">
+          <div class="equip-icon-hero" aria-hidden="true">
+            💨
+            <span>Ultrasonic Spray Nozzle</span>
+          </div>
+        </div>
+
+        <div class="equip-content reveal reveal-delay-2">
+          <div class="equip-number">02 / 04 — Equipment</div>
+          <h2 id="spray-heading">Ultrasonic Spray Nozzle</h2>
+          <p>Achieve ultrafine, uniform catalyst ink deposition on Nafion membranes, carbon substrates, and GDEs. Our ultrasonic spray system is the industry standard for reproducible MEA fabrication — eliminating the non-uniformity problems of traditional doctor-blade or brush coating methods.</p>
+
+          <div class="equip-specs">
+            <div class="equip-specs-title">Equipment Specifications</div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Atomisation</span>
+              <span class="equip-spec-val">Ultrasonic (25–120 kHz)</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Droplet Size</span>
+              <span class="equip-spec-val">10–80 μm</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Compatible Inks</span>
+              <span class="equip-spec-val">Nafion, Pt/C, IrO₂, catalyst inks</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Substrate Heating</span>
+              <span class="equip-spec-val">Up to 120 °C</span>
+            </div>
+          </div>
+
+          <div class="equip-use-cases">
+            <div class="equip-use-cases-title">Use Cases</div>
+            <div class="use-case-tags">
+              <span class="use-case-tag">MEA catalyst layer coating</span>
+              <span class="use-case-tag">Nafion membrane coating</span>
+              <span class="use-case-tag">GDE carbon cloth deposition</span>
+              <span class="use-case-tag">Ionomer spraying</span>
+              <span class="use-case-tag">AEM electrode fabrication</span>
+            </div>
+          </div>
+
+          <a href="contact.html?service=spray-nozzle" class="btn btn--navy btn--lg">
+            Book Spray Session <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EQUIPMENT 3: HOT PRESS -->
+  <section class="equipment-section" id="hot-press" aria-labelledby="hotpress-heading">
+    <div class="container">
+      <div class="equip-grid">
+
+        <div class="equip-gallery reveal">
+          <div class="equip-icon-hero" aria-hidden="true">
+            🔥
+            <span>Hot Press / Membrane Bonder</span>
+          </div>
+        </div>
+
+        <div class="equip-content reveal reveal-delay-2">
+          <div class="equip-number">03 / 04 — Equipment</div>
+          <h2 id="hotpress-heading">Hot Press — MEA Fabrication</h2>
+          <p>Bond membrane electrode assemblies (MEAs) under precise temperature and pressure conditions. Our hot press is the critical final step in MEA fabrication — ensuring proper catalyst-membrane interface, which directly determines your electrolyzer or fuel cell performance.</p>
+
+          <div class="equip-specs">
+            <div class="equip-specs-title">Equipment Specifications</div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Max Temperature</span>
+              <span class="equip-spec-val">200 °C</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Max Pressure</span>
+              <span class="equip-spec-val">50 kg/cm²</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Platen Size</span>
+              <span class="equip-spec-val">20 cm × 20 cm</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Uniformity</span>
+              <span class="equip-spec-val">±2 °C, ±2% pressure</span>
+            </div>
+          </div>
+
+          <div class="equip-use-cases">
+            <div class="equip-use-cases-title">Use Cases</div>
+            <div class="use-case-tags">
+              <span class="use-case-tag">MEA hot pressing</span>
+              <span class="use-case-tag">GDL-membrane lamination</span>
+              <span class="use-case-tag">Catalyst-coated membrane (CCM)</span>
+              <span class="use-case-tag">AEM / PEM MEA</span>
+              <span class="use-case-tag">Ionomer bonding</span>
+            </div>
+          </div>
+
+          <a href="contact.html?service=hot-press" class="btn btn--navy btn--lg">
+            Book Hot Press Session <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EQUIPMENT 4: 3D PRINTING -->
+  <section class="equipment-section" id="3d-printing" aria-labelledby="3dprint-heading">
+    <div class="container">
+      <div class="equip-grid flip">
+
+        <div class="equip-gallery reveal">
+          <div class="equip-icon-hero" aria-hidden="true">
+            🖨️
+            <span>3D Printing / Rapid Prototyping</span>
+          </div>
+        </div>
+
+        <div class="equip-content reveal reveal-delay-2">
+          <div class="equip-number">04 / 04 — Equipment</div>
+          <h2 id="3dprint-heading">3D Printing &amp; Rapid Prototyping</h2>
+          <p>Iterate your electrolyzer frame, flow field channel, or test fixture design quickly with our 3D printing service. Eliminate the weeks-long wait and high cost of CNC machining for early prototypes. Get physical parts to test in days, not weeks.</p>
+
+          <div class="equip-specs">
+            <div class="equip-specs-title">Equipment Specifications</div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Print Technology</span>
+              <span class="equip-spec-val">FDM + Resin (SLA)</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Materials</span>
+              <span class="equip-spec-val">PLA, PETG, ABS, Nylon, Resin</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Max Print Volume</span>
+              <span class="equip-spec-val">250 × 250 × 300 mm</span>
+            </div>
+            <div class="equip-spec-row">
+              <span class="equip-spec-key">Layer Resolution</span>
+              <span class="equip-spec-val">0.05 – 0.3 mm</span>
+            </div>
+          </div>
+
+          <div class="equip-use-cases">
+            <div class="equip-use-cases-title">Use Cases</div>
+            <div class="use-case-tags">
+              <span class="use-case-tag">Electrolyzer frames</span>
+              <span class="use-case-tag">Fuel cell end-plates</span>
+              <span class="use-case-tag">Flow field channel prototypes</span>
+              <span class="use-case-tag">Test jigs and fixtures</span>
+              <span class="use-case-tag">Lab connectors and fittings</span>
+            </div>
+          </div>
+
+          <a href="contact.html?service=3d-printing" class="btn btn--navy btn--lg">
+            Request 3D Print <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT STRIP -->
+  <section class="contact-strip" aria-labelledby="eas-cta-heading">
+    <div class="container">
+      <div class="contact-strip-inner">
+        <div class="contact-strip-text">
+          <h2 id="eas-cta-heading">Ready to Book Your First Session?</h2>
+          <p>WhatsApp us with your material details and requirements — we'll respond within a few hours and get you booked in.</p>
+        </div>
+        <div class="contact-strip-actions">
+          <a
+            href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20Equipment%20as%20a%20Service.%20Please%20share%20more%20details."
+            class="btn btn--whatsapp"
+            target="_blank" rel="noreferrer"
+          >💬 WhatsApp Us</a>
+          <a href="contact.html" class="btn btn--gold">Send Enquiry →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png" alt="Shakti Photon Solutions" height="46" loading="lazy">
+        </div>
+        <p>India's green hydrogen technology company. On-site hydrogen generators, fuel cells, and R&amp;D platforms.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://wa.me/917382025117" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="WhatsApp">💬</a>
+          <a href="mailto:info@shaktiphotonsolutions.com" class="footer-social-btn" aria-label="Email">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Equipment Available</h5>
+        <nav class="footer-links">
+          <a href="#sputtering"   class="footer-link">RF Magnetron Sputtering</a>
+          <a href="#spray-nozzle" class="footer-link">Ultrasonic Spray Nozzle</a>
+          <a href="#hot-press"    class="footer-link">Hot Press</a>
+          <a href="#3d-printing"  class="footer-link">3D Printing</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <nav class="footer-links">
+          <a href="index.html"    class="footer-link">Home</a>
+          <a href="products.html" class="footer-link">Products</a>
+          <a href="about.html"    class="footer-link">About Us</a>
+          <a href="contact.html"  class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-offices">
+          <address class="footer-office">
+            <strong>Chennai (HQ)</strong>
+            IIT Madras Research Park,<br>
+            Chennai, Tamil Nadu — 600 113
+          </address>
+          <address class="footer-office">
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+917382025117" style="color:rgba(255,255,255,0.5)">+91 73820 25117</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
+        <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

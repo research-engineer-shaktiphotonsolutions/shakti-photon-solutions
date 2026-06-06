@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us — Scientists Building India's Green Hydrogen Future | Shakti Photon Solutions</title>
+  <meta name="description" content="Meet the team behind Shakti Photon Solutions — scientists with 16+ years at NUS Singapore, Uppsala University, IIT Kanpur. Based at IIT Madras Research Park. 60+ publications, 9 institutional partners.">
+  <link rel="canonical" href="https://www.shaktiphotonsolutions.com/about">
+  <link rel="icon" type="image/png" href="public/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* About Hero */
+    .about-page-hero {
+      background: linear-gradient(155deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: calc(var(--nav-h) + 64px) 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-page-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,180,216,0.1) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      pointer-events: none;
+    }
+    .about-page-hero h1 { color: var(--white); margin-bottom: 16px; position: relative; }
+    .about-page-hero p  { color: rgba(255,255,255,0.72); font-size: 1.05rem; max-width: 580px; margin: 0 auto; position: relative; }
+
+    /* Mission Section */
+    .mission-section { padding: 80px 0; background: var(--white); }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .mission-content h2 { margin-bottom: 16px; }
+    .mission-content p  { margin-bottom: 20px; font-size: 0.95rem; }
+    .mission-image {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+    .mission-image img { width: 100%; height: 420px; object-fit: cover; }
+    .mission-image-badge {
+      position: absolute;
+      bottom: 20px; right: 20px;
+      background: rgba(27,45,110,0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--r-md);
+      padding: 14px 20px;
+      color: var(--white);
+    }
+    .mission-image-badge strong { display: block; font-size: 1.2rem; color: var(--gold); }
+    .mission-image-badge span  { font-size: 0.78rem; color: rgba(255,255,255,0.7); }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      transition: all var(--ease);
+    }
+    .value-card:hover {
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+    .value-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .value-card h4 { color: var(--navy); margin-bottom: 10px; }
+    .value-card p  { font-size: 0.875rem; }
+
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      transition: all var(--ease);
+    }
+    .team-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
+    .team-photo {
+      height: 240px;
+      overflow: hidden;
+      background: var(--bg-alt);
+      position: relative;
+    }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.7s ease; }
+    .team-card:hover .team-photo img { transform: scale(1.04); }
+    .team-info { padding: 22px; }
+    .team-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--royal);
+      background: rgba(45,77,224,0.08);
+      padding: 3px 9px;
+      border-radius: var(--r-full);
+      margin-bottom: 8px;
+    }
+    .team-info h4 { color: var(--navy); margin-bottom: 4px; font-size: 1.1rem; }
+    .team-role  { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
+    .team-bio   { font-size: 0.82rem; line-height: 1.65; margin-bottom: 14px; }
+    .team-tags  { display: flex; flex-wrap: wrap; gap: 6px; }
+    .team-tag   {
+      font-size: 0.7rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: var(--r-full);
+    }
+
+    /* Timeline */
+    .timeline { max-width: 720px; margin: 0 auto; }
+    .timeline-item { display: flex; gap: 24px; padding-bottom: 40px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left { text-align: right; width: 80px; flex-shrink: 0; padding-top: 4px; }
+    .timeline-year { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+    .timeline-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .timeline-dot {
+      width: 14px; height: 14px;
+      background: var(--cyan);
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--cyan);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-stem {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 6px;
+    }
+    .timeline-item:last-child .timeline-stem { display: none; }
+    .timeline-content h4 { color: var(--navy); margin-bottom: 6px; font-size: 1rem; }
+    .timeline-content p  { font-size: 0.85rem; line-height: 1.6; }
+
+    /* Research Output */
+    .research-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .res-stat { padding: 28px 16px; }
+    .res-number {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .res-label { font-size: 0.875rem; color: rgba(255,255,255,0.68); font-weight: 400; }
+
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .mission-grid { grid-template-columns: 1fr; gap: 36px; }
+      .values-grid  { grid-template-columns: 1fr 1fr; }
+      .research-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .team-grid    { grid-template-columns: 1fr; }
+      .values-grid  { grid-template-columns: 1fr; }
+      .research-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
+      <div class="nav-logo-icon">
+        <img src="public/assets/images/shared/Icon.PNG" alt="" width="32" height="32" aria-hidden="true">
+      </div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Shakti Photon Solutions</span>
+        <span class="nav-logo-sub">Private Limited</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="products.html"               class="nav-link">Products</a>
+      <a href="equipment-as-a-service.html" class="nav-link">Equipment as a Service</a>
+      <a href="about.html"                  class="nav-link active">About Us</a>
+      <a href="contact.html"                class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get a Quote →</a>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobile-menu">
+  <a href="products.html"               class="nav-mobile-link">Products</a>
+  <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
+  <a href="about.html"                  class="nav-mobile-link">About Us</a>
+  <a href="contact.html"                class="nav-mobile-link">Contact</a>
+  <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="about-page-hero" aria-label="About page header">
+    <div class="container">
+      <span class="section-tag section-tag--white">Who We Are</span>
+      <h1>Scientists Building India's<br>Green Hydrogen Future</h1>
+      <p>Founded by researchers from NUS, Uppsala University, IIT Kanpur — we bridge the gap between world-class science and commercial green hydrogen systems.</p>
+    </div>
+  </section>
+
+
+  <!-- MISSION -->
+  <section class="mission-section" id="mission" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission-grid">
+
+        <div class="mission-content reveal">
+          <span class="section-tag">Our Mission</span>
+          <h2 id="mission-heading">Make Green Hydrogen Accessible to Every Indian Business</h2>
+          <p>India's hydrogen mission calls for 5 million tonnes of green hydrogen by 2030. But the technology gap between global R&amp;D and Indian industry is vast. Shakti Photon Solutions was founded to close that gap — by scientists who've actually built these systems at the world's best labs.</p>
+          <p>We believe that <strong>on-site hydrogen generation</strong> will transform Indian manufacturing, transportation, and energy — just as solar disrupted power generation. Our mission is to make that transformation accessible to every Indian business, university, and research lab.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+            <a href="contact.html" class="btn btn--navy">Work With Us →</a>
+            <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" class="btn btn--outline-navy" target="_blank" rel="noreferrer">LinkedIn →</a>
+          </div>
+        </div>
+
+        <div class="mission-image reveal reveal-delay-2">
+          <img
+            src="public/assets/images/home/0aa2fb_0ccbb51197c84c969128ca98fe3434b2_mv2.jpg-IMG_0485_JPG.jpg"
+            alt="Shakti Photon Solutions at Green Hydrogen Summit 2025"
+            loading="lazy"
+          >
+          <div class="mission-image-badge">
+            <strong>2025</strong>
+            <span>Green Hydrogen Summit</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RESEARCH STATS -->
+  <section class="section section--navy" id="research" aria-labelledby="research-heading">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:48px;">
+        <span class="section-tag section-tag--white">Research Pedigree</span>
+        <h2 id="research-heading" style="color:var(--white);">Backed by World-Class Science</h2>
+      </div>
+      <div class="research-stats">
+        <div class="res-stat reveal reveal-delay-1">
+          <span class="res-number">16+</span>
+          <div class="res-label">Years of global R&amp;D<br>(NUS, Uppsala, IIT Kanpur)</div>
+        </div>
+        <div class="res-stat reveal reveal-delay-2">
+          <span class="res-number">60+</span>
+          <div class="res-label">Peer-reviewed publications<br>and patents filed</div>
+        </div>
+        <div class="res-stat reveal reveal-delay-3">
+          <span class="res-number">9+</span>
+          <div class="res-label">Partner institutions<br>across India</div>
+        </div>
+        <div class="res-stat reveal reveal-delay-4">
+          <span class="res-number">3</span>
+          <div class="res-label">National office<br>locations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TEAM -->
+  <section class="section section--alt" id="team" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Team</span>
+        <h2 id="team-heading">Meet the Scientists</h2>
+        <p>Our founding team brings decades of experience from the world's leading electrochemistry and hydrogen energy research institutions.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- Founder 1: Sravani Vulli -->
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/founder-sravani.jpg"
+              alt="Sravani Vulli, Managing Director and Co-founder"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <span class="team-badge">Co-Founder</span>
+            <h4>Sravani Vulli</h4>
+            <div class="team-role">Managing Director &amp; Co-Founder</div>
+            <p class="team-bio">Sravani brings deep expertise in electrochemical systems and green hydrogen commercialisation. Alumna of National University of Singapore (NUS), she leads business development, strategic partnerships, and operations at Shakti Photon Solutions.</p>
+            <div class="team-tags">
+              <span class="team-tag">NUS Singapore</span>
+              <span class="team-tag">Electrochemistry</span>
+              <span class="team-tag">Business Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder 2: Dr. Mallikarjuna Rao -->
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/founder-mallikarjuna.jpg"
+              alt="Dr. Mallikarjuna Rao, Technical Co-founder"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <span class="team-badge">Co-Founder</span>
+            <h4>Dr. Mallikarjuna Rao</h4>
+            <div class="team-role">Chief Technology Officer &amp; Co-Founder</div>
+            <p class="team-bio">Dr. Rao is a prolific researcher in PEM electrolysis and fuel cells with 60+ peer-reviewed publications. His global research career spans Uppsala University (Sweden), IIT Kanpur, and University of Hyderabad. He leads all technical R&amp;D at Shakti Photon Solutions.</p>
+            <div class="team-tags">
+              <span class="team-tag">Uppsala University</span>
+              <span class="team-tag">IIT Kanpur</span>
+              <span class="team-tag">60+ Publications</span>
+              <span class="team-tag">PEM Technology</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder for 3rd team member or "Join Us" card -->
+        <div class="team-card reveal reveal-delay-3" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:400px; background: linear-gradient(135deg, var(--bg-alt), var(--white));">
+          <div style="font-size:3rem; margin-bottom:16px;">🚀</div>
+          <h4 style="margin-bottom:10px;">Join Our Team</h4>
+          <p style="font-size:0.875rem; max-width:220px; margin-bottom:20px;">We're looking for talented engineers and scientists passionate about green hydrogen.</p>
+          <a href="mailto:careers@shaktiphotonsolutions.com?subject=Career Enquiry" class="btn btn--outline-navy btn--sm">View Openings →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VALUES -->
+  <section class="section" id="values" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Values</span>
+        <h2 id="values-heading">What Drives Us</h2>
+        <p>These principles guide every decision — from product design to customer support.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🔬</div>
+          <h4>Science First</h4>
+          <p>Every claim we make is backed by data. Our products are born in research papers and proven in laboratories before they reach customers.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🇮🇳</div>
+          <h4>Made in India</h4>
+          <p>We manufacture in India, for India. Our components are locally sourced where possible, reducing cost and building indigenous capability.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">🤝</div>
+          <h4>Partner, Not Just Vendor</h4>
+          <p>We stay engaged from installation to years of operation. 24/7 support, training, and custom engineering — we grow with our customers.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-4">
+          <div class="value-icon">🌿</div>
+          <h4>Sustainability at Core</h4>
+          <p>Green hydrogen is our product, but sustainability is our culture — from MEA recycling to responsible sourcing of precious metals.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-5">
+          <div class="value-icon">⚡</div>
+          <h4>Speed and Agility</h4>
+          <p>We respond within 24 hours. We iterate fast. Where large corporations take months, we deliver in weeks — without sacrificing quality.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-6">
+          <div class="value-icon">🎓</div>
+          <h4>Knowledge Sharing</h4>
+          <p>We train the next generation of hydrogen engineers at IITs, NITs, and universities — because India's hydrogen future needs skilled people.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MILESTONES TIMELINE -->
+  <section class="section section--alt" id="milestones" aria-labelledby="milestones-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Journey</span>
+        <h2 id="milestones-heading">Key Milestones</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-left"><div class="timeline-year">2022</div></div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-stem"></div></div>
+          <div class="timeline-content">
+            <h4>Shakti Photon Solutions Founded</h4>
+            <p>Company incorporated at IIT Madras Research Park, Chennai. First hydrogen generator prototype completed by the founding team.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left"><div class="timeline-year">2023</div></div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-stem"></div></div>
+          <div class="timeline-content">
+            <h4>First IIT Delhi Installation</h4>
+            <p>Successfully installed and commissioned first commercial PEM electrolyzer at IIT Delhi. Expanded to 9+ institutional customers including NIT Warangal and TIFR Hyderabad.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left"><div class="timeline-year">2024</div></div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-stem"></div></div>
+          <div class="timeline-content">
+            <h4>CLIMAFIX 2024 Finalist — IIT Madras</h4>
+            <p>Selected as a finalist at India's Largest Climate Startup Summit at IIT Madras, hosted by The Energy Consortium and EAI. Opened Guntur and Mohali offices.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left"><div class="timeline-year">2025</div></div>
+          <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-stem"></div></div>
+          <div class="timeline-content">
+            <h4>Green Hydrogen Summit 2025</h4>
+            <p>Presented at SRM Green Hydrogen Summit 2025 alongside government officials. Launched Equipment as a Service offering. Expanding to 100 kW industrial electrolyzer deployments.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT STRIP -->
+  <section class="contact-strip" aria-labelledby="about-cta-heading">
+    <div class="container">
+      <div class="contact-strip-inner">
+        <div class="contact-strip-text">
+          <h2 id="about-cta-heading">Want to Collaborate or Partner With Us?</h2>
+          <p>We're always open to research collaborations, industry partnerships, and custom projects. Let's talk.</p>
+        </div>
+        <div class="contact-strip-actions">
+          <a href="https://wa.me/917382025117" class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp Us</a>
+          <a href="contact.html" class="btn btn--gold">Get in Touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png" alt="Shakti Photon Solutions" height="46" loading="lazy">
+        </div>
+        <p>India's green hydrogen technology company. On-site hydrogen generators, fuel cells, and R&amp;D platforms.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://wa.me/917382025117" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="WhatsApp">💬</a>
+          <a href="mailto:info@shaktiphotonsolutions.com" class="footer-social-btn" aria-label="Email">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <nav class="footer-links">
+          <a href="products.html#electrolyzers" class="footer-link">PEM Electrolyzers</a>
+          <a href="products.html#fuelcells"      class="footer-link">Fuel Cell Systems</a>
+          <a href="products.html#rd-platforms"   class="footer-link">R&amp;D Platforms</a>
+          <a href="products.html#co2"            class="footer-link">CO₂ Reduction</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <nav class="footer-links">
+          <a href="about.html#mission"    class="footer-link">Our Mission</a>
+          <a href="about.html#team"       class="footer-link">Our Team</a>
+          <a href="about.html#values"     class="footer-link">Our Values</a>
+          <a href="about.html#milestones" class="footer-link">Milestones</a>
+          <a href="contact.html"          class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Our Offices</h5>
+        <div class="footer-offices">
+          <address class="footer-office"><strong>Chennai (HQ)</strong>IIT Madras Research Park, Tamil Nadu — 600 113</address>
+          <address class="footer-office"><strong>Guntur, AP</strong>SRM AP University — 522 502</address>
+          <address class="footer-office"><strong>Mohali, Punjab</strong>Industrial Phase-7 — 160 055</address>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
+        <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
