@@ -3,324 +3,489 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ═══ PRIMARY SEO ═══ -->
-  <title>Contact Us | Shakti Photon Solutions</title>
-  <meta name="description" content="Contact Shakti Photon Solutions for on-site green hydrogen generators, fuel cell systems, and R&D platforms. Get a quote within 24 hours.">
-  <meta name="robots" content="index, follow">
-
-  <!-- ═══ FAVICON ═══ -->
+  <title>Contact Us — Get a Quote | Shakti Photon Solutions</title>
+  <meta name="description" content="Contact Shakti Photon Solutions for green hydrogen generators, PEM electrolyzers, fuel cells, and R&D platforms. Get a custom quote. WhatsApp, email, or call. Offices in Chennai, Guntur, Mohali.">
+  <link rel="canonical" href="https://www.shaktiphotonsolutions.com/contact">
   <link rel="icon" type="image/png" href="public/favicon.png">
-
-  <!-- ═══ FONTS ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- ═══ STYLESHEET ═══ -->
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Page-specific tweaks */
+    .contact-hero { background: linear-gradient(155deg, var(--navy-dark) 0%, var(--navy) 100%); padding: calc(var(--nav-h) + 56px) 0 64px; text-align: center; }
+    .contact-hero h1 { color: var(--white); margin-bottom: 14px; }
+    .contact-hero p  { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 540px; margin: 0 auto; }
+    .contact-body { padding: 80px 0; background: var(--bg-alt); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    /* Info Card */
+    .cinfo-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .cinfo-card h3 { color: var(--navy); margin-bottom: 24px; }
+    .cinfo-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light, #F1F5F9);
+    }
+    .cinfo-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .cinfo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--cyan-light);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .cinfo-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 4px; }
+    .cinfo-value { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .cinfo-value a { transition: color var(--ease-s); }
+    .cinfo-value a:hover { color: var(--royal); }
+    .cinfo-divider { border-top: 1px solid var(--border); margin: 20px 0; }
+    .offices-list { display: flex; flex-direction: column; gap: 14px; }
+    .office-item { font-size: 0.8rem; color: rgba(0,0,0,0.5); line-height: 1.6; }
+    .office-item strong { display: block; color: var(--navy); font-size: 0.85rem; margin-bottom: 2px; }
+    .whatsapp-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: var(--r-md);
+      padding: 16px;
+      margin-top: 20px;
+      color: #166534;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--ease-s);
+    }
+    .whatsapp-cta:hover {
+      background: #DCFCE7;
+      transform: translateY(-2px);
+    }
+    .whatsapp-cta .wa-icon { font-size: 1.5rem; }
+    .whatsapp-cta strong { display: block; font-size: 0.9rem; }
+    /* Form Card */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .form-card h3 { color: var(--navy); margin-bottom: 6px; }
+    .form-card > p { font-size: 0.9rem; margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-group label .req { color: var(--gold); margin-left: 2px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color var(--ease-s), box-shadow var(--ease-s);
+      outline: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--royal);
+      box-shadow: 0 0 0 3px rgba(45,77,224,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .form-disclaimer { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+    /* Success State */
+    .form-success-state {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .form-success-state.show { display: block; }
+    .form-success-icon { font-size: 3.5rem; margin-bottom: 16px; }
+    .form-success-state h4 { color: var(--navy); font-size: 1.4rem; margin-bottom: 10px; }
+    .form-success-state p  { font-size: 0.95rem; max-width: 360px; margin: 0 auto 24px; }
+    /* Map / Office Strip */
+    .offices-strip {
+      background: var(--white);
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .office-card {
+      background: var(--bg-alt);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      border: 1px solid var(--border);
+      transition: all var(--ease);
+    }
+    .office-card:hover {
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-md);
+    }
+    .office-card-flag { font-size: 1.6rem; margin-bottom: 12px; }
+    .office-card h4 { color: var(--navy); margin-bottom: 4px; }
+    .office-card-type { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cyan); margin-bottom: 12px; }
+    .office-card address { font-style: normal; font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .cinfo-card { position: static; }
+    }
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 22px; }
+      .offices-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- ═══════════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════════ -->
+<!-- NAV -->
 <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-
     <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
       <div class="nav-logo-icon">
-        <img
-          src="public/assets/images/shared/Icon.PNG"
-          alt=""
-          width="32" height="32"
-          aria-hidden="true"
-        >
+        <img src="public/assets/images/shared/Icon.PNG" alt="" width="32" height="32" aria-hidden="true">
       </div>
       <div class="nav-logo-text">
         <span class="nav-logo-name">Shakti Photon Solutions</span>
         <span class="nav-logo-sub">Private Limited</span>
       </div>
     </a>
-
-    <div class="nav-links" role="list">
-      <a href="products.html"                class="nav-link" role="listitem">Products</a>
-      <a href="equipment-as-a-service.html"  class="nav-link" role="listitem">Equipment as a Service</a>
-      <a href="about.html"                   class="nav-link" role="listitem">About Us</a>
-      <a href="contact.html"                 class="nav-link active" role="listitem" aria-current="page">Contact</a>
+    <div class="nav-links">
+      <a href="products.html"               class="nav-link">Products</a>
+      <a href="equipment-as-a-service.html" class="nav-link">Equipment as a Service</a>
+      <a href="about.html"                  class="nav-link">About Us</a>
+      <a href="contact.html"                class="nav-link active">Contact</a>
     </div>
-
     <a href="contact.html" class="nav-cta">Get a Quote →</a>
-
-    <button
-      class="nav-hamburger"
-      id="hamburger-btn"
-      aria-label="Open mobile menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-
   </div>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="nav-mobile" id="mobile-menu" aria-label="Mobile navigation" role="navigation">
+<div class="nav-mobile" id="mobile-menu">
   <a href="products.html"               class="nav-mobile-link">Products</a>
   <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
   <a href="about.html"                  class="nav-mobile-link">About Us</a>
-  <a href="contact.html"                class="nav-mobile-link active" aria-current="page">Contact</a>
+  <a href="contact.html"                class="nav-mobile-link">Contact</a>
   <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
 </div>
-
-
-<main style="padding-top: 80px;">
-
-  <!-- Contact Header -->
-  <section class="section section--dark" style="background:#0F1E4F; color:#fff; text-align:center; padding: 120px 20px 80px;">
-    <div class="container" style="max-width: 800px;">
-      <span class="section-tag section-tag--white" style="margin:0 auto 20px;">Get in Touch</span>
-      <h1 style="color:#fff; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 24px; letter-spacing:-0.03em;">Let's Build Your Hydrogen System</h1>
-      <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
-        Tell us about your project — capacity, application, budget — and our scientists will respond within 24 hours with a tailored recommendation.
-      </p>
+<main>
+  <!-- HERO -->
+  <section class="contact-hero" aria-label="Contact page header">
+    <div class="container">
+      <span class="section-tag section-tag--white">Get In Touch</span>
+      <h1>Let's Build Your Hydrogen System</h1>
+      <p>Tell us about your project — capacity, application, budget — and our scientists will respond within 24 hours with a tailored recommendation.</p>
     </div>
   </section>
-
-  <!-- Contact Body -->
-  <section class="section" style="background:#F8FAFC;">
+  <!-- MAIN CONTACT BODY -->
+  <section class="contact-body" aria-labelledby="contact-form-heading">
     <div class="container">
-      
-      <div style="display:grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start;">
-        
-        <!-- Left Column: Contact Info -->
-        <div style="background:#fff; border-radius: 24px; padding: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-          <h2 style="font-size: 1.5rem; margin-bottom: 32px; color: #0F172A;">Reach Us Directly</h2>
-          
-          <div style="display:flex; flex-direction:column; gap: 32px;">
-            <div style="display:flex; gap: 16px; align-items: flex-start;">
-              <div style="width:48px; height:48px; background:#F1F5F9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">📞</div>
-              <div>
-                <div style="font-size:0.75rem; font-weight:700; color:#64748B; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Phone / WhatsApp</div>
-                <a href="tel:+917382025117" style="font-weight:600; color:#0F1E4F; text-decoration:none;">+91 73820 25117</a>
-              </div>
+      <div class="contact-grid">
+        <!-- LEFT: Contact Info -->
+        <aside class="cinfo-card" aria-label="Contact information">
+          <h3>Reach Us Directly</h3>
+          <div class="cinfo-item">
+            <div class="cinfo-icon" aria-hidden="true">📞</div>
+            <div>
+              <div class="cinfo-label">Phone / WhatsApp</div>
+              <div class="cinfo-value"><a href="tel:+917382025117">+91 73820 25117</a></div>
             </div>
-            
-            <div style="display:flex; gap: 16px; align-items: flex-start;">
-              <div style="width:48px; height:48px; background:#F1F5F9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">✉️</div>
-              <div>
-                <div style="font-size:0.75rem; font-weight:700; color:#64748B; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Email</div>
-                <a href="mailto:info@shaktiphotonsolutions.com" style="font-weight:600; color:#0F1E4F; text-decoration:none;">info@shaktiphotonsolutions.com</a>
-              </div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-icon" aria-hidden="true">✉️</div>
+            <div>
+              <div class="cinfo-label">Email</div>
+              <div class="cinfo-value"><a href="mailto:info@shaktiphotonsolutions.com">info@shaktiphotonsolutions.com</a></div>
             </div>
-            
-            <div style="display:flex; gap: 16px; align-items: flex-start;">
-              <div style="width:48px; height:48px; background:#F1F5F9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🏢</div>
-              <div>
-                <div style="font-size:0.75rem; font-weight:700; color:#64748B; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Headquarters</div>
-                <div style="font-weight:600; color:#0F1E4F; line-height:1.5;">IIT Madras Research Park,<br>Chennai, Tamil Nadu</div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-icon" aria-hidden="true">💼</div>
+            <div>
+              <div class="cinfo-label">LinkedIn</div>
+              <div class="cinfo-value">
+                <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" target="_blank" rel="noreferrer">
+                  Shakti Photon Solutions
+                </a>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Right Column: Form -->
-        <div style="background:#fff; border-radius: 24px; padding: 48px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-          <h2 style="font-size: 1.75rem; margin-bottom: 16px; color: #0F1E4F;">Get a Custom Quote</h2>
-          <p style="color: #64748B; margin-bottom: 32px; font-size: 0.9375rem;">Fill in the form and we'll get back to you within 24 hours.</p>
-
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex; flex-direction:column; gap: 24px;">
-            
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-              <div style="display:flex; flex-direction:column; gap: 8px;">
-                <label for="fname" style="font-size:0.875rem; font-weight:600; color:#0F172A;">First Name <span style="color:#D97706;">*</span></label>
-                <input type="text" id="fname" name="First Name" required style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
+          <div class="cinfo-item">
+            <div class="cinfo-icon" aria-hidden="true">🕐</div>
+            <div>
+              <div class="cinfo-label">Support Hours</div>
+              <div class="cinfo-value">24 / 7 — Always Available</div>
+            </div>
+          </div>
+          <div class="cinfo-divider"></div>
+          <div class="cinfo-label" style="margin-bottom:14px;">Our Offices</div>
+          <div class="offices-list">
+            <address class="office-item">
+              <strong>🏛 Chennai (Headquarters)</strong>
+              IIT Madras Research Park,<br>
+              Chennai, Tamil Nadu — 600 113
+            </address>
+            <address class="office-item">
+              <strong>🏛 Guntur, Andhra Pradesh</strong>
+              JC Bose Block, SRM AP University,<br>
+              Guntur — 522 502
+            </address>
+            <address class="office-item">
+              <strong>🏛 Mohali, Punjab</strong>
+              Industrial Phase-7,<br>
+              Mohali — 160 055
+            </address>
+          </div>
+          <a
+            href="https://wa.me/917382025117?text=Hi%20Shakti%20Photon%20Solutions%2C%20I%20would%20like%20to%20know%20more%20about%20your%20hydrogen%20products."
+            class="whatsapp-cta"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat on WhatsApp"
+          >
+            <span class="wa-icon" aria-hidden="true">💬</span>
+            <div>
+              <strong>Chat on WhatsApp</strong>
+              Fastest response — usually within minutes
+            </div>
+          </a>
+        </aside>
+        <!-- RIGHT: Form -->
+        <div class="form-card">
+          <h3 id="contact-form-heading">Get a Custom Quote</h3>
+          <p>Fill in the form and we'll get back to you within 24 hours with a personalised recommendation and pricing.</p>
+          <!-- 
+            TODO: Replace YOUR_FORM_ID below with your Formspree form ID.
+            1. Go to https://formspree.io
+            2. Create a free account and set up a new form
+            3. Copy the form ID and paste it below (e.g., xrgvkwje)
+          -->
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            novalidate
+          >
+            <!-- Hidden: page source for tracking -->
+            <input type="hidden" name="_source" value="contact-page">
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name <span class="req" aria-label="required">*</span></label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Rahul" autocomplete="given-name">
               </div>
-              <div style="display:flex; flex-direction:column; gap: 8px;">
-                <label for="lname" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Last Name <span style="color:#D97706;">*</span></label>
-                <input type="text" id="lname" name="Last Name" required style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
+              <div class="form-group">
+                <label for="last-name">Last Name <span class="req" aria-label="required">*</span></label>
+                <input type="text" id="last-name" name="last_name" required placeholder="Sharma" autocomplete="family-name">
               </div>
             </div>
-
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-              <div style="display:flex; flex-direction:column; gap: 8px;">
-                <label for="email" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Email Address <span style="color:#D97706;">*</span></label>
-                <input type="email" id="email" name="Email" required style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req" aria-label="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="rahul@company.com" autocomplete="email">
               </div>
-              <div style="display:flex; flex-direction:column; gap: 8px;">
-                <label for="phone" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Phone / WhatsApp <span style="color:#D97706;">*</span></label>
-                <input type="tel" id="phone" name="Phone" required style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp <span class="req" aria-label="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel">
               </div>
             </div>
-
-            <div style="display:flex; flex-direction:column; gap: 8px;">
-              <label for="org" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Organisation / Institute</label>
-              <input type="text" id="org" name="Organisation" placeholder="e.g. IIT Delhi / XYZ Startup" style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="organisation">Organisation / Institute</label>
+                <input type="text" id="organisation" name="organisation" placeholder="IIT Delhi / My Startup" autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="service-select">Product / Service Interest <span class="req" aria-label="required">*</span></label>
+                <select id="service-select" name="service" required>
+                  <option value="">— Select a product —</option>
+                  <option value="pem-electrolyzer">PEM Electrolyzer (Hydrogen Generator)</option>
+                  <option value="aem-electrolyzer">AEM Electrolyzer</option>
+                  <option value="alkaline-electrolyzer">Alkaline Electrolyzer</option>
+                  <option value="co2-reduction">CO₂ Reduction Electrolyzer</option>
+                  <option value="fuel-cell">Fuel Cell System</option>
+                  <option value="rd-platform">R&D Platform / Workstation</option>
+                  <option value="sputtering">Equipment as a Service — RF Sputtering</option>
+                  <option value="spray-nozzle">Equipment as a Service — Ultrasonic Spray</option>
+                  <option value="hot-press">Equipment as a Service — Hot Press</option>
+                  <option value="3d-printing">Equipment as a Service — 3D Printing</option>
+                  <option value="mea-recycling">MEA Recycling Service</option>
+                  <option value="epc">Full EPC / System Integration</option>
+                  <option value="other">General Inquiry / Other</option>
+                </select>
+              </div>
             </div>
-
-            <div style="display:flex; flex-direction:column; gap: 8px;">
-              <label for="interest" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Product / Service Interest <span style="color:#D97706;">*</span></label>
-              <select id="interest" name="Interest" required style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; background:#fff; cursor:pointer; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'">
-                <option value="" disabled selected>— Select a product —</option>
-                <option value="PEM Electrolyzer">PEM Electrolyzer</option>
-                <option value="AEM Electrolyzer">AEM Electrolyzer</option>
-                <option value="Alkaline Electrolyzer">Alkaline Electrolyzer</option>
-                <option value="Fuel Cell">Fuel Cell System</option>
-                <option value="CO2 Reduction">CO₂ Reduction System</option>
-                <option value="R&D Platform">R&D Workstation / H-Cell</option>
-                <option value="Equipment as a Service">Equipment as a Service (Coating/Printing)</option>
-                <option value="Other">Other Request</option>
-              </select>
+            <div class="form-group">
+              <label for="capacity">Required Capacity / Power Range</label>
+              <input type="text" id="capacity" name="capacity" placeholder="e.g. 1 kW electrolyzer, 5 kW fuel cell, 100 cm² test cell…">
             </div>
-
-            <div style="display:flex; flex-direction:column; gap: 8px;">
-              <label for="message" style="font-size:0.875rem; font-weight:600; color:#0F172A;">Project Details</label>
-              <textarea id="message" name="Message" rows="4" placeholder="Tell us about capacity required, application, or any specific research goals..." style="padding:12px 16px; border:1px solid #CBD5E1; border-radius:8px; outline:none; font-family:inherit; resize:vertical; transition:border 0.3s;" onfocus="this.style.borderColor='#0F1E4F'" onblur="this.style.borderColor='#CBD5E1'"></textarea>
+            <div class="form-group">
+              <label for="message">Tell Us About Your Project <span class="req" aria-label="required">*</span></label>
+              <textarea id="message" name="message" required placeholder="Describe your application, what you're trying to achieve, your timeline, and any technical requirements. The more detail you share, the better we can help."></textarea>
             </div>
-
-            <button type="submit" class="btn btn--gold btn--lg" style="align-self:flex-start; margin-top: 16px; border:none; cursor:pointer; font-family:inherit;">
-              Submit Request <span class="btn-arrow">→</span>
-            </button>
-            
-            <p style="font-size:0.75rem; color:#94A3B8; margin-top:8px;">We respect your privacy. No spam, ever.</p>
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn--navy btn--lg" id="submit-btn">
+                Send Message <span class="btn-arrow" aria-hidden="true">→</span>
+              </button>
+              <p class="form-disclaimer">
+                We'll respond within 24 hours.<br>
+                Your details are never shared with third parties.
+              </p>
+            </div>
           </form>
-
+          <!-- Success State (shown after submission) -->
+          <div class="form-success-state" id="form-success" role="status" aria-live="polite">
+            <div class="form-success-icon" aria-hidden="true">✅</div>
+            <h4>Message Received!</h4>
+            <p>Thank you — our team will get back to you within 24 hours. For faster response, feel free to also WhatsApp us.</p>
+            <a
+              href="https://wa.me/917382025117"
+              class="btn btn--whatsapp"
+              target="_blank" rel="noreferrer"
+            >💬 Continue on WhatsApp</a>
+          </div>
+        </div><!-- /form-card -->
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+  <!-- OFFICES STRIP -->
+  <section class="offices-strip" aria-labelledby="offices-heading">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:40px;">
+        <span class="section-tag">Locations</span>
+        <h2 id="offices-heading">Find Us Across India</h2>
+        <p>We have presence across three key innovation hubs in India, enabling us to serve customers from coast to coast.</p>
+      </div>
+      <div class="offices-grid">
+        <div class="office-card reveal">
+          <div class="office-card-flag" aria-hidden="true">🏛️</div>
+          <div class="office-card-type">Headquarters</div>
+          <h4>Chennai, Tamil Nadu</h4>
+          <address>
+            IIT Madras Research Park,<br>
+            Taramani, Chennai — 600 113<br><br>
+            <a href="tel:+917382025117" style="color:var(--royal);">+91 73820 25117</a>
+          </address>
+        </div>
+        <div class="office-card reveal reveal-delay-2">
+          <div class="office-card-flag" aria-hidden="true">🏛️</div>
+          <div class="office-card-type">R&D Centre</div>
+          <h4>Guntur, Andhra Pradesh</h4>
+          <address>
+            JC Bose Block,<br>
+            SRM AP University Campus,<br>
+            Guntur — 522 502
+          </address>
+        </div>
+        <div class="office-card reveal reveal-delay-3">
+          <div class="office-card-flag" aria-hidden="true">🏛️</div>
+          <div class="office-card-type">North India Office</div>
+          <h4>Mohali, Punjab</h4>
+          <address>
+            Industrial Phase-7,<br>
+            Mohali, Punjab — 160 055
+          </address>
         </div>
       </div>
     </div>
   </section>
-
 </main>
-
-
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
-<footer class="footer" aria-label="Site footer" style="background:#0F172A; padding:80px 0 32px; color:#fff;">
+<!-- FOOTER -->
+<footer class="footer" aria-label="Site footer">
   <div class="container">
-
-    <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:64px;">
-
-      <!-- Brand -->
+    <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo-wrap" style="background:#fff; display:inline-block; padding:8px; border-radius:8px; margin-bottom:24px;">
-          <img
-            src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png"
-            alt="Shakti Photon Solutions Private Limited"
-            height="46" loading="lazy"
-          >
+        <div class="footer-logo-wrap">
+          <img src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png" alt="Shakti Photon Solutions" height="46" loading="lazy">
         </div>
-        <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; margin-bottom:24px;">India's green hydrogen technology company. On-site hydrogen generators, fuel cells, and R&amp;D platforms — built for a sustainable future.</p>
-        <div class="footer-socials" style="display:flex; gap:12px;">
-          <a
-            href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/"
-            class="footer-social-btn"
-            target="_blank" rel="noreferrer"
-            aria-label="LinkedIn profile"
-            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#fff; transition:all 0.3s;"
-          >in</a>
-          <a
-            href="https://wa.me/917382025117"
-            class="footer-social-btn"
-            target="_blank" rel="noreferrer"
-            aria-label="WhatsApp"
-            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#fff; transition:all 0.3s;"
-          >💬</a>
-          <a
-            href="mailto:info@shaktiphotonsolutions.com"
-            class="footer-social-btn"
-            aria-label="Email us"
-            style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#fff; transition:all 0.3s;"
-          >✉</a>
+        <p>India's green hydrogen technology company. On-site hydrogen generators, fuel cells, and R&amp;D platforms.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://wa.me/917382025117" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="WhatsApp">💬</a>
+          <a href="mailto:info@shaktiphotonsolutions.com" class="footer-social-btn" aria-label="Email">✉</a>
         </div>
       </div>
-
-      <!-- Products -->
       <div class="footer-col">
-        <h5 style="color:#fff; margin-bottom:24px; font-size:1rem;">Products</h5>
-        <nav class="footer-links" aria-label="Product pages" style="display:flex; flex-direction:column; gap:12px;">
-          <a href="products.html#electrolyzers"  class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">PEM Electrolyzers</a>
-          <a href="products.html#electrolyzers"  class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">AEM Electrolyzers</a>
-          <a href="products.html#electrolyzers"  class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Alkaline Electrolyzers</a>
-          <a href="products.html#fuelcells"       class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Fuel Cell Systems</a>
-          <a href="products.html#rd-platforms"    class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">R&amp;D Platforms</a>
-          <a href="products.html#co2"             class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">CO₂ Reduction Systems</a>
+        <h5>Products</h5>
+        <nav class="footer-links">
+          <a href="products.html#electrolyzers" class="footer-link">PEM Electrolyzers</a>
+          <a href="products.html#fuelcells"      class="footer-link">Fuel Cell Systems</a>
+          <a href="products.html#rd-platforms"   class="footer-link">R&amp;D Platforms</a>
+          <a href="products.html#co2"            class="footer-link">CO₂ Reduction</a>
         </nav>
       </div>
-
-      <!-- Company -->
       <div class="footer-col">
-        <h5 style="color:#fff; margin-bottom:24px; font-size:1rem;">Company</h5>
-        <nav class="footer-links" aria-label="Company pages" style="display:flex; flex-direction:column; gap:12px;">
-          <a href="about.html"                   class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">About Us</a>
-          <a href="about.html#team"              class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Our Team</a>
-          <a href="equipment-as-a-service.html"  class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Equipment as a Service</a>
-          <a href="index.html#partners"          class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Our Partners</a>
-          <a href="index.html#recognition"       class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Recognition</a>
-          <a href="contact.html"                 class="footer-link" style="color:rgba(255,255,255,0.7); font-size:0.875rem; text-decoration:none;">Contact Us</a>
+        <h5>Company</h5>
+        <nav class="footer-links">
+          <a href="about.html"                   class="footer-link">About Us</a>
+          <a href="equipment-as-a-service.html"  class="footer-link">Equipment as a Service</a>
+          <a href="contact.html"                 class="footer-link">Contact</a>
         </nav>
       </div>
-
-      <!-- Offices -->
       <div class="footer-col">
-        <h5 style="color:#fff; margin-bottom:24px; font-size:1rem;">Our Offices</h5>
-        <div class="footer-offices" style="display:flex; flex-direction:column; gap:20px;">
-          <address class="footer-office" style="font-style:normal; font-size:0.875rem; color:rgba(255,255,255,0.7); line-height:1.6;">
-            <strong style="color:#fff; display:block; margin-bottom:4px;">Chennai (Headquarters)</strong>
-            IIT Madras Research Park,<br>
-            Chennai, Tamil Nadu — 600 113
+        <h5>Contact</h5>
+        <div class="footer-offices">
+          <address class="footer-office">
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+917382025117" style="color:rgba(255,255,255,0.5)">+91 73820 25117</a>
           </address>
-          <address class="footer-office" style="font-style:normal; font-size:0.875rem; color:rgba(255,255,255,0.7); line-height:1.6;">
-            <strong style="color:#fff; display:block; margin-bottom:4px;">Guntur, Andhra Pradesh</strong>
-            JC Bose Block, SRM AP University,<br>
-            Guntur — 522 502
-          </address>
-          <address class="footer-office" style="font-style:normal; font-size:0.875rem; color:rgba(255,255,255,0.7); line-height:1.6;">
-            <strong style="color:#fff; display:block; margin-bottom:4px;">Mohali, Punjab</strong>
-            Industrial Phase-7,<br>
-            Mohali — 160 055
+          <address class="footer-office">
+            <strong>Email</strong>
+            <a href="mailto:info@shaktiphotonsolutions.com" style="color:rgba(255,255,255,0.5)">info@shaktiphotonsolutions.com</a>
           </address>
         </div>
       </div>
-
     </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-      <p class="footer-copy" style="color:rgba(255,255,255,0.5); font-size:0.875rem;">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
-      <div class="footer-bottom-links" style="display:flex; gap:24px;">
-        <a href="tel:+917382025117"                      class="footer-bottom-link" style="color:rgba(255,255,255,0.5); font-size:0.875rem; text-decoration:none;">+91 73820 25117</a>
-        <a href="mailto:info@shaktiphotonsolutions.com"  class="footer-bottom-link" style="color:rgba(255,255,255,0.5); font-size:0.875rem; text-decoration:none;">info@shaktiphotonsolutions.com</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
+        <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
       </div>
     </div>
-
   </div>
 </footer>
-
-<!-- JS -->
 <script src="js/main.js" defer></script>
-
-<script>
-  // Quick script to handle pre-filling form from URL query params (e.g. ?service=sputtering)
-  document.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const service = urlParams.get('service');
-    if (service) {
-      const select = document.getElementById('interest');
-      if (select) {
-        select.value = "Equipment as a Service";
-      }
-      const message = document.getElementById('message');
-      if (message) {
-        message.value = "I am interested in booking your " + service.replace('-', ' ') + " service.";
-      }
-    }
-  });
-</script>
-
 </body>
 </html>
