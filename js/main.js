@@ -163,16 +163,79 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ---- 7. URL QUERY PARAMS — Pre-fill form service ---- */
-  const urlParams = new URLSearchParams(window.location.search);
+  /* ---- 7. URL QUERY PARAMS — Pre-fill form from product/service links ---- */
+  const urlParams    = new URLSearchParams(window.location.search);
+  const productParam = urlParams.get('product');
   const serviceParam = urlParams.get('service');
-  if (serviceParam) {
+
+  // Map URL param values → { selectValue, label, message }
+  const prefillMap = {
+    // Products (from homepage cards)
+    'electrolyzers': {
+      select: 'pem-electrolyzer',
+      label:  'Hydrogen Generators (Electrolyzers)',
+      msg:    'Hi, I am interested in your Hydrogen Generator / Electrolyzer systems. Could you please share more details on specifications, pricing, and lead time for my application?'
+    },
+    'fuelcells': {
+      select: 'fuel-cell',
+      label:  'Fuel Cell Systems',
+      msg:    'Hi, I am interested in your Fuel Cell Systems. Could you please share more details on the available power range, specifications, and pricing for my use case?'
+    },
+    'ccus': {
+      select: 'ccus',
+      label:  'CCUS / CO₂ Reduction Systems',
+      msg:    'Hi, I am interested in your CCUS / CO₂ Reduction Systems. Could you please share more details on how the system works, available scales, and pricing?'
+    },
+    // EaaS services (from EaaS page)
+    'sputtering': {
+      select: 'sputtering',
+      label:  'RF Magnetron Sputtering',
+      msg:    'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please let me know about availability, pricing per session, and substrate/material requirements.'
+    },
+    'spray-nozzle': {
+      select: 'spray-nozzle',
+      label:  'Ultrasonic Spray Nozzle',
+      msg:    'Hi, I would like to book a session on your Ultrasonic Spray Nozzle system for MEA/GDE fabrication. Please share session pricing and scheduling details.'
+    },
+    'hot-press': {
+      select: 'hot-press',
+      label:  'Hot Press / MEA Fabrication',
+      msg:    'Hi, I would like to book a Hot Press session for MEA bonding. Please share details on temperature/pressure range, session pricing, and availability.'
+    },
+    '3d-printing': {
+      select: '3d-printing',
+      label:  '3D Printing / Rapid Prototyping',
+      msg:    'Hi, I would like to request a 3D printing job for a prototype component. Please share material options, turnaround time, and pricing.'
+    },
+  };
+
+  const param    = productParam || serviceParam;
+  const prefill  = param ? prefillMap[param.toLowerCase()] : null;
+
+  if (prefill) {
+    // 1. Pre-select the dropdown
     const serviceSelect = document.getElementById('service-select');
     if (serviceSelect) {
       const option = Array.from(serviceSelect.options).find(
-        opt => opt.value.toLowerCase().includes(serviceParam.toLowerCase())
+        opt => opt.value === prefill.select
       );
       if (option) serviceSelect.value = option.value;
+    }
+
+    // 2. Pre-fill the message textarea
+    const messageField = document.getElementById('message');
+    if (messageField && !messageField.value) {
+      messageField.value = prefill.msg;
+    }
+
+    // 3. Scroll smoothly to the form
+    const form = document.getElementById('contact-form');
+    if (form) {
+      setTimeout(() => {
+        const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+        const top  = form.getBoundingClientRect().top + window.scrollY - navH - 24;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }, 400);
     }
   }
 
