@@ -88,9 +88,10 @@
 
     /* Team */
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 28px;
+      justify-content: center;
     }
     .team-card {
       background: var(--white);
@@ -99,17 +100,30 @@
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
       transition: all var(--ease);
+      flex: 0 1 calc(33.333% - 19px);
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 24px;
     }
-    .team-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
+    .team-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); border-color: var(--cyan); }
     .team-photo {
-      height: 240px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
       overflow: hidden;
       background: var(--bg-alt);
       position: relative;
+      margin-bottom: 16px;
+      border: 3px solid var(--border);
+      transition: border-color var(--ease);
     }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.7s ease; }
-    .team-card:hover .team-photo img { transform: scale(1.04); }
-    .team-info { padding: 22px; }
+    .team-card:hover .team-photo { border-color: var(--cyan); }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s ease; }
+    .team-card:hover .team-photo img { transform: scale(1.05); }
+    .team-info { padding: 0; width: 100%; display: flex; flex-direction: column; align-items: center; }
     .team-badge {
       display: inline-block;
       font-size: 0.65rem;
@@ -125,7 +139,7 @@
     .team-info h4 { color: var(--navy); margin-bottom: 4px; font-size: 1.1rem; }
     .team-role  { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
     .team-bio   { font-size: 0.82rem; line-height: 1.65; margin-bottom: 14px; }
-    .team-tags  { display: flex; flex-wrap: wrap; gap: 6px; }
+    .team-tags  { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
     .team-tag   {
       font-size: 0.7rem;
       background: var(--bg-alt);
@@ -133,6 +147,17 @@
       color: var(--text-muted);
       padding: 3px 8px;
       border-radius: var(--r-full);
+    }
+    .team-subheading {
+      text-align: center;
+      color: var(--navy);
+      font-size: 1.6rem;
+      margin: 48px auto 28px;
+      font-weight: 700;
+      width: 100%;
+    }
+    .team-subheading:first-of-type {
+      margin-top: 16px;
     }
 
     /* Timeline */
@@ -184,7 +209,7 @@
     .res-label { font-size: 0.875rem; color: rgba(255,255,255,0.68); font-weight: 400; }
 
     @media (max-width: 1024px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-card { flex: 0 1 calc(50% - 14px); }
     }
     @media (max-width: 900px) {
       .mission-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -192,7 +217,7 @@
       .research-stats { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
-      .team-grid    { grid-template-columns: 1fr; }
+      .team-card    { flex: 0 1 100%; }
       .values-grid  { grid-template-columns: 1fr; }
       .research-stats { grid-template-columns: 1fr 1fr; }
     }
@@ -285,12 +310,13 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Our Team</span>
-        <h2 id="team-heading">Meet the Scientists</h2>
-        <p>Our founding team brings decades of experience from the world's leading electrochemistry and hydrogen energy research institutions.</p>
+        <h2 id="team-heading">Meet the Scientists &amp; Leaders</h2>
+        <p>Our team brings together decades of experience from the world's leading electrochemistry and hydrogen energy research institutions.</p>
       </div>
 
-      <div class="team-grid">
-
+      <!-- Founders & Leadership -->
+      <h3 class="team-subheading">Founders &amp; Leadership</h3>
+      <div class="team-grid" style="margin-bottom: 64px;">
         <!-- Founder 1: Sravani Vulli -->
         <div class="team-card reveal reveal-delay-1">
           <div class="team-photo">
@@ -304,7 +330,7 @@
             <span class="team-badge">Co-Founder</span>
             <h4>Sravani Vulli</h4>
             <div class="team-role">Managing Director &amp; Co-Founder</div>
-            <p class="team-bio">Sravani brings deep expertise in electrochemical systems and green hydrogen commercialisation. Alumna of National University of Singapore (NUS), she leads business development, strategic partnerships, and operations at Shakti Photon Solutions.</p>
+            <p class="team-bio">Sravani brings deep expertise in electrochemical systems and green hydrogen commercialisation. Alumna of National University of Singapore (NUS), she leads business development, strategic partnerships, and operations.</p>
             <div class="team-tags">
               <span class="team-tag">NUS Singapore</span>
               <span class="team-tag">Electrochemistry</span>
@@ -326,7 +352,7 @@
             <span class="team-badge">Co-Founder</span>
             <h4>Dr. Mallikarjuna Rao</h4>
             <div class="team-role">Chief Technology Officer &amp; Co-Founder</div>
-            <p class="team-bio">Dr. Rao is a prolific researcher in PEM electrolysis and fuel cells with 60+ peer-reviewed publications. His global research career spans Uppsala University (Sweden), IIT Kanpur, and University of Hyderabad. He leads all technical R&amp;D at Shakti Photon Solutions.</p>
+            <p class="team-bio">Dr. Rao is a prolific researcher in PEM electrolysis and fuel cells with 60+ peer-reviewed publications. His global research career spans Uppsala University (Sweden), IIT Kanpur, and University of Hyderabad.</p>
             <div class="team-tags">
               <span class="team-tag">Uppsala University</span>
               <span class="team-tag">IIT Kanpur</span>
@@ -335,16 +361,136 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Placeholder for 3rd team member or "Join Us" card -->
-        <div class="team-card reveal reveal-delay-3" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:400px; background: linear-gradient(135deg, var(--bg-alt), var(--white));">
-          <div style="font-size:3rem; margin-bottom:16px;">🚀</div>
-          <h4 style="margin-bottom:10px;">Join Our Team</h4>
-          <p style="font-size:0.875rem; max-width:220px; margin-bottom:20px;">We're looking for talented engineers and scientists passionate about green hydrogen.</p>
-          <a href="mailto:careers@shaktiphotonsolutions.com?subject=Career Enquiry" class="btn btn--outline-navy btn--sm">View Openings →</a>
+      <!-- Core Team -->
+      <h3 class="team-subheading">Our Core Team</h3>
+      <div class="team-grid" style="margin-bottom: 64px;">
+        <!-- Noah Jacob -->
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/core-noah.png"
+              alt="Noah Jacob, CTO"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Noah Jacob</h4>
+            <div class="team-role">CTO</div>
+          </div>
         </div>
 
+        <!-- Haresh Shandilya -->
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/Haresh Shandilya.avif"
+              alt="Haresh Shandilya, VP Business Head"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Haresh Shandilya</h4>
+            <div class="team-role">VP Business Head</div>
+          </div>
+        </div>
+
+        <!-- Jan Nisa Ahad -->
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/core-jan-nisa.png"
+              alt="Jan Nisa Ahad, Production Head"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Jan Nisa Ahad</h4>
+            <div class="team-role">Production Head</div>
+          </div>
+        </div>
+
+        <!-- Gyan Kumar Sah -->
+        <div class="team-card reveal reveal-delay-4">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/core-gyan.jpeg"
+              alt="Gyan Kumar Sah, Production Engineer"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Gyan Kumar Sah</h4>
+            <div class="team-role">Production Engineer</div>
+          </div>
+        </div>
+
+        <!-- Mesa Sai Gagan -->
+        <div class="team-card reveal reveal-delay-5">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/core-gagan.jpg"
+              alt="Mesa Sai Gagan, Production Engineer"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Mesa Sai Gagan</h4>
+            <div class="team-role">Production Engineer</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Advisory Team -->
+      <h3 class="team-subheading">Our Advisory Team</h3>
+      <div class="team-grid">
+        <!-- Dr. Jagadeesh Kalepu -->
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/advisor-jagadeesh.png"
+              alt="Dr. Jagadeesh Kalepu, Advisor"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Dr. Jagadeesh Kalepu</h4>
+            <div class="team-role">Advisor</div>
+          </div>
+        </div>
+
+        <!-- Dr. Siddhartha Ghosh -->
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/advisor-siddhartha.jpg"
+              alt="Dr. Siddhartha Ghosh, Advisor"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Dr. Siddhartha Ghosh</h4>
+            <div class="team-role">Advisor</div>
+          </div>
+        </div>
+
+        <!-- Lokesh Kumar -->
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-photo">
+            <img
+              src="public/assets/images/team/advisor-lokesh.avif"
+              alt="Lokesh Kumar, Advisor"
+              loading="lazy"
+            >
+          </div>
+          <div class="team-info">
+            <h4>Lokesh Kumar</h4>
+            <div class="team-role">Advisor</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

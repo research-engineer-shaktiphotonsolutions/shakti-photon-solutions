@@ -6,7 +6,14 @@
 
 ---
 
-## [9 June 2026] — Blog, Nav Fix, Title Tag & Compound Docs
+## [9 June 2026] — Team Page Revamp, Blog, Nav Fix, Title Tag & Compound Docs
+
+### Team Page Revamp (About Us)
+- Updated team portraits in `about.html` to circular frames (`border-radius: 50%`) with elegant borders and hover animations to resolve close-up feedback.
+- Rewrote `.team-grid` layout to use flexbox centering, ensuring cards align gracefully on all viewport sizes (e.g., centering the row of 2 in Core Team).
+- Added **Our Core Team** section featuring: Noah Jacob (CTO), Haresh Shandilya (VP Business Head), Jan Nisa Ahad (Production Head), Gyan Kumar Sah (Production Engineer), and Mesa Sai Gagan (Production Engineer).
+- Added **Our Advisory Team** section featuring: Dr. Jagadeesh Kalepu, Dr. Siddhartha Ghosh, and Lokesh Kumar (Advisors).
+- Omitted bios for core/advisor cards to keep layout compact and balanced, highlighting names and roles.
 
 ### Blog — 5 Articles Published
 - Created `blog/index.html` — article listing page with brand-consistent nav
