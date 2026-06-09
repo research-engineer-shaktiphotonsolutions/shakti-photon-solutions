@@ -253,3 +253,42 @@ Do NOT run `npm run build` manually — Vercel runs it automatically.
 
 ### 12.7 File Editing — No Regex on Large Files
 Do NOT use PowerShell `-replace` regex on large HTML files. Use `replace_file_content` or `multi_replace_file_content` tools with exact line targeting. Regex on multi-line HTML causes silent corruption.
+
+### 12.8 Footer — Always Copy Verbatim from index.html
+The footer HTML structure is defined once in `index.html`. Blog/sub-pages MUST use the **exact same** CSS classes:
+- `footer-logo-wrap` with real `Logo_WIth_Whitebox.png` (NOT emoji + `footer-logo`)
+- `footer-col` + `footer-link` (NOT `footer-links-group` + bare `<a>`)
+- `footer-social-btn` for LinkedIn / WhatsApp / Email
+- `footer-bottom` with `footer-copy` + `footer-bottom-links`
+- Blog pages in `/blog/` must prefix all image and link paths with `../`
+
+**Copy the footer HTML from `index.html` directly. Only change `href` and `src` paths. Never rewrite the footer from memory.**
+
+### 12.9 Hero h1 Color — Always Set Explicitly on Dark Backgrounds
+`main.css` sets a global `h1 { color: var(--navy); }`. When an h1 is inside a dark hero section, it will appear **invisible** (dark text on dark background) unless you **explicitly** set `color: var(--white)` on the h1 rule itself.
+
+Rule: Any custom hero section with dark background MUST include:
+```css
+.your-hero h1 { color: var(--white); }
+```
+Do NOT rely on `color` inheriting from the parent — global h1 styles will override inheritance.
+
+### 12.10 Mobile Nav — Structure Must Match index.html Exactly
+The mobile nav MUST be placed **outside** the <nav> tag and use these classes:
+- Mobile links: class="nav-mobile-link" (NOT 
+av-link)
+- Mobile CTA: class="nav-mobile-cta" (NOT 
+av-cta)
+
+Correct structure for ALL pages (adjust paths with ../ for /blog/ pages):
+```html
+</nav>
+<div class="nav-mobile" id="mobile-menu" aria-label="Mobile navigation" role="navigation">
+  <a href="products.html"               class="nav-mobile-link">Products</a>
+  <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
+  <a href="about.html"                  class="nav-mobile-link">About Us</a>
+  <a href="blog/index.html"             class="nav-mobile-link">Blog</a>
+  <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
+</div>
+```
+Never copy the mobile menu from memory. Copy it verbatim from index.html.
