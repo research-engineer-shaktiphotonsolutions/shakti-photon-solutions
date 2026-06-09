@@ -4,6 +4,14 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [9 June 2026] — Milestones Timeline Alignment & Typo Fix
+
+### Key Milestones Timeline
+- Restructured and aligned the "Key Milestones" timeline in `about.html` to correctly incorporate the new **NIT Warangal Installation** event for 2024.
+- Fixed HTML syntax/div nesting errors inside the timeline to ensure clean alignment on both desktop and mobile screens.
+- Corrected a double "and" typo ("and and") in the description text.
+- Pushed changes to GitHub and successfully deployed the verified fix to the live production server on Vercel.
+
 ---
 
 ## [9 June 2026] — Team Page Revamp, Blog, Nav Fix, Title Tag & Compound Docs
