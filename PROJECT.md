@@ -55,9 +55,19 @@ IIT Hyderabad, IIT Delhi, NIT Warangal, RV College of Engineering, GITAM, VIT AP
 
 ## 4. Website Purpose
 
-The website's **primary goal** is lead generation — customers must be able to enquire within 3 clicks from landing. Secondary goal: SEO/GEO visibility so the site appears when people search for "hydrogen generator India", "fuel cell system India", "CCUS India", etc.
+The website's **primary goal** is lead generation — customers must be able to enquire within 3 clicks from landing. **Secondary goal:** SEO/GEO visibility so the site appears when people search for:
+
+- "green hydrogen" / "green hydrogen company India"
+- "fuel cell" / "fuel cell system India"
+- "net zero enabler" / "net zero company India"
+- "carbon capture company" / "carbon capture utilization and storage company"
+- "MEA manufacturer" / "MEA manufacturing India"
+- "PEM electrolyzer" / "PEM electrolyzer manufacturer India"
+- "CCUS India" / "CCUS companies India"
+- "hydrogen generator India"
 
 The original Wix website was rebuilt from scratch in HTML/CSS/JS for full flexibility, better SEO, and free hosting.
+
 
 ---
 
