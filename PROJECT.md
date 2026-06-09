@@ -292,3 +292,9 @@ Correct structure for ALL pages (adjust paths with ../ for /blog/ pages):
 </div>
 ```
 Never copy the mobile menu from memory. Copy it verbatim from index.html.
+
+### 12.11 CTA Strip Buttons — Always Use btn--gold
+The contact-strip section has a dark blue background. NEVER use btn--outline on a dark background — it renders as invisible text.
+Rule: ALL 'Get a Quote' / 'Get in Touch' buttons in the contact-strip MUST use class="btn btn--gold".
+Every page confirms this: index.html:894, products.html:809, about.html:480, equipment-as-a-service.html:586
+
