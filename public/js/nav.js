@@ -35,7 +35,7 @@
     <div class="nav-inner container">
       <a href="/" class="nav-logo" aria-label="Shakti Photon Solutions Home">
         <div class="nav-logo-icon">
-          <img src="/public/favicon.png" alt="" width="40" height="40" aria-hidden="true">
+          <img src="/favicon.png" alt="" width="40" height="40" aria-hidden="true">
         </div>
         <div class="nav-logo-text">
           <span class="nav-logo-name">Shakti Photon Solutions</span>
