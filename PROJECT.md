@@ -305,3 +305,28 @@ The favicon shown in browser tabs is controlled by:
 This tag already exists in ALL HTML pages. The file public/favicon.png is a copy of public/assets/images/shared/Icon.PNG (the brand lightning bolt).
 Never change the href path. If the favicon needs updating, replace the file at public/favicon.png.
 Blog pages use href="../public/favicon.png" (with ../ prefix).
+
+### 12.13 Meta Tags Must Stay in Sync with Visible Content — ALWAYS
+When ANY visible content changes (product names, hero text, CTA copy, product descriptions),
+the AI MUST immediately check and update ALL of these in the same commit:
+
+| Tag | File | Purpose |
+|-----|------|---------|
+| meta name="description" | every HTML page | Google search snippet |
+| meta property="og:description" | every HTML page | WhatsApp/LinkedIn/Twitter preview |
+| meta property="og:title" | every HTML page | Social share title |
+| meta name="keywords" | every HTML page | Keyword targeting |
+| JSON-LD "description" | every HTML page | Rich results / Google AI overview |
+
+**Current product vocabulary (update this list when products change):**
+- PEM Electrolyzers, AEM Electrolyzers, Alkaline Electrolyzers
+- Fuel Cell Systems
+- CCUS (Carbon Capture, Utilization and Storage) — NOT 'R&D platforms'
+- MEA Manufacturing (Membrane Electrode Assembly)
+- On-site green hydrogen generators
+- Net-zero enabler, Carbon capture company
+
+**Workflow:** When team changes a heading or product name on a page:
+1. Find all meta/og tags that mention that product
+2. Update every instance across all pages in the same commit
+3. Note the change in CHANGELOG.md
