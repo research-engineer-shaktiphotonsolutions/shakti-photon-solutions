@@ -263,20 +263,18 @@ p  { line-height: 1.75; color: var(--text-muted); }
 .nav-logo-icon {
   width: 40px;
   height: 40px;
-  background: var(--bg-alt);
   border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-  padding: 4px;
-  border: 1px solid var(--border);
 }
 .nav-logo-icon img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--r-sm);
 }
 .nav-logo-text { line-height: 1.2; }
 .nav-logo-name {
