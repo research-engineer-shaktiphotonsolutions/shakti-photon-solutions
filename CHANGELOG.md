@@ -6,7 +6,48 @@
 
 ---
 
+## [9 June 2026] — Blog, Nav Fix, Title Tag & Compound Docs
+
+### Blog — 5 Articles Published
+- Created `blog/index.html` — article listing page with brand-consistent nav
+- Created 5 full-length SEO articles (800–1200 words each) with Article JSON-LD:
+  - `blog/pem-vs-aem-vs-alkaline-electrolyzer-india.html`
+  - `blog/green-hydrogen-generator-cost-india.html`
+  - `blog/equipment-as-a-service-hydrogen-research-india.html`
+  - `blog/ccus-co2-reduction-india.html`
+  - `blog/fuel-cell-systems-india.html`
+- Created `blog/article.css` — shared styles for all article pages
+- Each article: breadcrumb, callout boxes, comparison tables, enquiry CTA, WhatsApp button, related articles
+- Added all 6 blog pages to `vite.config.js` as entry points
+- Updated `sitemap.xml` — now 11 URLs
+
+### Nav Bugs Fixed (blog pages)
+- Blog pages were using emoji `⚡` instead of real `Icon.PNG` logo → fixed
+- Logo text class was `nav-logo-primary` (CSS didn't exist) → fixed to `nav-logo-name`
+- Hamburger ID was `hamburger` (JS couldn't find it) → fixed to `hamburger-btn`
+- Script tag missing `type="module"` (Vite couldn't bundle) → fixed
+- CTA button used wrong class `btn btn--gold nav-cta` → fixed to `nav-cta`
+- Blog nav link added to all main site pages (index, products, about, contact, eaas)
+
+### Title Tag Fix
+- Homepage `<title>` updated: 'Green Hydrogen Generator Manufacturer India' → **'Enabling India's Net-Zero Goal | Shakti Photon Solutions'**
+- `og:title` and `twitter:title` updated to match
+- Rule documented in PROJECT.md § 10
+
+### PowerPoint Presentation
+- Generated `Shakti_Photon_Solutions_Website_Revamp_2026.pptx` (15 slides, 2.83 MB)
+- Covers: problem, strategy, all 7 page screenshots with Vercel links, SEO architecture, tech stack, next steps
+- Screenshots taken via Puppeteer (saved to brain scratch directory)
+
+### Compound Engineering Docs Updated
+- `PROJECT.md` — added blog pages table, title tag rules, brand positioning rules, 7 agent rules (§12)
+- `CHANGELOG.md` — this entry
+- `DECISIONS.md` — pending update (blog article format decision)
+
+---
+
 ## [June 2026] — Compound Engineering Setup
+
 - Created `AGENTS.md` — full AI behaviour rulebook for the project
 - Created `PROJECT.md` — single source of truth (company, stack, credentials, patterns)
 - Created `DECISIONS.md` — 10 architecture decision records with rationale

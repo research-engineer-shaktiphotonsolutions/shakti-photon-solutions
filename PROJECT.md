@@ -99,13 +99,22 @@ The original Wix website was rebuilt from scratch in HTML/CSS/JS for full flexib
 
 | Page | File | Route | Purpose |
 |---|---|---|---|
-| Home | `index.html` | `/` | Hero, product cards, stats, partners, enquiry CTA |
+| Home | `index.html` | `/` | Hero, product cards, stats, partners, FAQ, enquiry CTA |
 | Products | `products.html` | `/products` | Full product specs and EaaS details |
 | Equipment as a Service | `equipment-as-a-service.html` | `/equipment-as-a-service` | Session booking for lab equipment |
 | About | `about.html` | `/about` | Team bios, company timeline, research stats |
 | Contact | `contact.html` | `/contact` | Contact form (Formspree), office info |
+| Blog Index | `blog/index.html` | `/blog` | Article listing (5 articles published June 2026) |
+| Article: PEM vs AEM | `blog/pem-vs-aem-vs-alkaline-electrolyzer-india.html` | `/blog/pem-vs-aem-vs-alkaline-electrolyzer-india` | Electrolyzer comparison |
+| Article: H2 Cost | `blog/green-hydrogen-generator-cost-india.html` | `/blog/green-hydrogen-generator-cost-india` | Price guide India |
+| Article: EaaS | `blog/equipment-as-a-service-hydrogen-research-india.html` | `/blog/equipment-as-a-service-hydrogen-research-india` | EaaS explainer |
+| Article: CCUS | `blog/ccus-co2-reduction-india.html` | `/blog/ccus-co2-reduction-india` | CCUS electrochemistry |
+| Article: Fuel Cells | `blog/fuel-cell-systems-india.html` | `/blog/fuel-cell-systems-india` | Fuel cell applications |
 
 All pages are declared as entry points in `vite.config.js`. New HTML pages MUST be added there.
+
+> **Blog CSS:** Shared styles for all blog article pages live in `blog/article.css`.
+> Blog index uses inline `<style>` block inside `blog/index.html`.
 
 ---
 
@@ -157,12 +166,25 @@ All JS lives in one file, inside a single `DOMContentLoaded` listener. Sections:
 
 ## 10. Key SEO Setup (Already Done)
 
-- `sitemap.xml` — all 5 pages listed
+- `sitemap.xml` — **11 URLs** listed (6 core pages + 5 blog articles)
 - `robots.txt` — allows all crawlers, references sitemap
 - JSON-LD `Organization` schema on all pages
+- `FAQPage` JSON-LD schema on homepage (10 Q&As) — read by AI assistants (GEO)
+- `Article` JSON-LD schema on every blog article
 - Open Graph + Twitter Card meta tags on all pages
 - Canonical URLs on all pages
 - Semantic HTML structure (h1, h2, h3 hierarchy)
+- Visible FAQ section on homepage with `itemscope`/`itemprop` microdata
+
+### Page Titles (browser tab + Google snippet)
+> **Rule:** The `<title>` tag controls (1) browser tab, (2) Google headline, (3) og:title controls LinkedIn/WhatsApp share, (4) twitter:title controls X/Twitter share.
+> All 3 must be updated together when changing brand positioning.
+- **Homepage title:** "Enabling India's Net-Zero Goal | Shakti Photon Solutions" (updated June 2026, was 'Green Hydrogen Generator Manufacturer India')
+- **Products:** "Products — PEM, AEM & Alkaline Electrolyzers | Shakti Photon Solutions"
+- **EaaS:** "Equipment as a Service | Shakti Photon Solutions"
+- **About:** "About Us | Shakti Photon Solutions"
+- **Contact:** "Contact Us | Shakti Photon Solutions"
+- **Blog:** "Green Hydrogen & CCUS Blog | Shakti Photon Solutions"
 
 ### Target Keywords
 - **Primary:** "green hydrogen company India", "green hydrogen generator India", "PEM electrolyzer India", "fuel cell system India", "fuel cell India"
@@ -176,9 +198,58 @@ All JS lives in one file, inside a single `DOMContentLoaded` listener. Sections:
 
 See `docs/ROADMAP.md` for the full prioritised list. Top items:
 
-1. **GEO optimization** — FAQ schema, "People Also Ask" content, AI-readable structured answers
-2. **Blog / articles** — 5 long-form SEO articles (user will write with AI drafting assistance)
-3. **Ticker bar** — scrolling announcement strip below navbar
-4. **Landing popup** — first-visit popup asking "What are you looking for?"
-5. **DNS migration** — when team is satisfied with the site
-6. **Supabase** — replace Formspree, build form submission database
+1. **DNS migration** — when team is satisfied with the site, point `shaktiphotonsolutions.com` to Vercel
+2. **Ticker bar** — scrolling announcement strip below navbar
+3. **Landing popup** — first-visit popup asking "What are you looking for?"
+4. **Supabase** — replace Formspree, build form submission database
+5. **More blog articles** — team to suggest new FAQ entries for homepage schema
+
+---
+
+## 12. Agent Rules — Lessons Learned (MUST READ)
+
+These are recurring mistakes that caused rework. Every agent must follow these rules:
+
+### 12.1 Navigation — All Pages Must Be Identical
+The main nav exists in **every HTML file independently** (no server-side includes). When adding a new nav link, update **ALL** these files:
+```
+index.html, products.html, about.html, contact.html, equipment-as-a-service.html
+blog/index.html, blog/pem-vs-aem-vs-alkaline-electrolyzer-india.html,
+blog/green-hydrogen-generator-cost-india.html,
+blog/equipment-as-a-service-hydrogen-research-india.html,
+blog/ccus-co2-reduction-india.html, blog/fuel-cell-systems-india.html
+```
+**Nav order:** Products > Equipment as a Service > About Us > Blog > Contact
+
+### 12.2 Blog Pages Nav — Must Match Main Site Exactly
+Blog pages are in `/blog/` subdirectory. Their nav must use `../` relative paths BUT must otherwise be **character-for-character identical** in structure to the main site nav. Verified attributes:
+- Logo: `<img src="../public/assets/images/shared/Icon.PNG">` (NOT emoji)
+- Logo text class: `nav-logo-name` (NOT `nav-logo-primary`)
+- Hamburger ID: `id="hamburger-btn"` (NOT `id="hamburger"` — JS uses this to attach click listener)
+- Script tag: `<script type="module" src="../js/main.js">` (type=module required for Vite bundling)
+- CTA button: `class="nav-cta"` (NOT `btn btn--gold nav-cta`)
+
+### 12.3 Localhost vs Production URLs
+- `http://localhost:5173/blog` → ❌ does NOT work in Vite dev server
+- `http://localhost:5173/blog/index.html` → ✅ works
+- `https://shakti-photon-solutions.vercel.app/blog` → ✅ works (Vercel handles directory routing)
+
+### 12.4 New Pages Must Be Added to vite.config.js
+Every new HTML file needs an entry in `vite.config.js` under `build.rollupOptions.input`. Without this, Vite won't bundle/process the page for production.
+
+### 12.5 Brand Positioning (Updated June 2026)
+- **OLD (never use):** "Green Hydrogen Generator Manufacturer"
+- **NEW (always use):** "Enabling India's Net-Zero Goal"
+- Products covered: on-site hydrogen generators · fuel cell systems · CCUS
+- Mohali office: **REMOVED June 2026. Never add it back.**
+
+### 12.6 Deployment Workflow
+```bash
+git add -A
+git commit -m "type(scope): description"
+vercel --prod
+```
+Do NOT run `npm run build` manually — Vercel runs it automatically.
+
+### 12.7 File Editing — No Regex on Large Files
+Do NOT use PowerShell `-replace` regex on large HTML files. Use `replace_file_content` or `multi_replace_file_content` tools with exact line targeting. Regex on multi-line HTML causes silent corruption.
