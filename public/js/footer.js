@@ -20,7 +20,7 @@
             >
           </div>
           <!-- ▼ EDIT THIS LINE to change the footer tagline everywhere ▼ -->
-          <p>India's green hydrogen &amp; net-zero technology company. On-site hydrogen generators, fuel cell systems, CCUS solutions and MEA manufacturing — built for a sustainable future.</p>
+          <p>India's green hydrogen &amp; net-zero technology company. Specializing in Custom Industrial Solutions, On-site hydrogen generators, fuel cell systems, and CCUS solutions.</p>
           <div class="footer-socials">
             <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/"
                class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
@@ -84,6 +84,18 @@
           <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
           <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
         </div>
+      </div>
+      <!-- Legal / Brand Credibility -->
+      <div class="footer-legal">
+        <img
+          src="/public/assets/images/shared/0aa2fb_7c1bf2a3111945b29e1aa80851b237d8_mv2.png-Screenshot_2024-12-07_at_11_10_edited.png"
+          alt="Mark Enyz® — Registered Brand"
+          class="footer-legal-logo"
+        >
+        <span class="footer-legal-sep">|</span>
+        <span class="footer-legal-item"><strong>GST:</strong> 37ABKCS1534R1ZN</span>
+        <span class="footer-legal-sep">|</span>
+        <span class="footer-legal-item"><strong>PAN:</strong> ABKCS1534R</span>
       </div>
     </div>
   </footer>`;

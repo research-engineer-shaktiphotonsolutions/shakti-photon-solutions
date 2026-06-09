@@ -1141,6 +1141,38 @@ p  { line-height: 1.75; color: var(--text-muted); }
 }
 .footer-bottom-link:hover { color: var(--cyan); }
 
+/* Mark Enyz brand + GST/PAN legal row */
+.footer-legal {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 20px;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-legal-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  opacity: 0.85;
+}
+.footer-legal-sep {
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+}
+.footer-legal-item {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.02em;
+}
+.footer-legal-item strong {
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+
 /* ================================================================
    SCROLL REVEAL ANIMATIONS
    ================================================================ */
