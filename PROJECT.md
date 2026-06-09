@@ -330,3 +330,11 @@ the AI MUST immediately check and update ALL of these in the same commit:
 1. Find all meta/og tags that mention that product
 2. Update every instance across all pages in the same commit
 3. Note the change in CHANGELOG.md
+
+### 12.14 Image and Asset Paths in Javascript Strings — Do Not Use public/ Prefix
+In Vite, the contents of the `public/` directory are copied directly to the build root (`/dist`) during production builds. Vite automatically rewrites paths in static HTML `src`/`href` attributes (like `public/favicon.png`), but does not analyze or rewrite dynamic JavaScript string literals (such as in `nav.js` and `footer.js`). 
+- **Rule**: Never prefix asset paths in JS template strings with `/public/`. Use root-relative production paths directly (e.g. `/favicon.png`, `/assets/images/...`), which work on both the localhost dev server and Vercel.
+
+### 12.15 CSS Specificity for Page-Specific Styles — Use ID Selectors
+In production builds, Vite compiles page-specific inline `<style>` blocks and external stylesheets. The global `css/main.css` file can get bundled and loaded *after* page-specific inline styles. If selectors have the same specificity, the global stylesheet will override the local styles.
+- **Rule**: Always raise CSS specificity for page-specific overrides in HTML `<style>` tags by prefixing selectors with parent ID elements (e.g. use `#team .team-grid` and `#team .team-card` instead of just `.team-grid` or `.team-card`). This guarantees the page-specific overrides win regardless of Vite's bundled CSS loading order.
