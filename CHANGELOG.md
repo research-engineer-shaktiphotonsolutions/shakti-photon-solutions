@@ -4,6 +4,15 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [9 June 2026] — Blog Article Navigation & Link Fix
+
+### Blog Subdirectory Link Resolution
+- Converted relative links (e.g. `pem-vs-aem-vs-alkaline-electrolyzer-india.html`) to root-relative paths (e.g. `/blog/pem-vs-aem-vs-alkaline-electrolyzer-india.html`) inside the blog index and all 5 individual article pages.
+- Resolved a critical production bug where extensionless routing on Vercel (`/blog`) broke browser relative URL resolution, causing 404 errors for visitors clicking on articles.
+- Verified that all article and navigation links now resolve correctly both in local development and production.
+
+---
+
 ## [9 June 2026] — Milestones Timeline Alignment & Typo Fix
 
 ### Key Milestones Timeline
