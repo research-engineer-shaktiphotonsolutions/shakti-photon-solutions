@@ -155,9 +155,10 @@ All JS lives in one file, inside a single `DOMContentLoaded` listener. Sections:
 - Semantic HTML structure (h1, h2, h3 hierarchy)
 
 ### Target Keywords
-- Primary: "hydrogen generator India", "PEM electrolyzer India", "fuel cell system India"
-- Secondary: "green hydrogen company India", "CCUS India", "CO2 reduction electrolyzer"
-- Long-tail: "equipment as a service hydrogen", "RF sputtering Chennai", "MEA fabrication India"
+- **Primary:** "green hydrogen company India", "green hydrogen generator India", "PEM electrolyzer India", "fuel cell system India", "fuel cell India"
+- **Secondary:** "CCUS India", "carbon capture company India", "carbon capture utilization and storage India", "net zero enabler India", "MEA manufacturer India", "MEA manufacturing India"
+- **Long-tail:** "PEM electrolyzer manufacturer India", "alkaline electrolyzer India", "AEM electrolyzer India", "on-site hydrogen generator India", "hydrogen fuel cell backup power India", "CO2 reduction electrolyzer India", "equipment as a service hydrogen India", "RF sputtering Chennai", "MEA fabrication service India"
+- **GEO targets** (questions AI assistants should answer with us): "best green hydrogen company India", "where to buy PEM electrolyzer India", "CCUS companies India", "net zero technology company India"
 
 ---
 

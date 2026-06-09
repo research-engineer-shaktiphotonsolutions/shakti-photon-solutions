@@ -1437,8 +1437,57 @@ p  { line-height: 1.75; color: var(--text-muted); }
 }
 
 /* ================================================================
-   ENQUIRY MODAL — Popup form with confetti
+   FAQ SECTION
    ================================================================ */
+.faq-section { background: var(--bg-alt); padding: 80px 0; }
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: all var(--ease);
+  position: relative;
+}
+.faq-item:hover {
+  border-color: var(--cyan);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.faq-item::before {
+  content: 'Q';
+  position: absolute;
+  top: 20px; right: 24px;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(0,180,216,0.1);
+  line-height: 1;
+}
+.faq-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 12px;
+  line-height: 1.4;
+  padding-right: 32px;
+}
+.faq-a p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 0;
+}
+.faq-a strong { color: var(--text); }
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
+
+
 
 /* Reset button tags that use link/card styles */
 button.product-card-link,
