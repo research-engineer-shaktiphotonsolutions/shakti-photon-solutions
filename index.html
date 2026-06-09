@@ -193,56 +193,16 @@
     ]
   }
   </script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/footer.js"></script>
 </head>
 <body>
 <!-- ═══════════════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════════════ -->
-<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
-      <div class="nav-logo-icon">
-        <img
-          src="public/favicon.png"
-          alt=""
-          width="32" height="32"
-          aria-hidden="true"
-        >
-      </div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Shakti Photon Solutions</span>
-        <span class="nav-logo-sub">Private Limited</span>
-      </div>
-    </a>
-    <div class="nav-links" role="list">
-      <a href="products.html"                class="nav-link" role="listitem">Products</a>
-      <a href="equipment-as-a-service.html"  class="nav-link" role="listitem">Equipment as a Service</a>
-      <a href="about.html"                   class="nav-link" role="listitem">About Us</a>
-      <a href="blog/index.html"              class="nav-link" role="listitem">Blog</a>
-      <a href="contact.html"                 class="nav-link" role="listitem">Contact</a>
-    </div>
-    <a href="contact.html" class="nav-cta">Get a Quote →</a>
-    <button
-      class="nav-hamburger"
-      id="hamburger-btn"
-      aria-label="Open mobile menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</nav>
-<!-- MOBILE MENU -->
-<div class="nav-mobile" id="mobile-menu" aria-label="Mobile navigation" role="navigation">
-  <a href="products.html"               class="nav-mobile-link">Products</a>
-  <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
-  <a href="about.html"                  class="nav-mobile-link">About Us</a>
-  <a href="contact.html"                class="nav-mobile-link">Contact</a>
-  <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
-</div>
+
+  <div id="site-nav"></div>
+
 <!-- ═══════════════════════════════════════════
      MAIN CONTENT
 ═══════════════════════════════════════════ -->
@@ -902,93 +862,9 @@
     </div>
   </section>
 </main>
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
-<footer class="footer" aria-label="Site footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img
-            src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png"
-            alt="Shakti Photon Solutions Private Limited"
-            height="46" loading="lazy"
-          >
-        </div>
-        <p>India's green hydrogen &amp; net-zero technology company. On-site hydrogen generators, fuel cell systems, CCUS solutions and MEA manufacturing — built for a sustainable future.</p>
-        <div class="footer-socials">
-          <a
-            href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/"
-            class="footer-social-btn"
-            target="_blank" rel="noreferrer"
-            aria-label="LinkedIn profile"
-          >in</a>
-          <a
-            href="https://wa.me/917382025117"
-            class="footer-social-btn"
-            target="_blank" rel="noreferrer"
-            aria-label="WhatsApp"
-          >💬</a>
-          <a
-            href="mailto:info@shaktiphotonsolutions.com"
-            class="footer-social-btn"
-            aria-label="Email us"
-          >✉</a>
-        </div>
-      </div>
-      <!-- Products -->
-      <div class="footer-col">
-        <h5>Products</h5>
-        <nav class="footer-links" aria-label="Product pages">
-          <a href="products.html#electrolyzers"  class="footer-link">PEM Electrolyzers</a>
-          <a href="products.html#electrolyzers"  class="footer-link">AEM Electrolyzers</a>
-          <a href="products.html#electrolyzers"  class="footer-link">Alkaline Electrolyzers</a>
-          <a href="products.html#fuelcells"       class="footer-link">Fuel Cell Systems</a>
-          <a href="products.html#rd-platforms"    class="footer-link">R&amp;D Platforms</a>
-          <a href="products.html#co2"             class="footer-link">CO₂ Reduction Systems</a>
-        </nav>
-      </div>
-      <!-- Company -->
-      <div class="footer-col">
-        <h5>Company</h5>
-        <nav class="footer-links" aria-label="Company pages">
-          <a href="about.html"                   class="footer-link">About Us</a>
-          <a href="about.html#team"              class="footer-link">Our Team</a>
-          <a href="equipment-as-a-service.html"  class="footer-link">Equipment as a Service</a>
-          <a href="#partners"                    class="footer-link">Our Partners</a>
-          <a href="#recognition"                 class="footer-link">Recognition</a>
-          <a href="contact.html"                 class="footer-link">Contact Us</a>
-        </nav>
-      </div>
-      <!-- Offices -->
-      <div class="footer-col">
-        <h5>Our Offices</h5>
-        <div class="footer-offices">
-          <address class="footer-office">
-            <strong>Chennai (Headquarters)</strong>
-            IIT Madras Research Park,<br>
-            Chennai, Tamil Nadu — 600 113
-          </address>
-          <address class="footer-office">
-            <strong>Guntur, Andhra Pradesh</strong>
-            JC Bose Block, SRM AP University,<br>
-            Guntur — 522 502
-          </address>
-        </div>
-      </div>
-    </div>
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="tel:+917382025117"                      class="footer-bottom-link">+91 73820 25117</a>
-        <a href="mailto:info@shaktiphotonsolutions.com"  class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
+
+  <div id="site-footer"></div>
+
 <!-- JS -->
 <script type="module" src="js/main.js"></script>
 </body>

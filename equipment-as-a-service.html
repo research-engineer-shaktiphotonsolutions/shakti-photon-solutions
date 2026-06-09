@@ -194,41 +194,14 @@
       .hiw-steps { grid-template-columns: 1fr; }
     }
   </style>
+  <script src="/js/nav.js"></script>
+  <script src="/js/footer.js"></script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Shakti Photon Solutions – Home">
-      <div class="nav-logo-icon">
-        <img src="public/favicon.png" alt="" width="32" height="32" aria-hidden="true">
-      </div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Shakti Photon Solutions</span>
-        <span class="nav-logo-sub">Private Limited</span>
-      </div>
-    </a>
-    <div class="nav-links">
-      <a href="products.html"               class="nav-link">Products</a>
-      <a href="equipment-as-a-service.html" class="nav-link active">Equipment as a Service</a>
-      <a href="about.html"                  class="nav-link">About Us</a>
-      <a href="blog/index.html"             class="nav-link">Blog</a>
-      <a href="contact.html"                class="nav-link">Contact</a>
-    </div>
-    <a href="contact.html" class="nav-cta">Get a Quote →</a>
-    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="nav-mobile" id="mobile-menu">
-  <a href="products.html"               class="nav-mobile-link">Products</a>
-  <a href="equipment-as-a-service.html" class="nav-mobile-link">Equipment as a Service</a>
-  <a href="about.html"                  class="nav-mobile-link">About Us</a>
-  <a href="contact.html"                class="nav-mobile-link">Contact</a>
-  <a href="contact.html"                class="nav-mobile-cta">Get a Quote →</a>
-</div>
+
+  <div id="site-nav"></div>
 
 <main>
 
@@ -591,63 +564,8 @@
 
 </main>
 
-<!-- FOOTER -->
-<footer class="footer" aria-label="Site footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="public/assets/images/shared/0aa2fb_20f7fb02f96f448aa56341259c9e2b04_mv2.png-Logo_WIth_Whitebox.png" alt="Shakti Photon Solutions" height="46" loading="lazy">
-        </div>
-        <p>India's green hydrogen &amp; net-zero technology company. On-site hydrogen generators, fuel cell systems, CCUS solutions and MEA manufacturing — built for a sustainable future.</p>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/company/shakti-photon-solutions-private-limited/" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
-          <a href="https://wa.me/917382025117" class="footer-social-btn" target="_blank" rel="noreferrer" aria-label="WhatsApp">💬</a>
-          <a href="mailto:info@shaktiphotonsolutions.com" class="footer-social-btn" aria-label="Email">✉</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Equipment Available</h5>
-        <nav class="footer-links">
-          <a href="#sputtering"   class="footer-link">RF Magnetron Sputtering</a>
-          <a href="#spray-nozzle" class="footer-link">Ultrasonic Spray Nozzle</a>
-          <a href="#hot-press"    class="footer-link">Hot Press</a>
-          <a href="#3d-printing"  class="footer-link">3D Printing</a>
-        </nav>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <nav class="footer-links">
-          <a href="index.html"    class="footer-link">Home</a>
-          <a href="products.html" class="footer-link">Products</a>
-          <a href="about.html"    class="footer-link">About Us</a>
-          <a href="contact.html"  class="footer-link">Contact</a>
-        </nav>
-      </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <div class="footer-offices">
-          <address class="footer-office">
-            <strong>Chennai (HQ)</strong>
-            IIT Madras Research Park,<br>
-            Chennai, Tamil Nadu — 600 113
-          </address>
-          <address class="footer-office">
-            <strong>Phone / WhatsApp</strong>
-            <a href="tel:+917382025117" style="color:rgba(255,255,255,0.5)">+91 73820 25117</a>
-          </address>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Shakti Photon Solutions Private Limited. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="tel:+917382025117" class="footer-bottom-link">+91 73820 25117</a>
-        <a href="mailto:info@shaktiphotonsolutions.com" class="footer-bottom-link">info@shaktiphotonsolutions.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  <div id="site-footer"></div>
+
 
 <script type="module" src="js/main.js"></script>
 </body>
