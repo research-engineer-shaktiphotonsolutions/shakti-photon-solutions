@@ -298,3 +298,10 @@ The contact-strip section has a dark blue background. NEVER use btn--outline on 
 Rule: ALL 'Get a Quote' / 'Get in Touch' buttons in the contact-strip MUST use class="btn btn--gold".
 Every page confirms this: index.html:894, products.html:809, about.html:480, equipment-as-a-service.html:586
 
+
+### 12.12 Favicon — Always Use public/favicon.png (= Icon.PNG)
+The favicon shown in browser tabs is controlled by:
+  <link rel="icon" type="image/png" href="public/favicon.png">
+This tag already exists in ALL HTML pages. The file public/favicon.png is a copy of public/assets/images/shared/Icon.PNG (the brand lightning bolt).
+Never change the href path. If the favicon needs updating, replace the file at public/favicon.png.
+Blog pages use href="../public/favicon.png" (with ../ prefix).
