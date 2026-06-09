@@ -267,4 +267,305 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 
+  /* ================================================================
+     10. ENQUIRY MODAL — Popup with confetti
+     ================================================================ */
+
+  // Product/service metadata for pre-filling the modal
+  const eqProductData = {
+    electrolyzers: {
+      tag: 'Electrolyzers',
+      title: 'Enquire About Hydrogen Generators',
+      subtitle: 'PEM, AEM & Alkaline — 0.01 kW to 100 kW · 99.999% purity',
+      select: 'pem-electrolyzer',
+      msg: 'Hi, I am interested in your Hydrogen Generator / Electrolyzer systems. Could you please share specifications, pricing, and lead time for my application?'
+    },
+    fuelcells: {
+      tag: 'Fuel Cells',
+      title: 'Enquire About Fuel Cell Systems',
+      subtitle: 'From 1W bench-top to 400 kW — drones, transport, backup power',
+      select: 'fuel-cell',
+      msg: 'Hi, I am interested in your Fuel Cell Systems. Could you please share the available power range, specifications, and pricing for my use case?'
+    },
+    ccus: {
+      tag: 'CCUS',
+      title: 'Enquire About CCUS Systems',
+      subtitle: 'CO₂ → CO, Formic Acid & Ethylene via electrochemical reduction',
+      select: 'ccus',
+      msg: 'Hi, I am interested in your CCUS / CO₂ Reduction Systems. Could you please share details on scale, specifications, and pricing?'
+    },
+    epc: {
+      tag: 'EPC Integration',
+      title: 'Discuss Your EPC Project',
+      subtitle: 'End-to-end hydrogen, carbon & renewable energy integration',
+      select: 'epc',
+      msg: 'Hi, I am interested in your EPC / turnkey system integration services. Could you please share more about your approach and past projects?'
+    },
+    sputtering: {
+      tag: 'EaaS',
+      title: 'Book RF Sputtering Session',
+      subtitle: 'RF Magnetron Sputtering — thin film deposition for research & production',
+      select: 'sputtering',
+      msg: 'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please share availability, session pricing, and material/substrate requirements.'
+    },
+    'spray-nozzle': {
+      tag: 'EaaS',
+      title: 'Book Ultrasonic Spray Session',
+      subtitle: 'Ultrasonic Spray Nozzle — catalyst & MEA/GDE coating',
+      select: 'spray-nozzle',
+      msg: 'Hi, I would like to book a session on your Ultrasonic Spray Nozzle for MEA/GDE fabrication. Please share session pricing and scheduling details.'
+    },
+    'hot-press': {
+      tag: 'EaaS',
+      title: 'Book Hot Press Session',
+      subtitle: 'Hot Press — MEA bonding & membrane electrode assembly',
+      select: 'hot-press',
+      msg: 'Hi, I would like to book a Hot Press session for MEA bonding. Please share the temperature/pressure range, pricing, and availability.'
+    },
+    '3d-printing': {
+      tag: 'EaaS',
+      title: 'Request 3D Printing',
+      subtitle: '3D Printing — rapid prototyping for lab & custom components',
+      select: '3d-printing',
+      msg: 'Hi, I would like to request a 3D printing job for a prototype component. Please share material options, turnaround time, and pricing.'
+    },
+  };
+
+  // Lazy-create modal HTML and inject into <body> once
+  let eqOverlay = null;
+  let eqStopConfetti = null;
+
+  function eqCreateModal() {
+    const el = document.createElement('div');
+    el.id = 'eq-overlay';
+    el.className = 'eq-overlay';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.setAttribute('aria-labelledby', 'eq-title');
+    el.innerHTML = `
+      <canvas class="eq-confetti-canvas" id="eq-confetti" aria-hidden="true"></canvas>
+      <div class="eq-modal">
+        <button class="eq-close" id="eq-close-btn" aria-label="Close">✕</button>
+        <div class="eq-header">
+          <span class="eq-tag" id="eq-tag">Products</span>
+          <h3 class="eq-title" id="eq-title">Get a Quote</h3>
+          <p class="eq-subtitle" id="eq-subtitle">Fill in your details and we'll respond within 24 hours.</p>
+        </div>
+        <form class="eq-form" id="eq-form" action="https://formspree.io/f/mnjypvga" method="POST" novalidate>
+          <input type="hidden" name="_source" id="eq-source" value="modal">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="eq-row">
+            <div class="eq-group">
+              <label for="eq-fname">First Name <span class="eq-req">*</span></label>
+              <input type="text" id="eq-fname" name="first_name" required placeholder="Rahul" autocomplete="given-name">
+            </div>
+            <div class="eq-group">
+              <label for="eq-lname">Last Name <span class="eq-req">*</span></label>
+              <input type="text" id="eq-lname" name="last_name" required placeholder="Sharma" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="eq-row">
+            <div class="eq-group">
+              <label for="eq-email">Email <span class="eq-req">*</span></label>
+              <input type="email" id="eq-email" name="email" required placeholder="you@company.com" autocomplete="email">
+            </div>
+            <div class="eq-group">
+              <label for="eq-phone">Phone / WhatsApp <span class="eq-req">*</span></label>
+              <input type="tel" id="eq-phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
+          </div>
+          <div class="eq-group">
+            <label for="eq-org">Organisation / Institute</label>
+            <input type="text" id="eq-org" name="organisation" placeholder="IIT Delhi / My Company" autocomplete="organization">
+          </div>
+          <div class="eq-group">
+            <label for="eq-service">Product / Service Interest</label>
+            <select id="eq-service" name="service">
+              <option value="">— Select —</option>
+              <option value="pem-electrolyzer">PEM Electrolyzer (Hydrogen Generator)</option>
+              <option value="aem-electrolyzer">AEM Electrolyzer</option>
+              <option value="alkaline-electrolyzer">Alkaline Electrolyzer</option>
+              <option value="fuel-cell">Fuel Cell System</option>
+              <option value="ccus">CCUS — CO₂ Reduction System</option>
+              <option value="rd-platform">R&D Platform / Workstation</option>
+              <option value="sputtering">EaaS — RF Sputtering</option>
+              <option value="spray-nozzle">EaaS — Ultrasonic Spray</option>
+              <option value="hot-press">EaaS — Hot Press</option>
+              <option value="3d-printing">EaaS — 3D Printing</option>
+              <option value="epc">Full EPC / System Integration</option>
+              <option value="other">General Inquiry</option>
+            </select>
+          </div>
+          <div class="eq-group">
+            <label for="eq-msg">Your Message <span class="eq-req">*</span></label>
+            <textarea id="eq-msg" name="message" required rows="3"
+              placeholder="Describe your application, capacity needed, timeline…"></textarea>
+          </div>
+          <button type="submit" class="eq-submit" id="eq-submit">
+            Send Enquiry <span class="eq-arrow">→</span>
+          </button>
+        </form>
+        <div class="eq-success" id="eq-success" aria-live="polite">
+          <div class="eq-success-icon">🎉</div>
+          <h4>Enquiry Sent!</h4>
+          <p>Our team will reply within 24 hours. For instant response, WhatsApp us directly!</p>
+          <a href="https://wa.me/917382025117"
+             class="eq-wa-btn" target="_blank" rel="noreferrer">
+            💬 Continue on WhatsApp
+          </a>
+        </div>
+      </div>`;
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function eqGetOverlay() {
+    if (!eqOverlay) eqOverlay = eqCreateModal();
+    return eqOverlay;
+  }
+
+  function eqOpen(productKey) {
+    const overlay = eqGetOverlay();
+    const data    = eqProductData[productKey] || {
+      tag: 'Products', title: 'Get a Quote',
+      subtitle: 'Fill in your details — we respond within 24 hours.',
+      select: 'other', msg: ''
+    };
+
+    overlay.querySelector('#eq-tag').textContent     = data.tag;
+    overlay.querySelector('#eq-title').textContent   = data.title;
+    overlay.querySelector('#eq-subtitle').textContent = data.subtitle;
+    overlay.querySelector('#eq-service').value        = data.select;
+    overlay.querySelector('#eq-msg').value            = data.msg;
+    overlay.querySelector('#eq-source').value         = `modal-${productKey}`;
+
+    // Reset to form view
+    overlay.querySelector('#eq-form').style.display    = '';
+    overlay.querySelector('#eq-success').style.display = 'none';
+    const submitBtn = overlay.querySelector('#eq-submit');
+    submitBtn.textContent = 'Send Enquiry ';
+    const arrow = document.createElement('span');
+    arrow.className = 'eq-arrow';
+    arrow.textContent = '→';
+    submitBtn.appendChild(arrow);
+    submitBtn.disabled = false;
+
+    overlay.classList.add('eq-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => overlay.querySelector('#eq-fname')?.focus(), 350);
+  }
+
+  function eqClose() {
+    if (!eqOverlay) return;
+    eqOverlay.classList.remove('eq-open');
+    document.body.style.overflow = '';
+    if (eqStopConfetti) { eqStopConfetti(); eqStopConfetti = null; }
+  }
+
+  function eqFireConfetti() {
+    const canvas = document.getElementById('eq-confetti');
+    if (!canvas) return null;
+    const ctx = canvas.getContext('2d');
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.display = 'block';
+
+    const COLORS = ['#00B4D8','#F59E0B','#1B2D6E','#10B981','#EF4444','#8B5CF6','#F97316','#EC4899'];
+    const particles = Array.from({ length: 160 }, () => ({
+      x:  Math.random() * canvas.width,
+      y: -20 - Math.random() * 120,
+      w:  Math.random() * 13 + 4,
+      h:  Math.random() * 6  + 2,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      vx: (Math.random() - 0.5) * 6,
+      vy:  Math.random() * 5 + 2,
+      rotation: Math.random() * 360,
+      vr: (Math.random() - 0.5) * 12,
+      opacity: 1,
+    }));
+
+    let raf;
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      particles.forEach(p => {
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy += 0.09;                  // gravity
+        p.rotation += p.vr;
+        p.opacity  -= 0.0055;
+        if (p.opacity <= 0) return;
+        alive = true;
+        ctx.save();
+        ctx.globalAlpha = p.opacity;
+        ctx.translate(p.x + p.w / 2, p.y + p.h / 2);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      if (alive) {
+        raf = requestAnimationFrame(animate);
+      } else {
+        canvas.style.display = 'none';
+      }
+    }
+    animate();
+    return () => { cancelAnimationFrame(raf); canvas.style.display = 'none'; };
+  }
+
+  // Handle modal form submission
+  document.addEventListener('submit', async (e) => {
+    if (e.target.id !== 'eq-form') return;
+    e.preventDefault();
+    const form    = e.target;
+    const btn     = document.getElementById('eq-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        const success = document.getElementById('eq-success');
+        success.style.display = 'flex';
+        eqStopConfetti = eqFireConfetti();
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        alert(data.error || 'Something went wrong. Please try WhatsApp or email us directly.');
+        btn.textContent = 'Send Enquiry →';
+        btn.disabled    = false;
+      }
+    } catch {
+      alert('Network error. Please try WhatsApp or email us directly.');
+      btn.textContent = 'Send Enquiry →';
+      btn.disabled    = false;
+    }
+  });
+
+  // Open modal on any [data-product] button click (event delegation)
+  document.addEventListener('click', (e) => {
+    const productBtn = e.target.closest('[data-product]');
+    if (productBtn) {
+      e.preventDefault();
+      eqOpen(productBtn.dataset.product);
+      return;
+    }
+    // Close on backdrop or ✕ button
+    if (e.target.id === 'eq-overlay' || e.target.closest('#eq-close-btn')) {
+      eqClose();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') eqClose();
+  });
+
 });
+
