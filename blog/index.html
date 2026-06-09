@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,25 +19,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
   <style>
-    .blog-hero { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1a3a8a 100%); padding: 100px 0 60px; text-align: center; color: var(--white); }
+    /* ── Blog Hero — matches main site hero gradient ─────── */
+    .blog-hero {
+      background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 60%, #1a3560 100%);
+      padding: 120px 0 72px;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,180,216,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .blog-hero .section-tag { background: rgba(0,180,216,0.18); color: var(--cyan); }
-    .blog-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin: 16px 0 12px; }
-    .blog-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto; }
-    .blog-grid-section { padding: 72px 0 96px; }
-    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
-    .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; transition: all var(--ease); display: flex; flex-direction: column; }
-    .blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--cyan); }
-    .blog-card-img { height: 180px; background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
-    .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .blog-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--royal); background: rgba(45,77,224,0.09); padding: 3px 10px; border-radius: var(--r-full); margin-bottom: 10px; }
-    .blog-card-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.4; margin: 0 0 10px; }
-    .blog-card-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
-    .blog-meta { font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 12px; margin-bottom: 16px; }
-    .blog-read-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; font-weight: 700; color: var(--royal); transition: gap var(--ease-s); text-decoration: none; }
+    .blog-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin: 16px 0 14px; }
+    .blog-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 540px; margin: 0 auto; line-height: 1.75; }
+
+    /* ── Grid — matches main site section bg ────────────── */
+    .blog-grid-section { padding: 72px 0 100px; background: var(--bg-alt); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+
+    /* ── Card — identical to main site product cards ─────── */
+    .blog-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--cyan);
+    }
+
+    /* Thumbnail — same navy gradient as main site card headers */
+    .blog-card-img {
+      height: 168px;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, var(--royal) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle radial glow behind each icon — matches hero glow effect */
+    .blog-card-img::before {
+      content: '';
+      position: absolute;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,180,216,0.22) 0%, transparent 70%);
+    }
+    .blog-card-img svg { position: relative; z-index: 1; }
+
+    /* Card body */
+    .blog-card-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+
+    /* Tag — matches main site .section-tag style */
+    .blog-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--royal);
+      background: rgba(45,77,224,0.09);
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      margin-bottom: 11px;
+    }
+    .blog-card-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.45; margin: 0 0 10px; }
+    .blog-card-excerpt { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 18px; }
+    .blog-meta { font-size: 0.73rem; color: var(--text-muted); display: flex; gap: 14px; margin-bottom: 14px; }
+    .blog-read-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.84rem; font-weight: 700;
+      color: var(--royal); text-decoration: none; transition: gap var(--ease-s);
+    }
     .blog-read-link:hover { gap: 10px; }
+
     @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .blog-grid { grid-template-columns: 1fr; } }
   </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -102,9 +173,19 @@
       </div>
       <div class="blog-grid">
 
-        <!-- Article 1 -->
+        <!-- Article 1: Electrolyzers -->
         <article class="blog-card reveal">
-          <div class="blog-card-img">⚗️</div>
+          <div class="blog-card-img">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="10" width="40" height="48" rx="5" stroke="#00B4D8" stroke-width="2.5"/>
+              <line x1="14" y1="26" x2="54" y2="26" stroke="#00B4D8" stroke-width="1.8"/>
+              <line x1="14" y1="42" x2="54" y2="42" stroke="#00B4D8" stroke-width="1.8"/>
+              <circle cx="34" cy="18" r="3.5" fill="#F59E0B"/>
+              <circle cx="34" cy="34" r="3.5" fill="#00B4D8"/>
+              <circle cx="34" cy="50" r="3.5" fill="#F59E0B"/>
+              <path d="M26 34H42" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="blog-card-body">
             <span class="blog-tag">Electrolyzers</span>
             <h2 class="blog-card-title">PEM vs AEM vs Alkaline Electrolyzer: Which Is Right for Your Application?</h2>
@@ -114,9 +195,17 @@
           </div>
         </article>
 
-        <!-- Article 2 -->
+        <!-- Article 2: Cost Guide -->
         <article class="blog-card reveal reveal-delay-1">
-          <div class="blog-card-img">💰</div>
+          <div class="blog-card-img">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="34" cy="34" r="22" stroke="#F59E0B" stroke-width="2.5"/>
+              <path d="M34 18v4M34 46v4" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M26 26c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3-1.6 5.6-4 7v2h-8v-2c-2.4-1.4-4-4-4-7z" stroke="#00B4D8" stroke-width="2" fill="none"/>
+              <path d="M28 37h12" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 41h12" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="blog-card-body">
             <span class="blog-tag">Buying Guide</span>
             <h2 class="blog-card-title">How Much Does a Green Hydrogen Generator Cost in India? (2026 Guide)</h2>
@@ -126,21 +215,36 @@
           </div>
         </article>
 
-        <!-- Article 3 -->
+        <!-- Article 3: EaaS -->
         <article class="blog-card reveal reveal-delay-2">
-          <div class="blog-card-img">🔬</div>
+          <div class="blog-card-img">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="22" width="22" height="30" rx="3" stroke="#00B4D8" stroke-width="2.5"/>
+              <rect x="38" y="16" width="22" height="36" rx="3" stroke="#F59E0B" stroke-width="2.5"/>
+              <path d="M30 34h8" stroke="#00B4D8" stroke-width="2" stroke-dasharray="3 2" stroke-linecap="round"/>
+              <circle cx="19" cy="16" r="4.5" stroke="#00B4D8" stroke-width="2"/>
+              <circle cx="49" cy="10" r="4.5" stroke="#F59E0B" stroke-width="2"/>
+            </svg>
+          </div>
           <div class="blog-card-body">
             <span class="blog-tag">EaaS</span>
             <h2 class="blog-card-title">What Is Equipment as a Service (EaaS) for Hydrogen Research?</h2>
-            <p class="blog-card-excerpt">How PhD researchers, startups, and small manufacturers in India can access ₹1 crore+ equipment for ₹X per session — without buying anything.</p>
+            <p class="blog-card-excerpt">How PhD researchers, startups, and small manufacturers in India can access ₹1 crore+ equipment by the session — without buying anything.</p>
             <div class="blog-meta"><span>⏱ 5 min read</span><span>📅 June 2026</span></div>
             <a href="equipment-as-a-service-hydrogen-research-india.html" class="blog-read-link">Read Article →</a>
           </div>
         </article>
 
-        <!-- Article 4 -->
+        <!-- Article 4: CCUS -->
         <article class="blog-card reveal">
-          <div class="blog-card-img">🌿</div>
+          <div class="blog-card-img">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="34" cy="28" r="16" stroke="#00B4D8" stroke-width="2.5"/>
+              <text x="34" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#00B4D8" font-family="Inter,sans-serif">CO₂</text>
+              <path d="M34 44v14" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M26 52l8 7 8-7" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <div class="blog-card-body">
             <span class="blog-tag">CCUS</span>
             <h2 class="blog-card-title">CCUS in India: Converting CO₂ into Valuable Chemicals with Electrochemistry</h2>
@@ -150,9 +254,14 @@
           </div>
         </article>
 
-        <!-- Article 5 -->
+        <!-- Article 5: Fuel Cells -->
         <article class="blog-card reveal reveal-delay-1">
-          <div class="blog-card-img">⚡</div>
+          <div class="blog-card-img">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M34 8L43 30H37L46 60L22 32H30L22 8Z" fill="#F59E0B" opacity="0.9"/>
+              <circle cx="34" cy="34" r="24" stroke="#00B4D8" stroke-width="1.8" stroke-dasharray="5 3"/>
+            </svg>
+          </div>
           <div class="blog-card-body">
             <span class="blog-tag">Fuel Cells</span>
             <h2 class="blog-card-title">Fuel Cell Systems in India: Backup Power, Drones, and Heavy Transport</h2>
