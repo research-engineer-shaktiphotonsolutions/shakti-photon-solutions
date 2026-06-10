@@ -117,3 +117,13 @@
 **Why:** Risk management — the Wix site is live and functional. Moving DNS is one-way until settled.
 **When to migrate:** When founders and team have reviewed the new site and are satisfied
 **How to migrate:** Add 2 Vercel DNS records in the domain registrar (takes < 10 min, propagates in ~1 hour)
+
+---
+
+## ADR-011: Image Formats, Web Optimization, and Asset Quality
+**Date:** June 2026
+**Decision:** Standardize image files on `.jpg`, `.png`, `.webp`, or `.avif`, avoiding non-standard extensions like `.jfif`. For profile pictures and high-visibility portraits, prefer lossless `.png` or high-quality `.jpg` if modern lossy formats (`.avif`/`.webp`) introduce perceptible compression blurriness.
+**Why:**
+- **Browser/Crawler Compatibility**: The `.jfif` extension has poor legacy browser support and is frequently rejected by social preview crawlers (Open Graph) and asset processors.
+- **Quality vs. Compression Trade-off**: While converting to `.avif` provides massive optimization (often an 80%+ file size reduction), it is a lossy conversion. For fine portrait details, this can introduce blurriness or compression artifacts. Using lossless `.png` guarantees pixel-perfect sharpness, which is more important than file size for primary founder/director portraits.
+- **PowerShell Path Escaping**: In Windows PowerShell environments, file operations on filenames with spaces (e.g., `Dr. Manjeet.png`) must be wrapped in double quotes to prevent git pathspec parsing errors.
