@@ -4,6 +4,19 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [10 June 2026] — Director Addition & Image Format Optimization
+
+### Director Addition (Dr. Manjeet Chhetri)
+- Added **Dr. Manjeet Chhetri** as a **Director** of the company.
+- Updated [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html) with a profile card under the *Founders & Leadership* section, highlighting his PhD in Chemistry, Ex-LANL (Los Alamos National Laboratory) postdoctoral fellowship, Ex-JNCASR research background, and expertise in testing/materials design for electrolyzers and fuel cells (specifically electrocatalysts and membranes).
+- Updated [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html) stats leadership section with a matching mini-profile pill (`Director · PhD (Chemistry) · Ex-LANL`) for complete consistency.
+
+### Image Optimization & Quality
+- Restored the original high-resolution profile file from commit history and converted it to lossless `.png` format (`Dr. Manjeet.png`) to eliminate any compression blurriness.
+- Updated [DECISIONS.md](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/DECISIONS.md) to record **ADR-011**, explaining the quality-compatibility trade-offs of using `.png` instead of `.jfif` or lossy compressed `.avif` for key high-visibility team photos.
+
+---
+
 ## [9 June 2026] — Blog Article Navigation & Link Fix
 
 ### Blog Subdirectory Link Resolution
