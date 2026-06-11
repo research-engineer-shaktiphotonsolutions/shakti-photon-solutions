@@ -6,6 +6,10 @@
 
 ## [11 June 2026] — Team Bios, Stats, Sputtering Removal & EaaS Fix
 
+### Hamburger Navigation Menu Fix
+- Removed a duplicate click event listener on the mobile hamburger menu button in [nav.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/nav.js). 
+- **Learning & Cause:** A similar issue occurred on your portfolio site ([gyankumarsah](file:///C:/Users/sahgy/Downloads/gyankumarsah)), where duplicate/unclosed tags or overlapping handlers broke nav binding. Here, both `nav.js` and [main.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/js/main.js) were listening to the same click event. When clicked, the first script toggled the menu to `open`, and the second toggled it back to closed immediately (while adding `active` to style the button as an "X"). Removing the redundant handler resolved the conflict, and navigation now toggles correctly.
+
 ### Team Bios Updated (About & Homepage)
 - Updated bios for **Sravani Vulli** (Founder & MD, NUS pedigree, 17+ yrs), **Mallikarjun** (Founder & Director, NUS/Uppsala/Berkeley), **Dr. Manjeet Chhetri** (Director, LANL, H₂ electrochemical compressors, PFSA membranes) in [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html).
 - Synced homepage founder pills and paragraph in [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html) to match (titles, names, institution list).
