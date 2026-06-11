@@ -68,16 +68,6 @@
     const placeholder = document.getElementById('site-nav');
     if (!placeholder) return;
     placeholder.outerHTML = buildNav();
-
-    // Re-init hamburger toggle (since nav is now in DOM)
-    const hamburger = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', isOpen);
-      });
-    }
   }
 
   if (document.readyState === 'loading') {
