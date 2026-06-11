@@ -187,11 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
       msg:    'Hi, I am interested in your CCUS / CO₂ Reduction Systems. Could you please share more details on how the system works, available scales, and pricing?'
     },
     // EaaS services (from EaaS page)
-    'sputtering': {
-      select: 'sputtering',
-      label:  'RF Magnetron Sputtering',
-      msg:    'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please let me know about availability, pricing per session, and substrate/material requirements.'
-    },
+    // 'sputtering': { // university asset — not for advertisement
+    //   select: 'sputtering',
+    //   label:  'RF Magnetron Sputtering',
+    //   msg:    'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please let me know about availability, pricing per session, and substrate/material requirements.'
+    // },
     'spray-nozzle': {
       select: 'spray-nozzle',
       label:  'Ultrasonic Spray Nozzle',
@@ -301,13 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
       select: 'epc',
       msg: 'Hi, I am interested in your EPC / turnkey system integration services. Could you please share more about your approach and past projects?'
     },
-    sputtering: {
-      tag: 'EaaS',
-      title: 'Book RF Sputtering Session',
-      subtitle: 'RF Magnetron Sputtering — thin film deposition for research & production',
-      select: 'sputtering',
-      msg: 'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please share availability, session pricing, and material/substrate requirements.'
-    },
+    // sputtering: { // university asset — not for advertisement
+    //   tag: 'EaaS',
+    //   title: 'Book RF Sputtering Session',
+    //   subtitle: 'RF Magnetron Sputtering — thin film deposition for research & production',
+    //   select: 'sputtering',
+    //   msg: 'Hi, I would like to book a session on your RF Magnetron Sputtering system. Please share availability, session pricing, and material/substrate requirements.'
+    // },
     'spray-nozzle': {
       tag: 'EaaS',
       title: 'Book Ultrasonic Spray Session',
@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <option value="fuel-cell">Fuel Cell System</option>
               <option value="ccus">CCUS — CO₂ Reduction System</option>
               <option value="rd-platform">R&D Platform / Workstation</option>
-              <option value="sputtering">EaaS — RF Sputtering</option>
+              <!-- <option value="sputtering">EaaS — RF Sputtering</option> university asset -->
               <option value="spray-nozzle">EaaS — Ultrasonic Spray</option>
               <option value="hot-press">EaaS — Hot Press</option>
               <option value="3d-printing">EaaS — 3D Printing</option>
