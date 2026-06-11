@@ -4,6 +4,36 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [11 June 2026] — Team Bios, Stats, Sputtering Removal & EaaS Fix
+
+### Team Bios Updated (About & Homepage)
+- Updated bios for **Sravani Vulli** (Founder & MD, NUS pedigree, 17+ yrs), **Mallikarjun** (Founder & Director, NUS/Uppsala/Berkeley), **Dr. Manjeet Chhetri** (Director, LANL, H₂ electrochemical compressors, PFSA membranes) in [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html).
+- Synced homepage founder pills and paragraph in [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html) to match (titles, names, institution list).
+
+### 70+ Cumulative R&D Years Stat
+- Updated the Years of R&D stat from **16+** to **70+ cumulative years** across 3 places in [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html) (hero badge, stats counter, leadership paragraph) and 2 places in [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html) (stat block + meta description).
+- Institution list updated to: Oxford · NUS Singapore · Uppsala · IIT Kanpur · LANL.
+
+### Advisor Roles Updated
+- Updated the 3 advisory cards in [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html) with specialization areas:
+  - **Dr. Jagadeesh Kalepu** → Pharma
+  - **Dr. Siddhartha Ghosh** → Net-Zero Technologist
+  - **Lokesh Kumar** → Investor
+
+### RF / Gold Magnetron Sputtering — Commented Out
+- University asset, not owned by Shakti. Commented out (not deleted) from **5 files**:
+  - [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html): EaaS card 01 commented
+  - [equipment-as-a-service.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/equipment-as-a-service.html): entire section commented, title/meta updated, renumbered 01/03–03/03
+  - [contact.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/contact.html): dropdown option commented
+  - [js/main.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/js/main.js): prefill map, modal data, dropdown option commented
+  - [blog/equipment-as-a-service-hydrogen-research-india.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/blog/equipment-as-a-service-hydrogen-research-india.html): section 1 commented, remaining 3 renumbered
+
+### EaaS Section Background Fix
+- Removing sputtering shifted the `nth-child(even)` CSS counter, causing two consecutive blue sections.
+- Fixed by replacing `nth-child(even)` with explicit `.equipment-section--alt` class applied only to Hot Press.
+
+---
+
 ## [11 June 2026] — Navigation Cleanups, Partner Logos, NIT Warangal Installation & EaaS Value Removal
 
 ### Navigation CTA Tweak

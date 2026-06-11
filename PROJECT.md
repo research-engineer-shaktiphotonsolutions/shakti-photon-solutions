@@ -11,23 +11,31 @@
 **Shakti Photon Solutions Private Limited** is an Indian deep-tech startup building hardware for India's net-zero transition. Founded by scientists (not just engineers), the company:
 
 - **Builds and sells** on-site hydrogen generators (PEM, AEM, Alkaline electrolyzers), fuel cell systems, and CCUS (Carbon Capture, Utilisation & Storage) equipment
-- **Runs Equipment as a Service (EaaS)** — renting lab equipment (RF Sputtering, Ultrasonic Spray Nozzle, Hot Press, 3D Printing) to researchers by the session
+- **Runs Equipment as a Service (EaaS)** — renting lab equipment (Ultrasonic Spray Nozzle, Hot Press, 3D Printing) to researchers by the session. Note: RF Sputtering is a university asset and is NOT advertised — all references are commented out in code.
 - **Targets** industry, research institutions, government projects, and EPC contractors
 - **Offers 24/7 technical support**
 
-### Founders
-| Name | Role |
+### Leadership Team
+| Name | Role | Background |
+|---|---|---|
+| Sravani Vulli | Founder & Managing Director | NUS Singapore, 17+ years corporate leadership (Singapore & India) |
+| Mallikarjun | Founder & Director | NUS Singapore, Uppsala University, Berkeley Sustainable Energy Center |
+| Dr. Manjeet Chhetri | Director | PhD Chemistry, Ex-LANL (Los Alamos National Laboratory), Ex-JNCASR |
+
+### Advisory Board
+| Name | Specialization |
 |---|---|
-| Dr. Mallikarjuna | CEO / Co-founder (NUS, Uppsala, IIT Kanpur background) |
-| Dr. Sravani | Co-founder |
+| Dr. Jagadeesh Kalepu | Pharma |
+| Dr. Siddhartha Ghosh | Net-Zero Technologies |
+| Lokesh Kumar | Investment |
 
 ### Partner Institutions
 IIT Hyderabad, IIT Delhi, NIT Warangal, RV College of Engineering, GITAM, VIT AP, University of Hyderabad, TIFR, CSIR-CGCRI
 
 ### Key Achievements
 - Finalist at CLIMAFIX 2024 (India's Largest Climate Startup Summit, IIT Madras)
-- 16+ years of global R&D experience across the founding team
-- Active installations across India
+- **70+ cumulative years** of global R&D experience: Oxford University, NUS Singapore, Uppsala University, IIT Kanpur, Los Alamos National Laboratory
+- Active installations across India (IIT Delhi, NIT Warangal, and more)
 
 ---
 
