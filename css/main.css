@@ -929,10 +929,8 @@ p  { line-height: 1.75; color: var(--text-muted); }
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
   transition: all var(--ease);
-  filter: grayscale(100%) opacity(0.65);
 }
 .partner-logo:hover {
-  filter: grayscale(0%) opacity(1);
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
   border-color: var(--cyan);

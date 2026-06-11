@@ -4,6 +4,26 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [11 June 2026] — Navigation Cleanups, Partner Logos, NIT Warangal Installation & EaaS Value Removal
+
+### Navigation CTA Tweak
+- Commented out the desktop and mobile "Get a Quote" CTA buttons in [nav.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/nav.js) to streamline the navigation menu layout as requested.
+
+### University Partner Logos
+- Modified [main.css](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/css/main.css) to display all university partner logos in full color by default rather than grayscale with reduced opacity, while preserving their interactive hover lifting transitions.
+
+### NIT Warangal Installation Card
+- Commented out the RV Engineering College card in the partner installations section of [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html).
+- Replaced it with an optimized installation image for NIT Warangal.
+- Used `ffmpeg` to compress and scale the massive 5.25 MB raw file `NIT Warangle.jpeg` down to a web-optimized 102 KB progressive JPEG ([nit-warangal-installation.jpg](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/assets/images/home/nit-warangal-installation.jpg)), securing a **98% reduction** in asset weight.
+
+### EaaS Equipment Cost Removal
+- Removed specific monetary value estimations (such as `worth ₹50L-₹2Cr`, `> ₹50 Lakhs`, and `crores`) from the static Equipment as a Service page ([equipment-as-a-service.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/equipment-as-a-service.html)).
+- Replaced the monetary mentions with generalized descriptions emphasizing on-demand utility, flexibility, and lack of capital investment required.
+- Note: Kept all cost/pricing references intact in the `blog/` posts as requested.
+
+---
+
 ## [10 June 2026] — Director Addition & Image Format Optimization
 
 ### Director Addition (Dr. Manjeet Chhetri)

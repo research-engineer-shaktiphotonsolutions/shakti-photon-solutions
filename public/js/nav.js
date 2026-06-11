@@ -45,7 +45,7 @@
       <div class="nav-links" role="list">
       ${desktopLinks}
       </div>
-      <a href="/contact.html" class="nav-cta">Get a Quote →</a>
+      <!-- <a href="/contact.html" class="nav-cta">Get a Quote →</a> -->
       <button
         class="nav-hamburger"
         id="hamburger-btn"
@@ -60,7 +60,7 @@
   <!-- MOBILE MENU -->
   <div class="nav-mobile" id="mobile-menu" aria-label="Mobile navigation" role="navigation">
     ${mobileLinks}
-    <a href="/contact.html" class="nav-mobile-cta">Get a Quote →</a>
+    <!-- <a href="/contact.html" class="nav-mobile-cta">Get a Quote →</a> -->
   </div>`;
   }
 
