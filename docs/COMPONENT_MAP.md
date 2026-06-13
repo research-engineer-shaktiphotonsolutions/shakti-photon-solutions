@@ -76,14 +76,14 @@
 |---|---|---|---|
 | Hero | ~215 | `.contact-hero` | |
 | Contact info sidebar | ~227 | `.cinfo-card` | Phone, email, LinkedIn, support hours |
-| Office list (sidebar) | ~262 | `.offices-list` | Chennai + Guntur addresses |
+| Office list (sidebar) | ~262 | `.offices-list` | Chennai + Amaravati addresses |
 | WhatsApp CTA (sidebar) | ~277 | `.whatsapp-cta` | Opens WhatsApp with pre-written message |
 | **Contact Form** | ~291 | `#contact-form` | Formspree ID `mnjypvga` |
 | — Service dropdown | ~333 | `#service-select` | 12 options + "General Inquiry" |
 | — Capacity field | ~351 | `#capacity` | Optional free-text |
 | — Message textarea | ~355 | `#message` | Pre-filled by URL params |
 | Form success state | ~375 | `#form-success` | Hidden until Formspree confirms OK |
-| Offices strip | ~385 | `.offices-strip` | 2-column grid: Chennai + Guntur |
+| Offices strip | ~385 | `.offices-strip` | 2-column grid: Chennai + Amaravati |
 
 ---
 

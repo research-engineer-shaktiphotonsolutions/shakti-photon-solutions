@@ -4,7 +4,10 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
-## [13 June 2026] — CCUS Image Integration, Sizing Crop Fix, Reordered Products & Navigation Update
+## [13 June 2026] — CCUS Image, Layout Reorder, Navigation & Office Location Updates
+
+### Office Location Update
+- Replaced all active references of "Guntur" office/R&D centre to "Amaravati" across all core site pages ([index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html), [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html), [contact.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/contact.html)), schema.org metadata blocks, shared footer script ([footer.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/footer.js)), and codebase documentation. Corrected an unclosed `<address>` tag in the process.
 
 ### CCUS Image Integration & Sizing Crop Fix
 - Integrated the new Carbon Capture, Utilization, and Storage (CCUS) diagram ([CCUS Image from Google.jpg](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/assets/images/CCUS%20Image%20from%20Google.jpg)) across the website.

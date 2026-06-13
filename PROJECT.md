@@ -44,7 +44,7 @@ IIT Hyderabad, IIT Delhi, NIT Warangal, RV College of Engineering, GITAM, VIT AP
 | Location | Type | Address |
 |---|---|---|
 | Chennai, Tamil Nadu | **Headquarters** | IIT Madras Research Park, Taramani, Chennai — 600 113 |
-| Guntur, Andhra Pradesh | R&D Centre | JC Bose Block, SRM AP University Campus, Guntur — 522 502 |
+| Amaravati, Andhra Pradesh | R&D Centre | JC Bose Block, SRM AP University Campus, Amaravati — 522 502 |
 
 > ⚠️ **Only 2 offices.** Mohali was removed in June 2026 — never add it back.
 

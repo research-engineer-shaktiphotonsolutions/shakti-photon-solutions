@@ -72,8 +72,8 @@
 **Decision:** All references to Mohali (Punjab) office removed from the website
 **Why:** The client confirmed Mohali is not an active office location
 **Files affected:** `index.html`, `about.html`, `contact.html`, `products.html`, JSON-LD schemas
-**Current offices:** Chennai (HQ) + Guntur (R&D) — 2 total
-**Rule:** Never add Mohali back. If asked, the answer is "we have 2 offices, Chennai and Guntur"
+**Current offices:** Chennai (HQ) + Amaravati (R&D) — 2 total
+**Rule:** Never add Mohali back. If asked, the answer is "we have 2 offices, Chennai and Amaravati"
 
 ---
 

@@ -68,9 +68,9 @@
               Chennai, Tamil Nadu — 600 113
             </address>
             <address class="footer-office">
-              <strong>Guntur, Andhra Pradesh</strong>
+              <strong>Amaravati, Andhra Pradesh</strong>
               JC Bose Block, SRM AP University,<br>
-              Guntur — 522 502
+              Amaravati — 522 502
             </address>
           </div>
         </div>
