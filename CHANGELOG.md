@@ -4,6 +4,29 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [13 June 2026] — CCUS Image Integration, Sizing Crop Fix, Reordered Products & Navigation Update
+
+### CCUS Image Integration & Sizing Crop Fix
+- Integrated the new Carbon Capture, Utilization, and Storage (CCUS) diagram ([CCUS Image from Google.jpg](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/assets/images/CCUS%20Image%20from%20Google.jpg)) across the website.
+- Added a helper class `.img-contain` (in [main.css](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/css/main.css)) which applies `object-fit: contain`, padding `12px`, and a solid white background (`#ffffff`) to match the diagram background.
+- Applied the `img-contain` class to Card 3 (CCUS card) in [index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html) to prevent standard card wrapping from cropping the diagram's text (such as "Carbon" on the far left).
+
+### Products Page Layout & Section Reordering
+- Swapped the order of sections in [products.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/products.html) to display **CO₂ Reduction** (`#co2`) above **Research Workstations** (`#rd-platforms`), keeping workstations at the bottom of the page.
+- Applied the `.img-contain` class to the main image of the CO₂ Reduction section to display the full CCUS diagram.
+- Moved the original catalyst deposition image (`Au_Deposition_on_Anode_GDE_1.png`) into the section's product thumbnails row to preserve user access.
+- Realigned the hero nav-pills jump links and structured Schema.org JSON-LD metadata to match the new visual order.
+
+### Blog Post Featured Image
+- Added styling for `.article-featured-image` and `.article-featured-image img` in [article.css](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/blog/article.css) to support featured images with correct containment and padding.
+- Inserted the new CCUS image as a featured image block below the article header in the CCUS blog post [ccus-co2-reduction-india.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/blog/ccus-co2-reduction-india.html).
+
+### Navigation Update
+- Added a "Home" link pointing to `/` in the `NAV_LINKS` array of the shared navigation script [nav.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/nav.js).
+- Updated the path verification logic `isActive()` to highlight the Home menu item correctly on `/`, `/index.html`, or empty routes.
+
+---
+
 ## [11 June 2026] — Team Bios, Stats, Sputtering Removal & EaaS Fix
 
 ### Hamburger Navigation Menu Fix
