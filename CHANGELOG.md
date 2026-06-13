@@ -9,6 +9,22 @@
 ### Office Location Update
 - Replaced all active references of "Guntur" office/R&D centre to "Amaravati" across all core site pages ([index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html), [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html), [contact.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/contact.html)), schema.org metadata blocks, shared footer script ([footer.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/footer.js)), and codebase documentation. Corrected an unclosed `<address>` tag in the process.
 
+### SEO & Social Media Optimization
+- Added comprehensive Open Graph (`og:*`) and Twitter Card metadata tags in the head of all inner pages ([about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html), [products.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/products.html), [contact.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/contact.html), [equipment-as-a-service.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/equipment-as-a-service.html)) to ensure standard previews when sharing.
+- Updated sitemap.xml last modification dates to `2026-06-13` for all page URLs.
+- Updated homepage og:description to use the new `70+ cumulative years` statistic.
+
+### Products & R&D Platforms Update
+- Swapped R&D Platforms and CO₂ Reduction section numbering inside [products.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/products.html) to align with their visual swap (CO₂ Reduction is now Section 3, and R&D Workstations is Section 4).
+- Swapped the R&D main image from the sputtering workstation image to a generic photo of the hydrogen R&D lab at IIT Madras Research Park (`IMG-20250213-WA0008.jpg`) and updated its alt tag.
+- Added an ID hook (`id="mea"`) to the MEA manufacturing banner.
+- Updated the enquiry CTA in the CO₂ section to link with query param `service=ccus` instead of `co2-reduction`.
+
+### EaaS Cleanup & Heading Hierarchy
+- Renumbered the teaser EaaS cards on the homepage from `02, 03, 04` to `01, 02, 03` following the removal of Sputtering, and updated EaaS FAQ text to exclude Sputtering from the service list.
+- Changed blog article listing titles in the blog index ([blog/index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/blog/index.html)) from `h2` to `h3` for proper heading structure hierarchy.
+- Updated founder name on homepage stats and about page to "Dr. Mallikarjuna Rao" for consistency.
+
 ### CCUS Image Integration & Sizing Crop Fix
 - Integrated the new Carbon Capture, Utilization, and Storage (CCUS) diagram ([CCUS Image from Google.jpg](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/assets/images/CCUS%20Image%20from%20Google.jpg)) across the website.
 - Added a helper class `.img-contain` (in [main.css](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/css/main.css)) which applies `object-fit: contain`, padding `12px`, and a solid white background (`#ffffff`) to match the diagram background.
