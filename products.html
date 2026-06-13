@@ -105,6 +105,18 @@
       object-fit: cover;
     }
 
+    .product-main-image.img-contain {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-main-image.img-contain img {
+      object-fit: contain;
+      padding: 16px;
+    }
+
     .product-thumb-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -321,8 +333,8 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "PEM Hydrogen Electrolyzer", "url": "https://www.shaktiphotonsolutions.com/products#electrolyzers" },
       { "@type": "ListItem", "position": 2, "name": "PEM Fuel Cell System", "url": "https://www.shaktiphotonsolutions.com/products#fuelcells" },
-      { "@type": "ListItem", "position": 3, "name": "R&D Research Workstation", "url": "https://www.shaktiphotonsolutions.com/products#rd-platforms" },
-      { "@type": "ListItem", "position": 4, "name": "CO2 Reduction Electrolyzer", "url": "https://www.shaktiphotonsolutions.com/products#co2" }
+      { "@type": "ListItem", "position": 3, "name": "CO2 Reduction Electrolyzer", "url": "https://www.shaktiphotonsolutions.com/products#co2" },
+      { "@type": "ListItem", "position": 4, "name": "R&D Research Workstation", "url": "https://www.shaktiphotonsolutions.com/products#rd-platforms" }
     ]
   }
   </script>
@@ -348,8 +360,8 @@
         <div class="hero-nav-pills" role="list" aria-label="Jump to product section">
           <a href="#electrolyzers" class="hero-nav-pill">⚗️ Electrolyzers</a>
           <a href="#fuelcells" class="hero-nav-pill">⚡ Fuel Cells</a>
-          <a href="#rd-platforms" class="hero-nav-pill">🔬 R&amp;D Platforms</a>
           <a href="#co2" class="hero-nav-pill">🌿 CO₂ Reduction</a>
+          <a href="#rd-platforms" class="hero-nav-pill">🔬 R&amp;D Platforms</a>
         </div>
       </div>
     </section>
@@ -565,6 +577,84 @@
     </section>
 
 
+    <!-- ████ 4. CO2 REDUCTION ████ -->
+    <section class="product-section" id="co2" aria-labelledby="co2-heading">
+      <div class="container">
+        <div class="product-detail-grid flip">
+
+          <div class="product-images reveal">
+            <div class="product-main-image img-contain">
+              <img
+                src="public/assets/images/CCUS Image from Google.jpg"
+                alt="Carbon Capture, Utilization and Storage (CCUS) process diagram" loading="lazy">
+            </div>
+            <div class="product-thumb-row">
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/rd/0aa2fb_7bbf7348ae3643f5a317db3dba74d346_mv2.png-Au_Deposition_on_Anode_GDE_1.png"
+                  alt="Gold catalyst deposited on Gas Diffusion Electrode for CO2 reduction" loading="lazy">
+              </div>
+              <div class="product-thumb">
+                <img
+                  src="public/assets/images/rd/0aa2fb_d4cf044143f849f28edabce4fe15ef85_mv2.png-MEA_Recycling_1.png"
+                  alt="MEA sample preparation for CO2 electrolyzer" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="product-content reveal reveal-delay-2">
+            <span class="section-tag">CO₂ Reduction</span>
+            <h2 id="co2-heading">CO₂ Reduction Electrolyzers</h2>
+            <p>Electrochemical CO₂ reduction systems that convert waste carbon dioxide into valuable chemicals and
+              fuels. Combine with green hydrogen production to create a closed-loop sustainable energy cycle.</p>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">Input</div>
+                <div class="spec-box-value">CO₂ + H₂O</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Products</div>
+                <div class="spec-box-value">CO, HCOOH, C₂H₄</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Catalyst</div>
+                <div class="spec-box-value">Au, Ag, Cu, Bi GDE</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Faradaic Eff.</div>
+                <div class="spec-box-value">&gt; 90% (CO)</div>
+              </div>
+            </div>
+
+            <div class="feature-list">
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → CO (Gold catalyst, &gt;90%
+                Faradaic efficiency)</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Formic Acid (HCOOH) for hydrogen
+                carriers</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Ethylene (C₂H₄) for chemical
+                feedstocks</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> MEA-based flow cell or H-cell
+                configurations</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom GDE preparation with RF
+                sputtering in-house</div>
+              <div class="feature-item"><span class="feature-item-icon">✓</span> Scalable from research to pilot plant
+              </div>
+            </div>
+
+            <div class="product-ctas">
+              <a href="contact.html?service=co2-reduction" class="btn btn--navy btn--lg">
+                Get a Quote <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20CO2%20Reduction%20Electrolyzer."
+                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ████ 3. R&D PLATFORMS ████ -->
     <section class="product-section" id="rd-platforms" aria-labelledby="rd-heading">
       <div class="container">
@@ -663,79 +753,6 @@
             </div>
             <div class="app-card">
               <div class="app-card-icon">⚗️</div>Catalyst Developers
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ████ 4. CO2 REDUCTION ████ -->
-    <section class="product-section" id="co2" aria-labelledby="co2-heading">
-      <div class="container">
-        <div class="product-detail-grid flip">
-
-          <div class="product-images reveal">
-            <div class="product-main-image">
-              <img
-                src="public/assets/images/rd/0aa2fb_7bbf7348ae3643f5a317db3dba74d346_mv2.png-Au_Deposition_on_Anode_GDE_1.png"
-                alt="Gold catalyst deposited on Gas Diffusion Electrode for CO2 reduction" loading="lazy">
-            </div>
-            <div class="product-thumb-row">
-              <div class="product-thumb">
-                <img
-                  src="public/assets/images/rd/0aa2fb_d4cf044143f849f28edabce4fe15ef85_mv2.png-MEA_Recycling_1.png"
-                  alt="MEA sample preparation for CO2 electrolyzer" loading="lazy">
-              </div>
-            </div>
-          </div>
-
-          <div class="product-content reveal reveal-delay-2">
-            <span class="section-tag">CO₂ Reduction</span>
-            <h2 id="co2-heading">CO₂ Reduction Electrolyzers</h2>
-            <p>Electrochemical CO₂ reduction systems that convert waste carbon dioxide into valuable chemicals and
-              fuels. Combine with green hydrogen production to create a closed-loop sustainable energy cycle.</p>
-
-            <div class="spec-grid">
-              <div class="spec-box">
-                <div class="spec-box-label">Input</div>
-                <div class="spec-box-value">CO₂ + H₂O</div>
-              </div>
-              <div class="spec-box">
-                <div class="spec-box-label">Products</div>
-                <div class="spec-box-value">CO, HCOOH, C₂H₄</div>
-              </div>
-              <div class="spec-box">
-                <div class="spec-box-label">Catalyst</div>
-                <div class="spec-box-value">Au, Ag, Cu, Bi GDE</div>
-              </div>
-              <div class="spec-box">
-                <div class="spec-box-label">Faradaic Eff.</div>
-                <div class="spec-box-value">&gt; 90% (CO)</div>
-              </div>
-            </div>
-
-            <div class="feature-list">
-              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → CO (Gold catalyst, &gt;90%
-                Faradaic efficiency)</div>
-              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Formic Acid (HCOOH) for hydrogen
-                carriers</div>
-              <div class="feature-item"><span class="feature-item-icon">✓</span> CO₂ → Ethylene (C₂H₄) for chemical
-                feedstocks</div>
-              <div class="feature-item"><span class="feature-item-icon">✓</span> MEA-based flow cell or H-cell
-                configurations</div>
-              <div class="feature-item"><span class="feature-item-icon">✓</span> Custom GDE preparation with RF
-                sputtering in-house</div>
-              <div class="feature-item"><span class="feature-item-icon">✓</span> Scalable from research to pilot plant
-              </div>
-            </div>
-
-            <div class="product-ctas">
-              <a href="contact.html?service=co2-reduction" class="btn btn--navy btn--lg">
-                Get a Quote <span class="btn-arrow">→</span>
-              </a>
-              <a href="https://wa.me/917382025117?text=Hi%2C%20I%20am%20interested%20in%20your%20CO2%20Reduction%20Electrolyzer."
-                class="btn btn--whatsapp" target="_blank" rel="noreferrer">💬 WhatsApp</a>
             </div>
           </div>
         </div>

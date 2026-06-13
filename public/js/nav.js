@@ -6,6 +6,7 @@
 
 (function () {
   const NAV_LINKS = [
+    { href: '/',                           label: 'Home' },
     { href: '/products.html',              label: 'Products' },
     { href: '/equipment-as-a-service.html', label: 'Equipment as a Service' },
     { href: '/about.html',                 label: 'About Us' },
@@ -15,6 +16,9 @@
 
   function isActive(href) {
     const path = window.location.pathname;
+    if (href === '/') {
+      return path === '/' || path === '/index.html' || path === '';
+    }
     if (href === '/blog/index.html') {
       return path.startsWith('/blog');
     }

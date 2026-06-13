@@ -58,3 +58,22 @@
   .related-grid { grid-template-columns: 1fr; }
   .article-header h1 { font-size: 1.6rem; }
 }
+
+/* Featured Image */
+.article-featured-image {
+  width: 100%;
+  margin: 0 0 36px 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #ffffff;
+}
+.article-featured-image img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  display: block;
+  object-fit: contain;
+  padding: 12px;
+}
+
