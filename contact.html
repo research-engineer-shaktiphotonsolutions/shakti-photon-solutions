@@ -284,6 +284,7 @@
           >
             <!-- Hidden: page source for tracking -->
             <input type="hidden" name="_source" value="contact-page">
+            <input type="hidden" id="ref-page" name="_ref_page" value="">
             <!-- Honeypot anti-spam -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-row">
@@ -334,6 +335,24 @@
             <div class="form-group">
               <label for="capacity">Required Capacity / Power Range</label>
               <input type="text" id="capacity" name="capacity" placeholder="e.g. 1 kW electrolyzer, 5 kW fuel cell, 100 cm² test cell…">
+            </div>
+            <div class="form-group">
+              <label for="heard-via">How Did You Hear About Us? <span class="req" aria-label="required">*</span></label>
+              <select id="heard-via" name="heard_via" required>
+                <option value="">— Please select —</option>
+                <option value="google-search">Google Search</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="word-of-mouth">Word of Mouth / Colleague referred me</option>
+                <option value="conference-event">Conference or Event (e.g. Green Hydrogen Summit)</option>
+                <option value="blog-article">Blog Article on your website</option>
+                <option value="social-media">Social Media (Instagram / Twitter / YouTube)</option>
+                <option value="direct-knew">Already knew about Shakti Photon Solutions</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group" id="heard-via-other-group" style="display:none;">
+              <label for="heard-via-other">Please specify <span class="req" aria-label="required">*</span></label>
+              <input type="text" id="heard-via-other" name="heard_via_other" placeholder="Please tell us how you found us…">
             </div>
             <div class="form-group">
               <label for="message">Tell Us About Your Project <span class="req" aria-label="required">*</span></label>

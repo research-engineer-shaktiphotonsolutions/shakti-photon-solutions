@@ -4,7 +4,52 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [16 June 2026] — Marketing Attribution ("How Did You Hear About Us?")
+
+### Context
+A customer enquired about the AEM Electrolyzer but the team couldn't determine which marketing channel brought them in. This session adds full lead-source tracking across all enquiry touchpoints.
+
+### Contact Form (`contact.html`)
+- Added required **"How Did You Hear About Us?"** dropdown (`name="heard_via"`) with 8 options: Google Search, LinkedIn, Word of Mouth, Conference/Event, Blog Article, Social Media, Already Knew, Other
+- Added conditional **"Please specify"** text input (`name="heard_via_other"`) that appears only when "Other" is selected, with `required` set dynamically
+- Added hidden `_ref_page` input (`id="ref-page"`) to capture which page/product referred the user
+
+### Enquiry Modal (`js/main.js`)
+- Injected the same required `heard_via` dropdown and conditional `heard_via_other` text input into the "Get a Quote" modal (`eqCreateModal()`) — positioned between Organisation and Product/Service fields
+- `eqOpen()` now resets attribution fields and hides the "Other" input on every modal open
+- Added a delegated `change` event listener that toggles the conditional "Other" text input and its `required` attribute for both the page form and modal
+
+### Page Referrer Tracking (`js/main.js`)
+- Added logic to read `?ref=` URL param and populate the hidden `_ref_page` field on `contact.html`
+- Falls back to parsing `document.referrer` (internal referrers only) if no explicit `?ref=` param is present
+
+### Contact Link Updates (`?ref=` param)
+- `products.html` — all 6 contact links now pass `?ref=products`
+- `index.html` — EaaS card links + CTA strip link pass `?ref=homepage`
+- `equipment-as-a-service.html` — all 3 equipment booking links + CTA strip pass `?ref=eaas`
+- `about.html` — both "Work With Us" and "Get in Touch" links pass `?ref=about`
+- `blog/index.html` — CTA strip contact link passes `?ref=blog`
+
+### WhatsApp Pre-filled Message Updates
+Updated `?text=` param on all product-specific WhatsApp links to invite channel attribution:
+- `products.html`: 5 product WhatsApp links + 1 CTA strip link → appended `(I found you via: ___)`
+- `index.html`: CTA strip WhatsApp link → appended `(I found you via: ___)`
+- `equipment-as-a-service.html`: CTA strip WhatsApp link → appended `(I found you via: ___)`
+- `blog/index.html`: WhatsApp CTA now has a pre-filled message with blog index source tag
+- `blog/pem-vs-aem-vs-alkaline-electrolyzer-india.html` → `blog_electrolyzer_comparison`
+- `blog/green-hydrogen-generator-cost-india.html` → `blog_hydrogen_generator_cost`
+- `blog/fuel-cell-systems-india.html` → `blog_fuel_cells`
+- `blog/equipment-as-a-service-hydrogen-research-india.html` → `blog_eaas`
+- `blog/ccus-co2-reduction-india.html` → `blog_ccus`
+
+### Not Changed (by design)
+- Footer WhatsApp icon (`footer.js`) — generic social icon, no `?text=` to update
+- `about.html` WhatsApp button — generic link with no pre-filled text, skipped
+
+---
+
 ## [13 June 2026] — CCUS Image, Layout Reorder, Navigation & Office Location Updates
+
 
 ### Office Location Update
 - Replaced all active references of "Guntur" office/R&D centre to "Amaravati" across all core site pages ([index.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/index.html), [about.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/about.html), [contact.html](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/contact.html)), schema.org metadata blocks, shared footer script ([footer.js](file:///c:/Users/sahgy/Downloads/shakti-photon-solutions/public/js/footer.js)), and codebase documentation. Corrected an unclosed `<address>` tag in the process.

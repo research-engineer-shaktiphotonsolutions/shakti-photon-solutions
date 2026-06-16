@@ -167,6 +167,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlParams    = new URLSearchParams(window.location.search);
   const productParam = urlParams.get('product');
   const serviceParam = urlParams.get('service');
+  const refParam     = urlParams.get('ref');
+
+  if (refParam) {
+    const refInput = document.getElementById('ref-page');
+    if (refInput) {
+      refInput.value = refParam;
+    }
+  } else if (document.referrer) {
+    try {
+      const referrerUrl = new URL(document.referrer);
+      if (referrerUrl.hostname === window.location.hostname) {
+        const refInput = document.getElementById('ref-page');
+        if (refInput && !refInput.value) {
+          refInput.value = referrerUrl.pathname.replace(/^\/|\.html$/g, '') || 'homepage';
+        }
+      }
+    } catch (err) {
+      // ignore
+    }
+  }
 
   // Map URL param values → { selectValue, label, message }
   const prefillMap = {
@@ -379,6 +399,24 @@ document.addEventListener('DOMContentLoaded', () => {
             <input type="text" id="eq-org" name="organisation" placeholder="IIT Delhi / My Company" autocomplete="organization">
           </div>
           <div class="eq-group">
+            <label for="eq-heard-via">How Did You Hear About Us? <span class="eq-req">*</span></label>
+            <select id="eq-heard-via" name="heard_via" required>
+              <option value="">— Select —</option>
+              <option value="google-search">Google Search</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="word-of-mouth">Word of Mouth / Colleague referred me</option>
+              <option value="conference-event">Conference or Event (e.g. Green Hydrogen Summit)</option>
+              <option value="blog-article">Blog Article on your website</option>
+              <option value="social-media">Social Media (Instagram / Twitter / YouTube)</option>
+              <option value="direct-knew">Already knew about Shakti Photon Solutions</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="eq-group" id="eq-heard-via-other-group" style="display:none;">
+            <label for="eq-heard-via-other">Please specify <span class="eq-req">*</span></label>
+            <input type="text" id="eq-heard-via-other" name="heard_via_other" placeholder="Please tell us how you found us…">
+          </div>
+          <div class="eq-group">
             <label for="eq-service">Product / Service Interest</label>
             <select id="eq-service" name="service">
               <option value="">— Select —</option>
@@ -438,6 +476,17 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.querySelector('#eq-service').value        = data.select;
     overlay.querySelector('#eq-msg').value            = data.msg;
     overlay.querySelector('#eq-source').value         = `modal-${productKey}`;
+
+    // Reset attribution fields
+    const eqHeardVia = overlay.querySelector('#eq-heard-via');
+    if (eqHeardVia) eqHeardVia.value = '';
+    const eqHeardViaOtherGroup = overlay.querySelector('#eq-heard-via-other-group');
+    if (eqHeardViaOtherGroup) eqHeardViaOtherGroup.style.display = 'none';
+    const eqHeardViaOther = overlay.querySelector('#eq-heard-via-other');
+    if (eqHeardViaOther) {
+      eqHeardViaOther.value = '';
+      eqHeardViaOther.removeAttribute('required');
+    }
 
     // Reset to form view
     overlay.querySelector('#eq-form').style.display    = '';
@@ -562,9 +611,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') eqClose();
+  // Handle "Other" marketing option for both contact page form and enquiry modal
+  document.addEventListener('change', (e) => {
+    if (e.target.id === 'heard-via' || e.target.id === 'eq-heard-via') {
+      const isModal = e.target.id === 'eq-heard-via';
+      const otherGroup = document.getElementById(isModal ? 'eq-heard-via-other-group' : 'heard-via-other-group');
+      const otherInput = document.getElementById(isModal ? 'eq-heard-via-other' : 'heard-via-other');
+      
+      if (e.target.value === 'other') {
+        if (otherGroup) otherGroup.style.display = 'block';
+        if (otherInput) otherInput.setAttribute('required', 'required');
+      } else {
+        if (otherGroup) otherGroup.style.display = 'none';
+        if (otherInput) {
+          otherInput.value = '';
+          otherInput.removeAttribute('required');
+        }
+      }
+    }
   });
 
 });
