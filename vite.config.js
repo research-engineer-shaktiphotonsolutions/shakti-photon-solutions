@@ -17,6 +17,8 @@ export default defineConfig({
         blogEaas:       resolve(__dirname, 'blog/equipment-as-a-service-hydrogen-research-india.html'),
         blogCcus:       resolve(__dirname, 'blog/ccus-co2-reduction-india.html'),
         blogFuelCell:   resolve(__dirname, 'blog/fuel-cell-systems-india.html'),
+        // Product Catalog — standalone, not part of main site yet
+        catalog:        resolve(__dirname, 'Catalog/index.html'),
       }
     }
   }

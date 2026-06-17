@@ -4,7 +4,50 @@
 > Entries are newest-first. Each AI session should add an entry when work is completed.
 > Format: `## [Date] — Brief title` followed by bullet points of what changed.
 
+## [16 June 2026] — HTML Product Catalog (Standalone)
+
+### Context
+Team requested a premium product catalog to replace MS Word-based catalog. HTML chosen for design flexibility — custom borders, image galleries, fancy layouts, print-to-PDF support.
+
+### Files Created
+- **`Catalog/index.html`** — Full 10-section standalone HTML product catalog
+- **`Catalog/css/catalog.css`** — Print-ready CSS with A4 page layout, `@media print` rules, matching brand palette (navy/cyan/gold)
+- **`Catalog/images/cover-bg.png`** — AI-generated cover background (hydrogen/clean energy theme, dark navy)
+
+### Catalog Sections (10 pages)
+1. **Cover Page** — Logo, tagline, "Product Catalog 2025–26", year, tag row
+2. **About Shakti** — Intro para, 4 stats (70+ R&D years, 50+ installs, 2 offices, 9+ partners), Amaravati lab photo, founder institutions
+3. **Electrolyzers** — Main range diagram + 3 thumbnails (7-cell, 15-cell, single-cell CAD), specs, feature list, applications, contact CTA
+4. **Fuel Cell Systems** — Industrial stack image + 3 thumbs (air-cooled, bipolar plate, exploded CAD), specs, feature list
+5. **CO₂ Reduction / CCUS** — CCUS diagram + gold GDE + photochemical reactor thumbnails, specs, feature list
+6. **R&D Research Workstations** — Lab photo + 2 thumbnails, specs, use cases, who-uses tags
+7. **Equipment as a Service** — Value props banner + 3 equipment cards (Spray Nozzle, Hot Press, 3D Printing) with images, specs, tags
+8. **MEA Manufacturing & Recycling** — MEA recycling process photo + student demo photo + 5 capability cards
+9. **Installations & Partners** — Count boxes + NIT Warangal installation photo + 10 partner logos in grid
+10. **Contact / Back Page** — Dark navy, 4 contact method cards, 2 office addresses (Chennai + Amaravati), product quick-reference grid, footer
+
+### Key Design Decisions
+- Color palette matches website exactly (navy/royal/cyan/gold/white)
+- Inter font (same as main site)
+- Standalone file — no dependency on `main.css`, portable and printable
+- Print button fixed at bottom-right; hidden via `@media print`
+- `@page { size: A4; margin: 0; }` ensures correct A4 printing
+- `-webkit-print-color-adjust: exact` forces background colors to print
+
+### Constraints Honored
+- ❌ RF Sputtering NOT listed anywhere in the catalog
+- ✅ Only Chennai and Amaravati offices on contact page
+- ✅ No pricing anywhere — all CTAs say "Contact for Quote"
+- ✅ Email: info@shaktiphotonsolutions.com
+
+### Not Changed (by design)
+- No link added from website to catalog yet — standalone for now, space reserved in `vite.config.js`
+- `vite.config.js` updated to include `Catalog/index.html` as entry point (`catalog` key)
+
+---
+
 ## [16 June 2026] — Marketing Attribution ("How Did You Hear About Us?")
+
 
 ### Context
 A customer enquired about the AEM Electrolyzer but the team couldn't determine which marketing channel brought them in. This session adds full lead-source tracking across all enquiry touchpoints.

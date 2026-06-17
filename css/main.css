@@ -1062,14 +1062,38 @@ p  { line-height: 1.75; color: var(--text-muted); }
   margin-bottom: 48px;
 }
 
-.footer-logo-wrap { margin-bottom: 16px; }
-.footer-logo-wrap img {
-  height: 46px;
-  background: var(--white);
-  padding: 6px 10px;
-  border-radius: var(--r-sm);
-  object-fit: contain;
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 16px;
 }
+.footer-logo-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.footer-logo-icon img {
+  width: 40px; height: 40px;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+}
+.footer-logo-text { line-height: 1.2; }
+.footer-logo-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.footer-logo-sub {
+  display: block;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.04em;
+}
+
 .footer-brand p {
   color: rgba(255,255,255,0.5);
   font-size: 0.85rem;
