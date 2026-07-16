@@ -90,7 +90,7 @@
       <!-- Legal / Brand Credibility -->
       <div class="footer-legal">
         <img
-          src="/assets/images/shared/0aa2fb_7c1bf2a3111945b29e1aa80851b237d8_mv2.png-Screenshot_2024-12-07_at_11_10_edited.png"
+          src="/assets/images/shared/mark-enyz-logo.png"
           alt="Mark Enyz® — Registered Brand"
           class="footer-legal-logo"
         >

@@ -400,7 +400,7 @@ p  { line-height: 1.75; color: var(--text-muted); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../public/assets/images/home/0aa2fb_0ccbb51197c84c969128ca98fe3434b2_mv2.jpg-IMG_0485_JPG.jpg');
+  background-image: url('../public/assets/images/home/green-hydrogen-summit-2025.jpg');
   background-size: cover;
   background-position: center 25%;
   transform: scale(1.06);
