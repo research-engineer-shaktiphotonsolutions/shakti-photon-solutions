@@ -298,28 +298,28 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Enquire About Hydrogen Generators',
       subtitle: 'PEM, AEM & Alkaline — 0.01 kW to 100 kW · 99.999% purity',
       select: 'pem-electrolyzer',
-      msg: 'Hi, I am interested in your Hydrogen Generator / Electrolyzer systems. Could you please share specifications, pricing, and lead time for my application?'
+      msg: 'Write your requirement — capacity, purity, application, timeline…'
     },
     fuelcells: {
       tag: 'Fuel Cells',
       title: 'Enquire About Fuel Cell Systems',
       subtitle: 'From 1W bench-top to 400 kW — drones, transport, backup power',
       select: 'fuel-cell',
-      msg: 'Hi, I am interested in your Fuel Cell Systems. Could you please share the available power range, specifications, and pricing for my use case?'
+      msg: 'Write your requirement — power range, use case, timeline…'
     },
     ccus: {
       tag: 'CCUS',
       title: 'Enquire About CCUS Systems',
       subtitle: 'CO₂ → CO, Formic Acid & Ethylene via electrochemical reduction',
       select: 'ccus',
-      msg: 'Hi, I am interested in your CCUS / CO₂ Reduction Systems. Could you please share details on scale, specifications, and pricing?'
+      msg: 'Write your requirement — scale, target product (CO / formic acid / ethylene), timeline…'
     },
     epc: {
       tag: 'EPC Integration',
       title: 'Discuss Your EPC Project',
       subtitle: 'End-to-end hydrogen, carbon & renewable energy integration',
       select: 'epc',
-      msg: 'Hi, I am interested in your EPC / turnkey system integration services. Could you please share more about your approach and past projects?'
+      msg: 'Write your requirement — project scope, timeline, budget…'
     },
     // sputtering: { // university asset — not for advertisement
     //   tag: 'EaaS',
@@ -333,21 +333,35 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Book Ultrasonic Spray Session',
       subtitle: 'Ultrasonic Spray Nozzle — catalyst & MEA/GDE coating',
       select: 'spray-nozzle',
-      msg: 'Hi, I would like to book a session on your Ultrasonic Spray Nozzle for MEA/GDE fabrication. Please share session pricing and scheduling details.'
+      msg: 'Write your requirement — substrate/material, session dates, scheduling…'
     },
     'hot-press': {
       tag: 'EaaS',
       title: 'Book Hot Press Session',
       subtitle: 'Hot Press — MEA bonding & membrane electrode assembly',
       select: 'hot-press',
-      msg: 'Hi, I would like to book a Hot Press session for MEA bonding. Please share the temperature/pressure range, pricing, and availability.'
+      msg: 'Write your requirement — temperature/pressure range, timeline, availability…'
     },
     '3d-printing': {
       tag: 'EaaS',
       title: 'Request 3D Printing',
       subtitle: '3D Printing — rapid prototyping for lab & custom components',
       select: '3d-printing',
-      msg: 'Hi, I would like to request a 3D printing job for a prototype component. Please share material options, turnaround time, and pricing.'
+      msg: 'Write your requirement — material, dimensions, turnaround…'
+    },
+    'rd-platform': {
+      tag: 'R&D Platforms',
+      title: 'Enquire About R&D Platforms',
+      subtitle: 'Fuel cell & electrolyzer test stations — EIS, CV & polarization',
+      select: 'rd-platform',
+      msg: 'Write your requirement — testing needs, cell format, timeline…'
+    },
+    'mea-recycling': {
+      tag: 'MEA Recycling',
+      title: 'Enquire About MEA Recycling',
+      subtitle: 'Precious metal (Pt, Ir, Au) recovery from spent MEAs',
+      select: 'other',
+      msg: 'Write your requirement — MEA volume, metals of interest, timeline…'
     },
   };
 
@@ -474,7 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.querySelector('#eq-title').textContent   = data.title;
     overlay.querySelector('#eq-subtitle').textContent = data.subtitle;
     overlay.querySelector('#eq-service').value        = data.select;
-    overlay.querySelector('#eq-msg').value            = data.msg;
+    overlay.querySelector('#eq-msg').value             = '';
+    overlay.querySelector('#eq-msg').placeholder       = data.msg || 'Describe your application, capacity needed, timeline…';
     overlay.querySelector('#eq-source').value         = `modal-${productKey}`;
 
     // Reset attribution fields
