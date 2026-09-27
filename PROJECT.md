@@ -11,7 +11,7 @@
 **Shakti Photon Solutions Private Limited** is an Indian deep-tech startup building hardware for India's net-zero transition. Founded by scientists (not just engineers), the company:
 
 - **Builds and sells** on-site hydrogen generators (PEM, AEM, Alkaline electrolyzers), fuel cell systems, and CCUS (Carbon Capture, Utilisation & Storage) equipment
-- **Runs Equipment as a Service (EaaS)** — renting lab equipment (Ultrasonic Spray Nozzle, Hot Press, 3D Printing) to researchers by the session. Note: RF Sputtering is a university asset and is NOT advertised — all references are commented out in code.
+- **Runs Equipment as a Service (EaaS)** — renting lab equipment (Ultrasonic Spray Nozzle, Hot Press) to researchers by the session. 3D printing / rapid prototyping is NOT offered and was removed in Sept 2026 — never add it back. Note: RF Sputtering is a university asset and is NOT advertised — all references are commented out in code.
 - **Targets** industry, research institutions, government projects, and EPC contractors
 - **Offers 24/7 technical support**
 
@@ -165,7 +165,7 @@ All JS lives in one file, inside a single `DOMContentLoaded` listener. Sections:
 ### Enquiry Modal System
 - **Trigger:** Any element with `data-product="key"` attribute
 - **Data map:** `eqProductData` object at line ~275 — maps product keys to {tag, title, subtitle, select, msg}
-- **Product keys:** `electrolyzers`, `fuelcells`, `ccus`, `epc`, `sputtering`, `spray-nozzle`, `hot-press`, `3d-printing`
+- **Product keys:** `electrolyzers`, `fuelcells`, `ccus`, `epc`, `sputtering`, `spray-nozzle`, `hot-press`
 - **Submission:** Async fetch → Formspree → on success: confetti fires, form hides, success state shows
 - **Confetti:** 160 canvas particles, full-screen `position:fixed` canvas at z-index 10100
 - **Close:** ✕ button, backdrop click, or Escape key

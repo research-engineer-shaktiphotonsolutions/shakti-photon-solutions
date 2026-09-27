@@ -222,11 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
       label:  'Hot Press / MEA Fabrication',
       msg:    'Hi, I would like to book a Hot Press session for MEA bonding. Please share details on temperature/pressure range, session pricing, and availability.'
     },
-    '3d-printing': {
-      select: '3d-printing',
-      label:  '3D Printing / Rapid Prototyping',
-      msg:    'Hi, I would like to request a 3D printing job for a prototype component. Please share material options, turnaround time, and pricing.'
-    },
   };
 
   const param    = productParam || serviceParam;
@@ -342,13 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
       select: 'hot-press',
       msg: 'Write your requirement — temperature/pressure range, timeline, availability…'
     },
-    '3d-printing': {
-      tag: 'EaaS',
-      title: 'Request 3D Printing',
-      subtitle: '3D Printing — rapid prototyping for lab & custom components',
-      select: '3d-printing',
-      msg: 'Write your requirement — material, dimensions, turnaround…'
-    },
     'rd-platform': {
       tag: 'R&D Platforms',
       title: 'Enquire About R&D Platforms',
@@ -443,7 +431,6 @@ document.addEventListener('DOMContentLoaded', () => {
               <!-- <option value="sputtering">EaaS — RF Sputtering</option> university asset -->
               <option value="spray-nozzle">EaaS — Ultrasonic Spray</option>
               <option value="hot-press">EaaS — Hot Press</option>
-              <option value="3d-printing">EaaS — 3D Printing</option>
               <option value="epc">Full EPC / System Integration</option>
               <option value="other">General Inquiry</option>
             </select>
